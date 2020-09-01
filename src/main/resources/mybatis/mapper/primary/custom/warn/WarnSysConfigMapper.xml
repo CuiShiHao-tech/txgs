@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.warn.WarnSysConfigMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.warn.WarnSysConfig">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="COMM_EX_LIMIT" jdbcType="DECIMAL" property="commExLimit" />
+    <result column="CLOSE_WELL_EX_LIMIT" jdbcType="DECIMAL" property="closeWellExLimit" />
+    <result column="PRESS_COMM_EX_LIMIT" jdbcType="DECIMAL" property="pressCommExLimit" />
+    <result column="STROKE_COMM_EX_LIMIT" jdbcType="DECIMAL" property="strokeCommExLimit" />
+    <result column="MARK" jdbcType="VARCHAR" property="mark" />
+    <result column="MARK1" jdbcType="VARCHAR" property="mark1" />
+    <result column="COMM_EX_COUNT" jdbcType="DECIMAL" property="commExCount" />
+    <result column="CLOSE_WELL_EX_COUNT" jdbcType="DECIMAL" property="closeWellExCount" />
+    <result column="PRESS_COMM_EX_COUNT" jdbcType="DECIMAL" property="pressCommExCount" />
+    <result column="STROKE_COMM_EX_COUNT" jdbcType="DECIMAL" property="strokeCommExCount" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+
+    <result column="COMM_EX_TIME_OUT" jdbcType="DECIMAL" property="commExTimeOut" />
+    <result column="PRESS_COMM_EX_TIME_OUT" jdbcType="DECIMAL" property="pressCommExTimeOut" />
+    <result column="STROKE_COMM_EX_TIME_OUT" jdbcType="DECIMAL" property="strokeCommExTimeOut" />
+    <result column="COMM_EX_MARK" jdbcType="VARCHAR" property="commExMark" />
+    <result column="PRESS_COMM_EX_MARK" jdbcType="VARCHAR" property="pressCommExMark" />
+    <result column="STROKE_COMM_EX_MARK" jdbcType="VARCHAR" property="strokeCommExMark" />
+    <result column="CLOSE_WELL_EX_TIME_OUT" jdbcType="DECIMAL" property="closeWellExTimeOut" />
+    <result column="CLOSE_WELL_EX_MARK" jdbcType="VARCHAR" property="closeWellExMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+   ID, WELL_ID, COMM_EX_LIMIT, COMM_EX_COUNT, CLOSE_WELL_EX_LIMIT, CLOSE_WELL_EX_COUNT,
+    PRESS_COMM_EX_LIMIT, PRESS_COMM_EX_COUNT, STROKE_COMM_EX_LIMIT, STROKE_COMM_EX_COUNT,
+    STIME, MARK, MARK1, COMM_EX_TIME_OUT, PRESS_COMM_EX_TIME_OUT, STROKE_COMM_EX_TIME_OUT,
+    COMM_EX_MARK, PRESS_COMM_EX_MARK, STROKE_COMM_EX_MARK,CLOSE_WELL_EX_TIME_OUT,CLOSE_WELL_EX_MARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WARN_SYS_CONFIG
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from WARN_SYS_CONFIG
+    where WELL_ID = #{wellId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.warn.WarnSysConfig">
+   insert into WARN_SYS_CONFIG (ID, WELL_ID, COMM_EX_LIMIT,
+      COMM_EX_COUNT, CLOSE_WELL_EX_LIMIT, CLOSE_WELL_EX_COUNT,
+      PRESS_COMM_EX_LIMIT, PRESS_COMM_EX_COUNT, STROKE_COMM_EX_LIMIT,
+      STROKE_COMM_EX_COUNT, STIME, MARK,
+      MARK1, COMM_EX_TIME_OUT, PRESS_COMM_EX_TIME_OUT,
+      STROKE_COMM_EX_TIME_OUT, COMM_EX_MARK, PRESS_COMM_EX_MARK,
+      STROKE_COMM_EX_MARK)
+    values (#{id,jdbcType=DECIMAL}, #{wellId,jdbcType=DECIMAL}, #{commExLimit,jdbcType=VARCHAR},
+      #{commExCount,jdbcType=DECIMAL}, #{closeWellExLimit,jdbcType=VARCHAR}, #{closeWellExCount,jdbcType=DECIMAL},
+      #{pressCommExLimit,jdbcType=VARCHAR}, #{pressCommExCount,jdbcType=DECIMAL}, #{strokeCommExLimit,jdbcType=VARCHAR},
+      #{strokeCommExCount,jdbcType=DECIMAL}, #{stime,jdbcType=TIMESTAMP}, #{mark,jdbcType=VARCHAR},
+      #{mark1,jdbcType=VARCHAR}, #{commExTimeOut,jdbcType=DECIMAL}, #{pressCommExTimeOut,jdbcType=DECIMAL},
+      #{strokeCommExTimeOut,jdbcType=DECIMAL}, #{commExMark,jdbcType=VARCHAR}, #{pressCommExMark,jdbcType=VARCHAR},
+      #{strokeCommExMark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.warn.WarnSysConfig">
+    insert into WARN_SYS_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="commExLimit != null">
+        COMM_EX_LIMIT,
+      </if>
+      <if test="commExCount != null">
+        COMM_EX_COUNT,
+      </if>
+      <if test="closeWellExLimit != null">
+        CLOSE_WELL_EX_LIMIT,
+      </if>
+      <if test="closeWellExCount != null">
+        CLOSE_WELL_EX_COUNT,
+      </if>
+      <if test="pressCommExLimit != null">
+        PRESS_COMM_EX_LIMIT,
+      </if>
+      <if test="pressCommExCount != null">
+        PRESS_COMM_EX_COUNT,
+      </if>
+      <if test="strokeCommExLimit != null">
+        STROKE_COMM_EX_LIMIT,
+      </if>
+      <if test="strokeCommExCount != null">
+        STROKE_COMM_EX_COUNT,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="mark1 != null">
+        MARK1,
+      </if>
+      <if test="commExTimeOut != null">
+        COMM_EX_TIME_OUT,
+      </if>
+      <if test="pressCommExTimeOut != null">
+        PRESS_COMM_EX_TIME_OUT,
+      </if>
+      <if test="strokeCommExTimeOut != null">
+        STROKE_COMM_EX_TIME_OUT,
+      </if>
+      <if test="commExMark != null">
+        COMM_EX_MARK,
+      </if>
+      <if test="pressCommExMark != null">
+        PRESS_COMM_EX_MARK,
+      </if>
+      <if test="strokeCommExMark != null">
+        STROKE_COMM_EX_MARK,
+      </if>
+      <if test="closeWellExTimeOut != null">
+        CLOSE_WELL_EX_TIME_OUT,
+      </if>
+      <if test="closeWellExMark != null">
+        CLOSE_WELL_EX_MARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="commExLimit != null">
+        #{commExLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="commExCount != null">
+        #{commExCount,jdbcType=DECIMAL},
+      </if>
+      <if test="closeWellExLimit != null">
+        #{closeWellExLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="closeWellExCount != null">
+        #{closeWellExCount,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCommExLimit != null">
+        #{pressCommExLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="pressCommExCount != null">
+        #{pressCommExCount,jdbcType=DECIMAL},
+      </if>
+      <if test="strokeCommExLimit != null">
+        #{strokeCommExLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="strokeCommExCount != null">
+        #{strokeCommExCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="commExTimeOut != null">
+        #{commExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCommExTimeOut != null">
+        #{pressCommExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="strokeCommExTimeOut != null">
+        #{strokeCommExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="commExMark != null">
+        #{commExMark,jdbcType=VARCHAR},
+      </if>
+      <if test="pressCommExMark != null">
+        #{pressCommExMark,jdbcType=VARCHAR},
+      </if>
+      <if test="strokeCommExMark != null">
+        #{strokeCommExMark,jdbcType=VARCHAR},
+      </if>
+      <if test="closeWellExTimeOut != null">
+        #{closeWellExTimeOut,jdbcType=VARCHAR},
+      </if>
+      <if test="closeWellExMark != null">
+        #{closeWellExMark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.warn.WarnSysConfig">
+    update WARN_SYS_CONFIG
+    <set>
+      <if test="wellId != null">
+        WELL_ID = #{wellId,jdbcType=DECIMAL},
+      </if>
+
+        COMM_EX_LIMIT = #{commExLimit,jdbcType=VARCHAR},
+
+      <if test="commExCount != null">
+        COMM_EX_COUNT = #{commExCount,jdbcType=DECIMAL},
+      </if>
+
+        CLOSE_WELL_EX_LIMIT = #{closeWellExLimit,jdbcType=VARCHAR},
+
+      <if test="closeWellExCount != null">
+        CLOSE_WELL_EX_COUNT = #{closeWellExCount,jdbcType=DECIMAL},
+      </if>
+
+        PRESS_COMM_EX_LIMIT = #{pressCommExLimit,jdbcType=VARCHAR},
+
+      <if test="pressCommExCount != null">
+        PRESS_COMM_EX_COUNT = #{pressCommExCount,jdbcType=DECIMAL},
+      </if>
+
+        STROKE_COMM_EX_LIMIT = #{strokeCommExLimit,jdbcType=VARCHAR},
+
+      <if test="strokeCommExCount != null">
+        STROKE_COMM_EX_COUNT = #{strokeCommExCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        MARK1 = #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="commExTimeOut != null">
+        COMM_EX_TIME_OUT = #{commExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCommExTimeOut != null">
+        PRESS_COMM_EX_TIME_OUT = #{pressCommExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="strokeCommExTimeOut != null">
+        STROKE_COMM_EX_TIME_OUT = #{strokeCommExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="commExMark != null">
+        COMM_EX_MARK = #{commExMark,jdbcType=VARCHAR},
+      </if>
+      <if test="pressCommExMark != null">
+        PRESS_COMM_EX_MARK = #{pressCommExMark,jdbcType=VARCHAR},
+      </if>
+      <if test="strokeCommExMark != null">
+        STROKE_COMM_EX_MARK = #{strokeCommExMark,jdbcType=VARCHAR},
+      </if>
+      <if test="closeWellExTimeOut != null">
+        CLOSE_WELL_EX_TIME_OUT = #{closeWellExTimeOut,jdbcType=VARCHAR},
+      </if>
+      <if test="closeWellExMark != null">
+        CLOSE_WELL_EX_MARK = #{closeWellExMark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where WELL_ID = #{wellId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.warn.WarnSysConfig">
+     update WARN_SYS_CONFIG
+    set WELL_ID = #{wellId,jdbcType=DECIMAL},
+      COMM_EX_LIMIT = #{commExLimit,jdbcType=VARCHAR},
+      COMM_EX_COUNT = #{commExCount,jdbcType=DECIMAL},
+      CLOSE_WELL_EX_LIMIT = #{closeWellExLimit,jdbcType=VARCHAR},
+      CLOSE_WELL_EX_COUNT = #{closeWellExCount,jdbcType=DECIMAL},
+      PRESS_COMM_EX_LIMIT = #{pressCommExLimit,jdbcType=VARCHAR},
+      PRESS_COMM_EX_COUNT = #{pressCommExCount,jdbcType=DECIMAL},
+      STROKE_COMM_EX_LIMIT = #{strokeCommExLimit,jdbcType=VARCHAR},
+      STROKE_COMM_EX_COUNT = #{strokeCommExCount,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      MARK = #{mark,jdbcType=VARCHAR},
+      MARK1 = #{mark1,jdbcType=VARCHAR},
+      COMM_EX_TIME_OUT = #{commExTimeOut,jdbcType=DECIMAL},
+      PRESS_COMM_EX_TIME_OUT = #{pressCommExTimeOut,jdbcType=DECIMAL},
+      STROKE_COMM_EX_TIME_OUT = #{strokeCommExTimeOut,jdbcType=DECIMAL},
+      COMM_EX_MARK = #{commExMark,jdbcType=VARCHAR},
+      PRESS_COMM_EX_MARK = #{pressCommExMark,jdbcType=VARCHAR},
+      STROKE_COMM_EX_MARK = #{strokeCommExMark,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="Count" resultType="java.lang.Integer"  parameterType="java.math.BigDecimal" >
+    select count(*) from WARN_SYS_CONFIG where well_id=#{wellId,jdbcType=DECIMAL}
+  </select>
+
+  <select id="selectByWellId"  parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from WARN_SYS_CONFIG where well_id=#{wellId,jdbcType=DECIMAL}   order by stime  desc
+  </select>
+</mapper>

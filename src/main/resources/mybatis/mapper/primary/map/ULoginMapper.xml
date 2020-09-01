@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.map.ULoginMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.map.ULogin">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="TELEPHONE" jdbcType="VARCHAR" property="telephone" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="JOB" jdbcType="VARCHAR" property="job" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="ROLE_ID" jdbcType="DECIMAL" property="roleId" />
+    <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName" />
+    <result column="AREA_ID" jdbcType="DECIMAL" property="areaId" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="STATION_ID" jdbcType="DECIMAL" property="stationId" />
+    <result column="STATION_NAME" jdbcType="VARCHAR" property="stationName" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="HALL_ID" jdbcType="DECIMAL" property="hallId" />
+    <result column="HALL_NAME" jdbcType="VARCHAR" property="hallName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, USERNAME, PASSWORD, TELEPHONE, ID_CARD, EMAIL, JOB, ADDRESS, SEX, ROLE_ID, ROLE_NAME, 
+    AREA_ID, AREA_NAME, STATION_ID, STATION_NAME, WELL_ID, WELL_NAME, REMARK, MARK, STIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FOOD.U_LOGIN
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from FOOD.U_LOGIN
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.map.ULogin">
+    insert into FOOD.U_LOGIN (ID, USERNAME, PASSWORD, 
+      TELEPHONE, ID_CARD, EMAIL, 
+      JOB, ADDRESS, SEX, 
+      ROLE_ID, ROLE_NAME, AREA_ID, 
+      AREA_NAME, STATION_ID, STATION_NAME, 
+      WELL_ID, WELL_NAME, REMARK, 
+      MARK, STIME)
+    values (#{id,jdbcType=DECIMAL}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{job,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{roleId,jdbcType=DECIMAL}, #{roleName,jdbcType=VARCHAR}, #{areaId,jdbcType=DECIMAL}, 
+      #{areaName,jdbcType=VARCHAR}, #{stationId,jdbcType=DECIMAL}, #{stationName,jdbcType=VARCHAR}, 
+      #{wellId,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{mark,jdbcType=DECIMAL}, #{stime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.map.ULogin">
+    insert into FOOD.U_LOGIN
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="telephone != null">
+        TELEPHONE,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="job != null">
+        JOB,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="roleId != null">
+        ROLE_ID,
+      </if>
+      <if test="roleName != null">
+        ROLE_NAME,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+      <if test="stationId != null">
+        STATION_ID,
+      </if>
+      <if test="stationName != null">
+        STATION_NAME,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=DECIMAL},
+      </if>
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.map.ULogin">
+    update FOOD.U_LOGIN
+    <set>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        JOB = #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        ROLE_ID = #{roleId,jdbcType=DECIMAL},
+      </if>
+      <if test="roleName != null">
+        ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationId != null">
+        STATION_ID = #{stationId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationName != null">
+        STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellId != null">
+        WELL_ID = #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.map.ULogin">
+    update FOOD.U_LOGIN
+    set USERNAME = #{username,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      ID_CARD = #{idCard,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      JOB = #{job,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      ROLE_ID = #{roleId,jdbcType=DECIMAL},
+      ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      AREA_ID = #{areaId,jdbcType=DECIMAL},
+      AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      STATION_ID = #{stationId,jdbcType=DECIMAL},
+      STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      WELL_ID = #{wellId,jdbcType=DECIMAL},
+      WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByRole" resultMap="BaseResultMap" >
+     select * from u_login
+     where 1=1
+    <if test="telephone != null and telephone!=''">
+      and  TELEPHONE = #{telephone}
+    </if>
+    order by id
+  </select>
+
+  <select id="selectByName" resultMap="BaseResultMap" >
+    select * from u_login where 1=1
+    and TELEPHONE = #{telephone}
+  </select>
+
+</mapper>

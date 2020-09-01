@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.sysoption.well.FunStationInfoMapper">
+    <resultMap id="BaseResultMap" type="server.db.primary.model.sysoption.well.StationInfo">
+        <id column="ID" jdbcType="DECIMAL" property="id" />
+        <result column="STATION_NAME" jdbcType="VARCHAR" property="stationName" />
+        <result column="STATION_NAME_ALIAS" jdbcType="VARCHAR" property="stationNameAlias" />
+        <result column="STATION_TYPE" jdbcType="DECIMAL" property="stationType" />
+        <result column="STATION_TYPE_INFO" jdbcType="VARCHAR" property="stationTypeInfo" />
+        <result column="FATHER_ID" jdbcType="DECIMAL" property="fatherId" />
+        <result column="MARK" jdbcType="DECIMAL" property="mark" />
+        <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    </resultMap>
+</mapper>

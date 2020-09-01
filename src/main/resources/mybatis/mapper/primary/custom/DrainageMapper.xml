@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.DrainageMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.Drainage">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="SET_TIME" jdbcType="TIMESTAMP" property="setTime" />
+    <result column="OLD_VALUE" jdbcType="DECIMAL" property="oldValue" />
+    <result column="SET_VALUE" jdbcType="DECIMAL" property="setValue" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="STATION_ID" jdbcType="DECIMAL" property="stationId" />
+    <result column="STATION_NAME" jdbcType="VARCHAR" property="stationName" />
+    <result column="AREA_ID" jdbcType="DECIMAL" property="areaId" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="FLOW_GAS_PRESS" jdbcType="DECIMAL" property="flowGasPress" />
+    <result column="FLOW_GAS_INSTANT" jdbcType="DECIMAL" property="flowGasInstant" />
+    <result column="DRAINAGE_MODEL" jdbcType="VARCHAR" property="drainageModel" />
+    <result column="DRAINAGE_VALUE" jdbcType="DECIMAL" property="drainageValue" />
+    <result column="WELL_FREQ" jdbcType="DECIMAL" property="wellFreq" />
+    <result column="PRESS_DOWNHOLE" jdbcType="DECIMAL" property="pressDownhole" />
+    <result column="VFD_FREQ_RUN" jdbcType="DECIMAL" property="vfdFreqRun" />
+    <result column="PRESS_CASE" jdbcType="DECIMAL" property="pressCase" />
+    <result column="DOWN_REAL_METER" jdbcType="DECIMAL" property="downRealMeter" />
+    <result column="DOWN_SHOULD_VALUE" jdbcType="DECIMAL" property="downShouldValue" />
+    <result column="DOWN_REAL_VALUE" jdbcType="DECIMAL" property="downRealValue" />
+    <result column="RUN_STATE" jdbcType="VARCHAR" property="runState" />
+    <result column="DRAINAGE_TIME" jdbcType="DECIMAL" property="drainageTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, WELL_ID, WELL_NAME, SET_TIME, OLD_VALUE, SET_VALUE, STIME, STATION_ID, STATION_NAME, 
+    AREA_ID, AREA_NAME, FLOW_GAS_PRESS, FLOW_GAS_INSTANT, DRAINAGE_MODEL, DRAINAGE_VALUE, 
+    WELL_FREQ, PRESS_DOWNHOLE, VFD_FREQ_RUN, PRESS_CASE, DOWN_REAL_METER, DOWN_SHOULD_VALUE, 
+    DOWN_REAL_VALUE,RUN_STATE,DRAINAGE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CBMDB.DRAINAGE
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from CBMDB.DRAINAGE
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.Drainage">
+    insert into CBMDB.DRAINAGE (ID, WELL_ID, WELL_NAME, 
+      SET_TIME, OLD_VALUE, SET_VALUE, 
+      STIME, STATION_ID, STATION_NAME, 
+      AREA_ID, AREA_NAME, FLOW_GAS_PRESS, 
+      FLOW_GAS_INSTANT, DRAINAGE_MODEL, DRAINAGE_VALUE, 
+      WELL_FREQ, PRESS_DOWNHOLE, VFD_FREQ_RUN, 
+      PRESS_CASE, DOWN_REAL_METER, DOWN_SHOULD_VALUE, 
+      DOWN_REAL_VALUE)
+    values (#{id,jdbcType=DECIMAL}, #{wellId,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, 
+      #{setTime,jdbcType=TIMESTAMP}, #{oldValue,jdbcType=DECIMAL}, #{setValue,jdbcType=DECIMAL}, 
+      #{stime,jdbcType=TIMESTAMP}, #{stationId,jdbcType=DECIMAL}, #{stationName,jdbcType=VARCHAR}, 
+      #{areaId,jdbcType=DECIMAL}, #{areaName,jdbcType=VARCHAR}, #{flowGasPress,jdbcType=DECIMAL}, 
+      #{flowGasInstant,jdbcType=DECIMAL}, #{drainageModel,jdbcType=VARCHAR}, #{drainageValue,jdbcType=DECIMAL}, 
+      #{wellFreq,jdbcType=DECIMAL}, #{pressDownhole,jdbcType=DECIMAL}, #{vfdFreqRun,jdbcType=DECIMAL}, 
+      #{pressCase,jdbcType=DECIMAL}, #{downRealMeter,jdbcType=DECIMAL}, #{downShouldValue,jdbcType=DECIMAL}, 
+      #{downRealValue,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.Drainage">
+    insert into CBMDB.DRAINAGE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="setTime != null">
+        SET_TIME,
+      </if>
+      <if test="oldValue != null">
+        OLD_VALUE,
+      </if>
+      <if test="setValue != null">
+        SET_VALUE,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="stationId != null">
+        STATION_ID,
+      </if>
+      <if test="stationName != null">
+        STATION_NAME,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+      <if test="flowGasPress != null">
+        FLOW_GAS_PRESS,
+      </if>
+      <if test="flowGasInstant != null">
+        FLOW_GAS_INSTANT,
+      </if>
+      <if test="drainageModel != null">
+        DRAINAGE_MODEL,
+      </if>
+      <if test="drainageValue != null">
+        DRAINAGE_VALUE,
+      </if>
+      <if test="wellFreq != null">
+        WELL_FREQ,
+      </if>
+      <if test="pressDownhole != null">
+        PRESS_DOWNHOLE,
+      </if>
+      <if test="vfdFreqRun != null">
+        VFD_FREQ_RUN,
+      </if>
+      <if test="pressCase != null">
+        PRESS_CASE,
+      </if>
+      <if test="downRealMeter != null">
+        DOWN_REAL_METER,
+      </if>
+      <if test="downShouldValue != null">
+        DOWN_SHOULD_VALUE,
+      </if>
+      <if test="downRealValue != null">
+        DOWN_REAL_VALUE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="setTime != null">
+        #{setTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldValue != null">
+        #{oldValue,jdbcType=DECIMAL},
+      </if>
+      <if test="setValue != null">
+        #{setValue,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="flowGasPress != null">
+        #{flowGasPress,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasInstant != null">
+        #{flowGasInstant,jdbcType=DECIMAL},
+      </if>
+      <if test="drainageModel != null">
+        #{drainageModel,jdbcType=VARCHAR},
+      </if>
+      <if test="drainageValue != null">
+        #{drainageValue,jdbcType=DECIMAL},
+      </if>
+      <if test="wellFreq != null">
+        #{wellFreq,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownhole != null">
+        #{pressDownhole,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdFreqRun != null">
+        #{vfdFreqRun,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCase != null">
+        #{pressCase,jdbcType=DECIMAL},
+      </if>
+      <if test="downRealMeter != null">
+        #{downRealMeter,jdbcType=DECIMAL},
+      </if>
+      <if test="downShouldValue != null">
+        #{downShouldValue,jdbcType=DECIMAL},
+      </if>
+      <if test="downRealValue != null">
+        #{downRealValue,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.Drainage">
+    update CBMDB.DRAINAGE
+    <set>
+      <if test="wellId != null">
+        WELL_ID = #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="setTime != null">
+        SET_TIME = #{setTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldValue != null">
+        OLD_VALUE = #{oldValue,jdbcType=DECIMAL},
+      </if>
+      <if test="setValue != null">
+        SET_VALUE = #{setValue,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationId != null">
+        STATION_ID = #{stationId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationName != null">
+        STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="flowGasPress != null">
+        FLOW_GAS_PRESS = #{flowGasPress,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasInstant != null">
+        FLOW_GAS_INSTANT = #{flowGasInstant,jdbcType=DECIMAL},
+      </if>
+      <if test="drainageModel != null">
+        DRAINAGE_MODEL = #{drainageModel,jdbcType=VARCHAR},
+      </if>
+      <if test="drainageValue != null">
+        DRAINAGE_VALUE = #{drainageValue,jdbcType=DECIMAL},
+      </if>
+      <if test="wellFreq != null">
+        WELL_FREQ = #{wellFreq,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownhole != null">
+        PRESS_DOWNHOLE = #{pressDownhole,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdFreqRun != null">
+        VFD_FREQ_RUN = #{vfdFreqRun,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCase != null">
+        PRESS_CASE = #{pressCase,jdbcType=DECIMAL},
+      </if>
+      <if test="downRealMeter != null">
+        DOWN_REAL_METER = #{downRealMeter,jdbcType=DECIMAL},
+      </if>
+      <if test="downShouldValue != null">
+        DOWN_SHOULD_VALUE = #{downShouldValue,jdbcType=DECIMAL},
+      </if>
+      <if test="downRealValue != null">
+        DOWN_REAL_VALUE = #{downRealValue,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.Drainage">
+    update CBMDB.DRAINAGE
+    set WELL_ID = #{wellId,jdbcType=DECIMAL},
+      WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      SET_TIME = #{setTime,jdbcType=TIMESTAMP},
+      OLD_VALUE = #{oldValue,jdbcType=DECIMAL},
+      SET_VALUE = #{setValue,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      STATION_ID = #{stationId,jdbcType=DECIMAL},
+      STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      AREA_ID = #{areaId,jdbcType=DECIMAL},
+      AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      FLOW_GAS_PRESS = #{flowGasPress,jdbcType=DECIMAL},
+      FLOW_GAS_INSTANT = #{flowGasInstant,jdbcType=DECIMAL},
+      DRAINAGE_MODEL = #{drainageModel,jdbcType=VARCHAR},
+      DRAINAGE_VALUE = #{drainageValue,jdbcType=DECIMAL},
+      WELL_FREQ = #{wellFreq,jdbcType=DECIMAL},
+      PRESS_DOWNHOLE = #{pressDownhole,jdbcType=DECIMAL},
+      VFD_FREQ_RUN = #{vfdFreqRun,jdbcType=DECIMAL},
+      PRESS_CASE = #{pressCase,jdbcType=DECIMAL},
+      DOWN_REAL_METER = #{downRealMeter,jdbcType=DECIMAL},
+      DOWN_SHOULD_VALUE = #{downShouldValue,jdbcType=DECIMAL},
+      DOWN_REAL_VALUE = #{downRealValue,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="search" resultMap="BaseResultMap">
+    select *from CBMDB.DRAINAGE where 1=1 and
+    <choose>
+      <when test="areaIds != null and areaIds.size>0 ">
+        AREA_ID in
+        <foreach collection="areaIds" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </when>
+      <otherwise>
+        1=1
+      </otherwise>
+    </choose>
+    <if test="wellName != null and wellName != ''">
+      and WELL_NAME LIKE CONCAT (
+      CONCAT (
+      '%',
+      #{wellName}
+      ),
+      '%'
+      )
+    </if>
+    order by well_name asc
+  </select>
+</mapper>

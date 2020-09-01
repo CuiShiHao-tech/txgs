@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.WellGtDataBaseMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.WellGtDataBase">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="GT_ID" jdbcType="DECIMAL" property="gtId" />
+    <result column="PLC_IPADDR" jdbcType="VARCHAR" property="plcIpaddr" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="WELL_NUM" jdbcType="DECIMAL" property="wellNum" />
+    <result column="STATE_NODE" jdbcType="DECIMAL" property="stateNode" />
+    <result column="STATE_READ" jdbcType="DECIMAL" property="stateRead" />
+    <result column="STATE_ALERT" jdbcType="DECIMAL" property="stateAlert" />
+    <result column="COLLECT_POINT" jdbcType="DECIMAL" property="collectPoint" />
+    <result column="DECIMAL_POINT" jdbcType="DECIMAL" property="decimalPoint" />
+    <result column="COLLECT_INTERVAL" jdbcType="DECIMAL" property="collectInterval" />
+    <result column="BATTERY_VAL" jdbcType="DECIMAL" property="batteryVal" />
+    <result column="JIG_FREQ" jdbcType="DECIMAL" property="jigFreq" />
+    <result column="COLLECTTIME_INT" jdbcType="DECIMAL" property="collecttimeInt" />
+    <result column="COLLECT_TIME" jdbcType="VARCHAR" property="collectTime" />
+    <result column="GT_BASE" jdbcType="VARCHAR" property="gtBase" />
+    <result column="GT_DATA" jdbcType="VARCHAR" property="gtData" />
+    <result column="GT_POSITION" jdbcType="VARCHAR" property="gtPosition" />
+    <result column="GT_LOAD" jdbcType="VARCHAR" property="gtLoad" />
+    <result column="LOAD_DATA" jdbcType="VARCHAR" property="loadData" />
+    <result column="LOAD_MAX" jdbcType="DECIMAL" property="loadMax" />
+    <result column="LOAD_MIN" jdbcType="DECIMAL" property="loadMin" />
+    <result column="POINT_UPPER" jdbcType="DECIMAL" property="pointUpper" />
+    <result column="POINT_LOWER" jdbcType="DECIMAL" property="pointLower" />
+    <result column="WELL_STROKE" jdbcType="DECIMAL" property="wellStroke" />
+    <result column="GT_AREA" jdbcType="DECIMAL" property="gtArea" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="NCOUNT" jdbcType="DECIMAL" property="ncount" />
+    <result column="MARK2" jdbcType="VARCHAR" property="mark2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, GT_ID, PLC_IPADDR, WELL_ID, WELL_NAME, WELL_NUM, STATE_NODE, STATE_READ, STATE_ALERT, 
+    COLLECT_POINT, DECIMAL_POINT, COLLECT_INTERVAL, BATTERY_VAL, JIG_FREQ, COLLECTTIME_INT, 
+    COLLECT_TIME, GT_BASE, GT_DATA, GT_POSITION, GT_LOAD, LOAD_DATA, LOAD_MAX, LOAD_MIN, 
+    POINT_UPPER, POINT_LOWER, WELL_STROKE, GT_AREA, MARK, STIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CBMDB.WELL_GT_DATA_BASE
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CBMDB.WELL_GT_DATA_BASE
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.WellGtDataBase">
+    insert into CBMDB.WELL_GT_DATA_BASE (ID, GT_ID, PLC_IPADDR, 
+      WELL_ID, WELL_NAME, WELL_NUM, 
+      STATE_NODE, STATE_READ, STATE_ALERT, 
+      COLLECT_POINT, DECIMAL_POINT, COLLECT_INTERVAL, 
+      BATTERY_VAL, JIG_FREQ, COLLECTTIME_INT, 
+      COLLECT_TIME, GT_BASE, GT_DATA, 
+      GT_POSITION, GT_LOAD, LOAD_DATA, 
+      LOAD_MAX, LOAD_MIN, POINT_UPPER, 
+      POINT_LOWER, WELL_STROKE, GT_AREA, 
+      MARK, STIME)
+    values (#{id,jdbcType=DECIMAL}, #{gtId,jdbcType=DECIMAL}, #{plcIpaddr,jdbcType=VARCHAR}, 
+      #{wellId,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, #{wellNum,jdbcType=DECIMAL}, 
+      #{stateNode,jdbcType=DECIMAL}, #{stateRead,jdbcType=DECIMAL}, #{stateAlert,jdbcType=DECIMAL}, 
+      #{collectPoint,jdbcType=DECIMAL}, #{decimalPoint,jdbcType=DECIMAL}, #{collectInterval,jdbcType=DECIMAL}, 
+      #{batteryVal,jdbcType=DECIMAL}, #{jigFreq,jdbcType=DECIMAL}, #{collecttimeInt,jdbcType=DECIMAL}, 
+      #{collectTime,jdbcType=VARCHAR}, #{gtBase,jdbcType=VARCHAR}, #{gtData,jdbcType=VARCHAR}, 
+      #{gtPosition,jdbcType=VARCHAR}, #{gtLoad,jdbcType=VARCHAR}, #{loadData,jdbcType=VARCHAR}, 
+      #{loadMax,jdbcType=DECIMAL}, #{loadMin,jdbcType=DECIMAL}, #{pointUpper,jdbcType=DECIMAL}, 
+      #{pointLower,jdbcType=DECIMAL}, #{wellStroke,jdbcType=DECIMAL}, #{gtArea,jdbcType=DECIMAL}, 
+      #{mark,jdbcType=DECIMAL}, #{stime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.WellGtDataBase">
+    insert into CBMDB.WELL_GT_DATA_BASE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="gtId != null">
+        GT_ID,
+      </if>
+      <if test="plcIpaddr != null">
+        PLC_IPADDR,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="wellNum != null">
+        WELL_NUM,
+      </if>
+      <if test="stateNode != null">
+        STATE_NODE,
+      </if>
+      <if test="stateRead != null">
+        STATE_READ,
+      </if>
+      <if test="stateAlert != null">
+        STATE_ALERT,
+      </if>
+      <if test="collectPoint != null">
+        COLLECT_POINT,
+      </if>
+      <if test="decimalPoint != null">
+        DECIMAL_POINT,
+      </if>
+      <if test="collectInterval != null">
+        COLLECT_INTERVAL,
+      </if>
+      <if test="batteryVal != null">
+        BATTERY_VAL,
+      </if>
+      <if test="jigFreq != null">
+        JIG_FREQ,
+      </if>
+      <if test="collecttimeInt != null">
+        COLLECTTIME_INT,
+      </if>
+      <if test="collectTime != null">
+        COLLECT_TIME,
+      </if>
+      <if test="gtBase != null">
+        GT_BASE,
+      </if>
+      <if test="gtData != null">
+        GT_DATA,
+      </if>
+      <if test="gtPosition != null">
+        GT_POSITION,
+      </if>
+      <if test="gtLoad != null">
+        GT_LOAD,
+      </if>
+      <if test="loadData != null">
+        LOAD_DATA,
+      </if>
+      <if test="loadMax != null">
+        LOAD_MAX,
+      </if>
+      <if test="loadMin != null">
+        LOAD_MIN,
+      </if>
+      <if test="pointUpper != null">
+        POINT_UPPER,
+      </if>
+      <if test="pointLower != null">
+        POINT_LOWER,
+      </if>
+      <if test="wellStroke != null">
+        WELL_STROKE,
+      </if>
+      <if test="gtArea != null">
+        GT_AREA,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="gtId != null">
+        #{gtId,jdbcType=DECIMAL},
+      </if>
+      <if test="plcIpaddr != null">
+        #{plcIpaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellNum != null">
+        #{wellNum,jdbcType=DECIMAL},
+      </if>
+      <if test="stateNode != null">
+        #{stateNode,jdbcType=DECIMAL},
+      </if>
+      <if test="stateRead != null">
+        #{stateRead,jdbcType=DECIMAL},
+      </if>
+      <if test="stateAlert != null">
+        #{stateAlert,jdbcType=DECIMAL},
+      </if>
+      <if test="collectPoint != null">
+        #{collectPoint,jdbcType=DECIMAL},
+      </if>
+      <if test="decimalPoint != null">
+        #{decimalPoint,jdbcType=DECIMAL},
+      </if>
+      <if test="collectInterval != null">
+        #{collectInterval,jdbcType=DECIMAL},
+      </if>
+      <if test="batteryVal != null">
+        #{batteryVal,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFreq != null">
+        #{jigFreq,jdbcType=DECIMAL},
+      </if>
+      <if test="collecttimeInt != null">
+        #{collecttimeInt,jdbcType=DECIMAL},
+      </if>
+      <if test="collectTime != null">
+        #{collectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="gtBase != null">
+        #{gtBase,jdbcType=VARCHAR},
+      </if>
+      <if test="gtData != null">
+        #{gtData,jdbcType=VARCHAR},
+      </if>
+      <if test="gtPosition != null">
+        #{gtPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="gtLoad != null">
+        #{gtLoad,jdbcType=VARCHAR},
+      </if>
+      <if test="loadData != null">
+        #{loadData,jdbcType=VARCHAR},
+      </if>
+      <if test="loadMax != null">
+        #{loadMax,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMin != null">
+        #{loadMin,jdbcType=DECIMAL},
+      </if>
+      <if test="pointUpper != null">
+        #{pointUpper,jdbcType=DECIMAL},
+      </if>
+      <if test="pointLower != null">
+        #{pointLower,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStroke != null">
+        #{wellStroke,jdbcType=DECIMAL},
+      </if>
+      <if test="gtArea != null">
+        #{gtArea,jdbcType=DECIMAL},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.WellGtDataBase">
+    update CBMDB.WELL_GT_DATA_BASE
+    <set>
+      <if test="gtId != null">
+        GT_ID = #{gtId,jdbcType=DECIMAL},
+      </if>
+      <if test="plcIpaddr != null">
+        PLC_IPADDR = #{plcIpaddr,jdbcType=VARCHAR},
+      </if>
+
+      <if test="wellName != null">
+        WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellNum != null">
+        WELL_NUM = #{wellNum,jdbcType=DECIMAL},
+      </if>
+      <if test="stateNode != null">
+        STATE_NODE = #{stateNode,jdbcType=DECIMAL},
+      </if>
+      <if test="stateRead != null">
+        STATE_READ = #{stateRead,jdbcType=DECIMAL},
+      </if>
+      <if test="stateAlert != null">
+        STATE_ALERT = #{stateAlert,jdbcType=DECIMAL},
+      </if>
+      <if test="collectPoint != null">
+        COLLECT_POINT = #{collectPoint,jdbcType=DECIMAL},
+      </if>
+      <if test="decimalPoint != null">
+        DECIMAL_POINT = #{decimalPoint,jdbcType=DECIMAL},
+      </if>
+      <if test="collectInterval != null">
+        COLLECT_INTERVAL = #{collectInterval,jdbcType=DECIMAL},
+      </if>
+      <if test="batteryVal != null">
+        BATTERY_VAL = #{batteryVal,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFreq != null">
+        JIG_FREQ = #{jigFreq,jdbcType=DECIMAL},
+      </if>
+      <if test="collecttimeInt != null">
+        COLLECTTIME_INT = #{collecttimeInt,jdbcType=DECIMAL},
+      </if>
+      <if test="collectTime != null">
+        COLLECT_TIME = #{collectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="gtBase != null">
+        GT_BASE = #{gtBase,jdbcType=VARCHAR},
+      </if>
+      <if test="gtData != null">
+        GT_DATA = #{gtData,jdbcType=VARCHAR},
+      </if>
+      <if test="gtPosition != null">
+        GT_POSITION = #{gtPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="gtLoad != null">
+        GT_LOAD = #{gtLoad,jdbcType=VARCHAR},
+      </if>
+      <if test="loadData != null">
+        LOAD_DATA = #{loadData,jdbcType=VARCHAR},
+      </if>
+      <if test="loadMax != null">
+        LOAD_MAX = #{loadMax,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMin != null">
+        LOAD_MIN = #{loadMin,jdbcType=DECIMAL},
+      </if>
+      <if test="pointUpper != null">
+        POINT_UPPER = #{pointUpper,jdbcType=DECIMAL},
+      </if>
+      <if test="pointLower != null">
+        POINT_LOWER = #{pointLower,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStroke != null">
+        WELL_STROKE = #{wellStroke,jdbcType=DECIMAL},
+      </if>
+      <if test="gtArea != null">
+        GT_AREA = #{gtArea,jdbcType=DECIMAL},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where WELL_ID = #{wellId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.WellGtDataBase">
+    update CBMDB.WELL_GT_DATA_BASE
+    set GT_ID = #{gtId,jdbcType=DECIMAL},
+      PLC_IPADDR = #{plcIpaddr,jdbcType=VARCHAR},
+      WELL_ID = #{wellId,jdbcType=DECIMAL},
+      WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      WELL_NUM = #{wellNum,jdbcType=DECIMAL},
+      STATE_NODE = #{stateNode,jdbcType=DECIMAL},
+      STATE_READ = #{stateRead,jdbcType=DECIMAL},
+      STATE_ALERT = #{stateAlert,jdbcType=DECIMAL},
+      COLLECT_POINT = #{collectPoint,jdbcType=DECIMAL},
+      DECIMAL_POINT = #{decimalPoint,jdbcType=DECIMAL},
+      COLLECT_INTERVAL = #{collectInterval,jdbcType=DECIMAL},
+      BATTERY_VAL = #{batteryVal,jdbcType=DECIMAL},
+      JIG_FREQ = #{jigFreq,jdbcType=DECIMAL},
+      COLLECTTIME_INT = #{collecttimeInt,jdbcType=DECIMAL},
+      COLLECT_TIME = #{collectTime,jdbcType=VARCHAR},
+      GT_BASE = #{gtBase,jdbcType=VARCHAR},
+      GT_DATA = #{gtData,jdbcType=VARCHAR},
+      GT_POSITION = #{gtPosition,jdbcType=VARCHAR},
+      GT_LOAD = #{gtLoad,jdbcType=VARCHAR},
+      LOAD_DATA = #{loadData,jdbcType=VARCHAR},
+      LOAD_MAX = #{loadMax,jdbcType=DECIMAL},
+      LOAD_MIN = #{loadMin,jdbcType=DECIMAL},
+      POINT_UPPER = #{pointUpper,jdbcType=DECIMAL},
+      POINT_LOWER = #{pointLower,jdbcType=DECIMAL},
+      WELL_STROKE = #{wellStroke,jdbcType=DECIMAL},
+      GT_AREA = #{gtArea,jdbcType=DECIMAL},
+      MARK = #{mark,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="selectBywellId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select *
+    from well_gt_data_base
+    where well_id=#{wellId}
+  </select>
+
+  <select id="selectBywellIdAll" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT
+    a.well_name ,a.id ,
+    case when b.load_data is not null then '设置'
+    else  '未设置' end  as Mark2,
+    b.collect_time,b.well_stroke,b.jig_freq,b.load_max,b.load_min,b.gt_area,b.LOAD_DATA
+
+    FROM
+    well_info a left join WELL_GT_DATA_BASE   b  on a.id=b.WELL_ID
+    WHERE 1=1
+    and area_id in
+    (select station_id from auth_obj_station where 1=1
+
+    <if test="objId != null and objId!=''">
+      and  obj_id=#{objId,jdbcType=DECIMAL}
+    </if>
+    )
+
+    <if test="areaId!=null and areaId!=''">
+      and  a.AREA_ID = #{areaId,jdbcType=DECIMAL}
+    </if>
+    <if test="stationId!=null and stationId!=''">
+      and  a.STATION_ID = #{stationId,jdbcType=DECIMAL}
+    </if>
+    <if test="wellName != null and wellName!=''">
+      and  a.WELL_NAME like   CONCAT(CONCAT('%', #{wellName, jdbcType=VARCHAR}),'%')
+    </if>
+    order by a.Id
+  </select>
+
+  <select id="selectBaseBywellId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select count(*) ncount
+    from well_gt_data_base
+    where well_id=#{wellId}
+  </select>
+</mapper>

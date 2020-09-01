@@ -1,0 +1,1066 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.map.WellDataCurMapMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.map.WellDataCur">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="RTU_IPADDR" jdbcType="VARCHAR" property="rtuIpaddr" />
+    <result column="RTU_PORT" jdbcType="DECIMAL" property="rtuPort" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="WELL_NUM" jdbcType="DECIMAL" property="wellNum" />
+    <result column="AREA_ID" jdbcType="DECIMAL" property="areaId" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="U_A" jdbcType="DECIMAL" property="uA" />
+    <result column="U_B" jdbcType="DECIMAL" property="uB" />
+    <result column="U_C" jdbcType="DECIMAL" property="uC" />
+    <result column="I_A" jdbcType="DECIMAL" property="iA" />
+    <result column="I_B" jdbcType="DECIMAL" property="iB" />
+    <result column="I_C" jdbcType="DECIMAL" property="iC" />
+    <result column="E_P" jdbcType="DECIMAL" property="eP" />
+    <result column="E_Q" jdbcType="DECIMAL" property="eQ" />
+    <result column="E_COS" jdbcType="DECIMAL" property="eCos" />
+    <result column="E_E" jdbcType="DECIMAL" property="eE" />
+    <result column="E_FREQ" jdbcType="DECIMAL" property="eFreq" />
+    <result column="E_DAY" jdbcType="DECIMAL" property="eDay" />
+    <result column="WELL_STROKE" jdbcType="DECIMAL" property="wellStroke" />
+    <result column="WELL_FREQ" jdbcType="DECIMAL" property="wellFreq" />
+    <result column="PRESS_CASE" jdbcType="DECIMAL" property="pressCase" />
+    <result column="PRESS_PIPE" jdbcType="DECIMAL" property="pressPipe" />
+    <result column="PRESS_DOWNHOLE" jdbcType="DECIMAL" property="pressDownhole" />
+    <result column="TEMP_DOWNHOLE" jdbcType="DECIMAL" property="tempDownhole" />
+    <result column="LENGTH_DOWNHOLE" jdbcType="DECIMAL" property="lengthDownhole" />
+    <result column="FLOW_GAS_INSTANT" jdbcType="DECIMAL" property="flowGasInstant" />
+    <result column="FLOW_GAS_TOTLE" jdbcType="DECIMAL" property="flowGasTotle" />
+    <result column="FLOW_GAS_PRESS" jdbcType="DECIMAL" property="flowGasPress" />
+    <result column="FLOW_GAS_TEMP" jdbcType="DECIMAL" property="flowGasTemp" />
+    <result column="FLOW_GAS_TOTLE0" jdbcType="DECIMAL" property="flowGasTotle0" />
+    <result column="FLOW_GAS_TOTLE0_TIME" jdbcType="TIMESTAMP" property="flowGasTotle0Time" />
+    <result column="FLOW_GAS_DAY" jdbcType="DECIMAL" property="flowGasDay" />
+    <result column="FLOW_WATER_INSTANT" jdbcType="DECIMAL" property="flowWaterInstant" />
+    <result column="FLOW_WATER_TOTLE" jdbcType="DECIMAL" property="flowWaterTotle" />
+    <result column="FLOW_WATER_TOTLE0" jdbcType="DECIMAL" property="flowWaterTotle0" />
+    <result column="FLOW_WATER_TOTLE0_TIME" jdbcType="TIMESTAMP" property="flowWaterTotle0Time" />
+    <result column="FLOW_WATER_DAY" jdbcType="DECIMAL" property="flowWaterDay" />
+    <result column="VFD_RUN_MODE" jdbcType="DECIMAL" property="vfdRunMode" />
+    <result column="VFD_RUN_MODE_INFO" jdbcType="VARCHAR" property="vfdRunModeInfo" />
+    <result column="VFD_CTRL_MODE" jdbcType="DECIMAL" property="vfdCtrlMode" />
+    <result column="VFD_CTRL_MODE_INFO" jdbcType="VARCHAR" property="vfdCtrlModeInfo" />
+    <result column="VFD_FREQ_CONF" jdbcType="DECIMAL" property="vfdFreqConf" />
+    <result column="VFD_FREQ_RUN" jdbcType="DECIMAL" property="vfdFreqRun" />
+    <result column="VFD_FREQ_ERR" jdbcType="DECIMAL" property="vfdFreqErr" />
+    <result column="VFD_OUT_I" jdbcType="DECIMAL" property="vfdOutI" />
+    <result column="VFD_OUT_TORQUE" jdbcType="DECIMAL" property="vfdOutTorque" />
+    <result column="AUTO_MODE" jdbcType="DECIMAL" property="autoMode" />
+    <result column="AUTO_MODE_INFO" jdbcType="VARCHAR" property="autoModeInfo" />
+    <result column="AUTO_DOWN_LEN" jdbcType="DECIMAL" property="autoDownLen" />
+    <result column="DEVICE_MODE" jdbcType="DECIMAL" property="deviceMode" />
+    <result column="DEVICE_MODE_INFO" jdbcType="VARCHAR" property="deviceModeInfo" />
+    <result column="DEVICE_STAT" jdbcType="DECIMAL" property="deviceStat" />
+    <result column="DEVICE_STAT_INFO" jdbcType="VARCHAR" property="deviceStatInfo" />
+    <result column="GT_ID" jdbcType="DECIMAL" property="gtId" />
+    <result column="GT_BASE_ID" jdbcType="DECIMAL" property="gtBaseId" />
+    <result column="I_UPPER" jdbcType="DECIMAL" property="iUpper" />
+    <result column="I_LOWER" jdbcType="DECIMAL" property="iLower" />
+    <result column="LOAD_UPPER" jdbcType="DECIMAL" property="loadUpper" />
+    <result column="LOAD_LOWER" jdbcType="DECIMAL" property="loadLower" />
+    <result column="GT_TIME_INT" jdbcType="DECIMAL" property="gtTimeInt" />
+    <result column="GT_DIAG_INFO" jdbcType="VARCHAR" property="gtDiagInfo" />
+    <result column="GT_PROD" jdbcType="VARCHAR" property="gtProd" />
+    <result column="FLOW_WATER_P_TOTLE" jdbcType="DECIMAL" property="flowWaterPTotle" />
+    <result column="FLOW_WATER_R_TOTLE" jdbcType="DECIMAL" property="flowWaterRTotle" />
+    <result column="GAS_CONFIG" jdbcType="DECIMAL" property="gasConfig" />
+    <result column="GAS_VALUE" jdbcType="DECIMAL" property="gasValue" />
+    <result column="GT_TIME" jdbcType="TIMESTAMP" property="gtTime" />
+    <result column="LOAD_MAX" jdbcType="DECIMAL" property="loadMax" />
+    <result column="LOAD_MIN" jdbcType="DECIMAL" property="loadMin" />
+    <result column="RUN_STATE" jdbcType="VARCHAR" property="runState" />
+    <result column="TIME_MARK" jdbcType="VARCHAR" property="timeMark" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="FLOW_WATER_TOTLE8" jdbcType="DECIMAL" property="flowWaterTotle8" />
+    <result column="FLOW_GAS_TOTLE8" jdbcType="DECIMAL" property="flowGasTotle8" />
+    <result column="PRESS_DOWNHOLE8" jdbcType="DECIMAL" property="pressDownhole8" />
+    <result column="PUMP_EFF" jdbcType="DECIMAL" property="pumpEff" />
+    <result column="STATE_FREQUENCY" jdbcType="VARCHAR" property="stateFrequency" />
+    <result column="GT_DIAG_OPT" jdbcType="VARCHAR" property="gtDiagOpt" />
+    <result column="SYSTEM_EFF" jdbcType="VARCHAR" property="systemEff" />
+    <result column="DRAINAGE_MODEL" jdbcType="VARCHAR" property="drainageModel" />
+    <result column="DRAINAGE_VALUE" jdbcType="DECIMAL" property="drainageValue" />
+    <result column="WELL_LONG" jdbcType="DECIMAL" property="wellLong" />
+    <result column="WELL_LAT" jdbcType="DECIMAL" property="wellLat" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, RTU_IPADDR, RTU_PORT, WELL_ID, WELL_NAME, WELL_NUM, AREA_ID, AREA_NAME, U_A, 
+    U_B, U_C, I_A, I_B, I_C, E_P, E_Q, E_COS, E_E, E_FREQ, E_DAY, WELL_STROKE, WELL_FREQ, 
+    PRESS_CASE, PRESS_PIPE, PRESS_DOWNHOLE, TEMP_DOWNHOLE, LENGTH_DOWNHOLE, FLOW_GAS_INSTANT, 
+    FLOW_GAS_TOTLE, FLOW_GAS_PRESS, FLOW_GAS_TEMP, FLOW_GAS_TOTLE0, FLOW_GAS_TOTLE0_TIME, 
+    FLOW_GAS_DAY, FLOW_WATER_INSTANT, FLOW_WATER_TOTLE, FLOW_WATER_TOTLE0, FLOW_WATER_TOTLE0_TIME, 
+    FLOW_WATER_DAY, VFD_RUN_MODE, VFD_RUN_MODE_INFO, VFD_CTRL_MODE, VFD_CTRL_MODE_INFO, 
+    VFD_FREQ_CONF, VFD_FREQ_RUN, VFD_FREQ_ERR, VFD_OUT_I, VFD_OUT_TORQUE, AUTO_MODE, 
+    AUTO_MODE_INFO, AUTO_DOWN_LEN, DEVICE_MODE, DEVICE_MODE_INFO, DEVICE_STAT, DEVICE_STAT_INFO, 
+    GT_ID, GT_BASE_ID, I_UPPER, I_LOWER, LOAD_UPPER, LOAD_LOWER, GT_TIME_INT, GT_DIAG_INFO, 
+    GT_PROD, FLOW_WATER_P_TOTLE, FLOW_WATER_R_TOTLE, GAS_CONFIG, GAS_VALUE, GT_TIME, 
+    LOAD_MAX, LOAD_MIN, RUN_STATE, TIME_MARK, REMARK, MARK, STIME, FLOW_WATER_TOTLE8, 
+    FLOW_GAS_TOTLE8, PRESS_DOWNHOLE8, PUMP_EFF, STATE_FREQUENCY, GT_DIAG_OPT, SYSTEM_EFF, 
+    DRAINAGE_MODEL, DRAINAGE_VALUE, WELL_LONG, WELL_LAT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CBMDB.WELL_DATA_CUR
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CBMDB.WELL_DATA_CUR
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.map.WellDataCur">
+    insert into CBMDB.WELL_DATA_CUR (ID, RTU_IPADDR, RTU_PORT, 
+      WELL_ID, WELL_NAME, WELL_NUM, 
+      AREA_ID, AREA_NAME, U_A, 
+      U_B, U_C, I_A, I_B, 
+      I_C, E_P, E_Q, E_COS, 
+      E_E, E_FREQ, E_DAY, WELL_STROKE, 
+      WELL_FREQ, PRESS_CASE, PRESS_PIPE, 
+      PRESS_DOWNHOLE, TEMP_DOWNHOLE, LENGTH_DOWNHOLE, 
+      FLOW_GAS_INSTANT, FLOW_GAS_TOTLE, FLOW_GAS_PRESS, 
+      FLOW_GAS_TEMP, FLOW_GAS_TOTLE0, FLOW_GAS_TOTLE0_TIME, 
+      FLOW_GAS_DAY, FLOW_WATER_INSTANT, FLOW_WATER_TOTLE, 
+      FLOW_WATER_TOTLE0, FLOW_WATER_TOTLE0_TIME, 
+      FLOW_WATER_DAY, VFD_RUN_MODE, VFD_RUN_MODE_INFO, 
+      VFD_CTRL_MODE, VFD_CTRL_MODE_INFO, VFD_FREQ_CONF, 
+      VFD_FREQ_RUN, VFD_FREQ_ERR, VFD_OUT_I, 
+      VFD_OUT_TORQUE, AUTO_MODE, AUTO_MODE_INFO, 
+      AUTO_DOWN_LEN, DEVICE_MODE, DEVICE_MODE_INFO, 
+      DEVICE_STAT, DEVICE_STAT_INFO, GT_ID, 
+      GT_BASE_ID, I_UPPER, I_LOWER, 
+      LOAD_UPPER, LOAD_LOWER, GT_TIME_INT, 
+      GT_DIAG_INFO, GT_PROD, FLOW_WATER_P_TOTLE, 
+      FLOW_WATER_R_TOTLE, GAS_CONFIG, GAS_VALUE, 
+      GT_TIME, LOAD_MAX, LOAD_MIN, 
+      RUN_STATE, TIME_MARK, REMARK, 
+      MARK, STIME, FLOW_WATER_TOTLE8, 
+      FLOW_GAS_TOTLE8, PRESS_DOWNHOLE8, PUMP_EFF, 
+      STATE_FREQUENCY, GT_DIAG_OPT, SYSTEM_EFF, 
+      DRAINAGE_MODEL, DRAINAGE_VALUE, WELL_LONG, 
+      WELL_LAT)
+    values (#{id,jdbcType=DECIMAL}, #{rtuIpaddr,jdbcType=VARCHAR}, #{rtuPort,jdbcType=DECIMAL}, 
+      #{wellId,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, #{wellNum,jdbcType=DECIMAL}, 
+      #{areaId,jdbcType=DECIMAL}, #{areaName,jdbcType=VARCHAR}, #{uA,jdbcType=DECIMAL}, 
+      #{uB,jdbcType=DECIMAL}, #{uC,jdbcType=DECIMAL}, #{iA,jdbcType=DECIMAL}, #{iB,jdbcType=DECIMAL}, 
+      #{iC,jdbcType=DECIMAL}, #{eP,jdbcType=DECIMAL}, #{eQ,jdbcType=DECIMAL}, #{eCos,jdbcType=DECIMAL}, 
+      #{eE,jdbcType=DECIMAL}, #{eFreq,jdbcType=DECIMAL}, #{eDay,jdbcType=DECIMAL}, #{wellStroke,jdbcType=DECIMAL}, 
+      #{wellFreq,jdbcType=DECIMAL}, #{pressCase,jdbcType=DECIMAL}, #{pressPipe,jdbcType=DECIMAL}, 
+      #{pressDownhole,jdbcType=DECIMAL}, #{tempDownhole,jdbcType=DECIMAL}, #{lengthDownhole,jdbcType=DECIMAL}, 
+      #{flowGasInstant,jdbcType=DECIMAL}, #{flowGasTotle,jdbcType=DECIMAL}, #{flowGasPress,jdbcType=DECIMAL}, 
+      #{flowGasTemp,jdbcType=DECIMAL}, #{flowGasTotle0,jdbcType=DECIMAL}, #{flowGasTotle0Time,jdbcType=TIMESTAMP}, 
+      #{flowGasDay,jdbcType=DECIMAL}, #{flowWaterInstant,jdbcType=DECIMAL}, #{flowWaterTotle,jdbcType=DECIMAL}, 
+      #{flowWaterTotle0,jdbcType=DECIMAL}, #{flowWaterTotle0Time,jdbcType=TIMESTAMP}, 
+      #{flowWaterDay,jdbcType=DECIMAL}, #{vfdRunMode,jdbcType=DECIMAL}, #{vfdRunModeInfo,jdbcType=VARCHAR}, 
+      #{vfdCtrlMode,jdbcType=DECIMAL}, #{vfdCtrlModeInfo,jdbcType=VARCHAR}, #{vfdFreqConf,jdbcType=DECIMAL}, 
+      #{vfdFreqRun,jdbcType=DECIMAL}, #{vfdFreqErr,jdbcType=DECIMAL}, #{vfdOutI,jdbcType=DECIMAL}, 
+      #{vfdOutTorque,jdbcType=DECIMAL}, #{autoMode,jdbcType=DECIMAL}, #{autoModeInfo,jdbcType=VARCHAR}, 
+      #{autoDownLen,jdbcType=DECIMAL}, #{deviceMode,jdbcType=DECIMAL}, #{deviceModeInfo,jdbcType=VARCHAR}, 
+      #{deviceStat,jdbcType=DECIMAL}, #{deviceStatInfo,jdbcType=VARCHAR}, #{gtId,jdbcType=DECIMAL}, 
+      #{gtBaseId,jdbcType=DECIMAL}, #{iUpper,jdbcType=DECIMAL}, #{iLower,jdbcType=DECIMAL}, 
+      #{loadUpper,jdbcType=DECIMAL}, #{loadLower,jdbcType=DECIMAL}, #{gtTimeInt,jdbcType=DECIMAL}, 
+      #{gtDiagInfo,jdbcType=VARCHAR}, #{gtProd,jdbcType=VARCHAR}, #{flowWaterPTotle,jdbcType=DECIMAL}, 
+      #{flowWaterRTotle,jdbcType=DECIMAL}, #{gasConfig,jdbcType=DECIMAL}, #{gasValue,jdbcType=DECIMAL}, 
+      #{gtTime,jdbcType=TIMESTAMP}, #{loadMax,jdbcType=DECIMAL}, #{loadMin,jdbcType=DECIMAL}, 
+      #{runState,jdbcType=VARCHAR}, #{timeMark,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{mark,jdbcType=DECIMAL}, #{stime,jdbcType=TIMESTAMP}, #{flowWaterTotle8,jdbcType=DECIMAL}, 
+      #{flowGasTotle8,jdbcType=DECIMAL}, #{pressDownhole8,jdbcType=DECIMAL}, #{pumpEff,jdbcType=DECIMAL}, 
+      #{stateFrequency,jdbcType=VARCHAR}, #{gtDiagOpt,jdbcType=VARCHAR}, #{systemEff,jdbcType=VARCHAR}, 
+      #{drainageModel,jdbcType=VARCHAR}, #{drainageValue,jdbcType=DECIMAL}, #{wellLong,jdbcType=DECIMAL}, 
+      #{wellLat,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.map.WellDataCur">
+    insert into CBMDB.WELL_DATA_CUR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="rtuIpaddr != null">
+        RTU_IPADDR,
+      </if>
+      <if test="rtuPort != null">
+        RTU_PORT,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="wellNum != null">
+        WELL_NUM,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+      <if test="uA != null">
+        U_A,
+      </if>
+      <if test="uB != null">
+        U_B,
+      </if>
+      <if test="uC != null">
+        U_C,
+      </if>
+      <if test="iA != null">
+        I_A,
+      </if>
+      <if test="iB != null">
+        I_B,
+      </if>
+      <if test="iC != null">
+        I_C,
+      </if>
+      <if test="eP != null">
+        E_P,
+      </if>
+      <if test="eQ != null">
+        E_Q,
+      </if>
+      <if test="eCos != null">
+        E_COS,
+      </if>
+      <if test="eE != null">
+        E_E,
+      </if>
+      <if test="eFreq != null">
+        E_FREQ,
+      </if>
+      <if test="eDay != null">
+        E_DAY,
+      </if>
+      <if test="wellStroke != null">
+        WELL_STROKE,
+      </if>
+      <if test="wellFreq != null">
+        WELL_FREQ,
+      </if>
+      <if test="pressCase != null">
+        PRESS_CASE,
+      </if>
+      <if test="pressPipe != null">
+        PRESS_PIPE,
+      </if>
+      <if test="pressDownhole != null">
+        PRESS_DOWNHOLE,
+      </if>
+      <if test="tempDownhole != null">
+        TEMP_DOWNHOLE,
+      </if>
+      <if test="lengthDownhole != null">
+        LENGTH_DOWNHOLE,
+      </if>
+      <if test="flowGasInstant != null">
+        FLOW_GAS_INSTANT,
+      </if>
+      <if test="flowGasTotle != null">
+        FLOW_GAS_TOTLE,
+      </if>
+      <if test="flowGasPress != null">
+        FLOW_GAS_PRESS,
+      </if>
+      <if test="flowGasTemp != null">
+        FLOW_GAS_TEMP,
+      </if>
+      <if test="flowGasTotle0 != null">
+        FLOW_GAS_TOTLE0,
+      </if>
+      <if test="flowGasTotle0Time != null">
+        FLOW_GAS_TOTLE0_TIME,
+      </if>
+      <if test="flowGasDay != null">
+        FLOW_GAS_DAY,
+      </if>
+      <if test="flowWaterInstant != null">
+        FLOW_WATER_INSTANT,
+      </if>
+      <if test="flowWaterTotle != null">
+        FLOW_WATER_TOTLE,
+      </if>
+      <if test="flowWaterTotle0 != null">
+        FLOW_WATER_TOTLE0,
+      </if>
+      <if test="flowWaterTotle0Time != null">
+        FLOW_WATER_TOTLE0_TIME,
+      </if>
+      <if test="flowWaterDay != null">
+        FLOW_WATER_DAY,
+      </if>
+      <if test="vfdRunMode != null">
+        VFD_RUN_MODE,
+      </if>
+      <if test="vfdRunModeInfo != null">
+        VFD_RUN_MODE_INFO,
+      </if>
+      <if test="vfdCtrlMode != null">
+        VFD_CTRL_MODE,
+      </if>
+      <if test="vfdCtrlModeInfo != null">
+        VFD_CTRL_MODE_INFO,
+      </if>
+      <if test="vfdFreqConf != null">
+        VFD_FREQ_CONF,
+      </if>
+      <if test="vfdFreqRun != null">
+        VFD_FREQ_RUN,
+      </if>
+      <if test="vfdFreqErr != null">
+        VFD_FREQ_ERR,
+      </if>
+      <if test="vfdOutI != null">
+        VFD_OUT_I,
+      </if>
+      <if test="vfdOutTorque != null">
+        VFD_OUT_TORQUE,
+      </if>
+      <if test="autoMode != null">
+        AUTO_MODE,
+      </if>
+      <if test="autoModeInfo != null">
+        AUTO_MODE_INFO,
+      </if>
+      <if test="autoDownLen != null">
+        AUTO_DOWN_LEN,
+      </if>
+      <if test="deviceMode != null">
+        DEVICE_MODE,
+      </if>
+      <if test="deviceModeInfo != null">
+        DEVICE_MODE_INFO,
+      </if>
+      <if test="deviceStat != null">
+        DEVICE_STAT,
+      </if>
+      <if test="deviceStatInfo != null">
+        DEVICE_STAT_INFO,
+      </if>
+      <if test="gtId != null">
+        GT_ID,
+      </if>
+      <if test="gtBaseId != null">
+        GT_BASE_ID,
+      </if>
+      <if test="iUpper != null">
+        I_UPPER,
+      </if>
+      <if test="iLower != null">
+        I_LOWER,
+      </if>
+      <if test="loadUpper != null">
+        LOAD_UPPER,
+      </if>
+      <if test="loadLower != null">
+        LOAD_LOWER,
+      </if>
+      <if test="gtTimeInt != null">
+        GT_TIME_INT,
+      </if>
+      <if test="gtDiagInfo != null">
+        GT_DIAG_INFO,
+      </if>
+      <if test="gtProd != null">
+        GT_PROD,
+      </if>
+      <if test="flowWaterPTotle != null">
+        FLOW_WATER_P_TOTLE,
+      </if>
+      <if test="flowWaterRTotle != null">
+        FLOW_WATER_R_TOTLE,
+      </if>
+      <if test="gasConfig != null">
+        GAS_CONFIG,
+      </if>
+      <if test="gasValue != null">
+        GAS_VALUE,
+      </if>
+      <if test="gtTime != null">
+        GT_TIME,
+      </if>
+      <if test="loadMax != null">
+        LOAD_MAX,
+      </if>
+      <if test="loadMin != null">
+        LOAD_MIN,
+      </if>
+      <if test="runState != null">
+        RUN_STATE,
+      </if>
+      <if test="timeMark != null">
+        TIME_MARK,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="flowWaterTotle8 != null">
+        FLOW_WATER_TOTLE8,
+      </if>
+      <if test="flowGasTotle8 != null">
+        FLOW_GAS_TOTLE8,
+      </if>
+      <if test="pressDownhole8 != null">
+        PRESS_DOWNHOLE8,
+      </if>
+      <if test="pumpEff != null">
+        PUMP_EFF,
+      </if>
+      <if test="stateFrequency != null">
+        STATE_FREQUENCY,
+      </if>
+      <if test="gtDiagOpt != null">
+        GT_DIAG_OPT,
+      </if>
+      <if test="systemEff != null">
+        SYSTEM_EFF,
+      </if>
+      <if test="drainageModel != null">
+        DRAINAGE_MODEL,
+      </if>
+      <if test="drainageValue != null">
+        DRAINAGE_VALUE,
+      </if>
+      <if test="wellLong != null">
+        WELL_LONG,
+      </if>
+      <if test="wellLat != null">
+        WELL_LAT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="rtuIpaddr != null">
+        #{rtuIpaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="rtuPort != null">
+        #{rtuPort,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellNum != null">
+        #{wellNum,jdbcType=DECIMAL},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="uA != null">
+        #{uA,jdbcType=DECIMAL},
+      </if>
+      <if test="uB != null">
+        #{uB,jdbcType=DECIMAL},
+      </if>
+      <if test="uC != null">
+        #{uC,jdbcType=DECIMAL},
+      </if>
+      <if test="iA != null">
+        #{iA,jdbcType=DECIMAL},
+      </if>
+      <if test="iB != null">
+        #{iB,jdbcType=DECIMAL},
+      </if>
+      <if test="iC != null">
+        #{iC,jdbcType=DECIMAL},
+      </if>
+      <if test="eP != null">
+        #{eP,jdbcType=DECIMAL},
+      </if>
+      <if test="eQ != null">
+        #{eQ,jdbcType=DECIMAL},
+      </if>
+      <if test="eCos != null">
+        #{eCos,jdbcType=DECIMAL},
+      </if>
+      <if test="eE != null">
+        #{eE,jdbcType=DECIMAL},
+      </if>
+      <if test="eFreq != null">
+        #{eFreq,jdbcType=DECIMAL},
+      </if>
+      <if test="eDay != null">
+        #{eDay,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStroke != null">
+        #{wellStroke,jdbcType=DECIMAL},
+      </if>
+      <if test="wellFreq != null">
+        #{wellFreq,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCase != null">
+        #{pressCase,jdbcType=DECIMAL},
+      </if>
+      <if test="pressPipe != null">
+        #{pressPipe,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownhole != null">
+        #{pressDownhole,jdbcType=DECIMAL},
+      </if>
+      <if test="tempDownhole != null">
+        #{tempDownhole,jdbcType=DECIMAL},
+      </if>
+      <if test="lengthDownhole != null">
+        #{lengthDownhole,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasInstant != null">
+        #{flowGasInstant,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle != null">
+        #{flowGasTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasPress != null">
+        #{flowGasPress,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTemp != null">
+        #{flowGasTemp,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle0 != null">
+        #{flowGasTotle0,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle0Time != null">
+        #{flowGasTotle0Time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flowGasDay != null">
+        #{flowGasDay,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterInstant != null">
+        #{flowWaterInstant,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterTotle != null">
+        #{flowWaterTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterTotle0 != null">
+        #{flowWaterTotle0,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterTotle0Time != null">
+        #{flowWaterTotle0Time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flowWaterDay != null">
+        #{flowWaterDay,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdRunMode != null">
+        #{vfdRunMode,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdRunModeInfo != null">
+        #{vfdRunModeInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="vfdCtrlMode != null">
+        #{vfdCtrlMode,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdCtrlModeInfo != null">
+        #{vfdCtrlModeInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="vfdFreqConf != null">
+        #{vfdFreqConf,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdFreqRun != null">
+        #{vfdFreqRun,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdFreqErr != null">
+        #{vfdFreqErr,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdOutI != null">
+        #{vfdOutI,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdOutTorque != null">
+        #{vfdOutTorque,jdbcType=DECIMAL},
+      </if>
+      <if test="autoMode != null">
+        #{autoMode,jdbcType=DECIMAL},
+      </if>
+      <if test="autoModeInfo != null">
+        #{autoModeInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="autoDownLen != null">
+        #{autoDownLen,jdbcType=DECIMAL},
+      </if>
+      <if test="deviceMode != null">
+        #{deviceMode,jdbcType=DECIMAL},
+      </if>
+      <if test="deviceModeInfo != null">
+        #{deviceModeInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceStat != null">
+        #{deviceStat,jdbcType=DECIMAL},
+      </if>
+      <if test="deviceStatInfo != null">
+        #{deviceStatInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="gtId != null">
+        #{gtId,jdbcType=DECIMAL},
+      </if>
+      <if test="gtBaseId != null">
+        #{gtBaseId,jdbcType=DECIMAL},
+      </if>
+      <if test="iUpper != null">
+        #{iUpper,jdbcType=DECIMAL},
+      </if>
+      <if test="iLower != null">
+        #{iLower,jdbcType=DECIMAL},
+      </if>
+      <if test="loadUpper != null">
+        #{loadUpper,jdbcType=DECIMAL},
+      </if>
+      <if test="loadLower != null">
+        #{loadLower,jdbcType=DECIMAL},
+      </if>
+      <if test="gtTimeInt != null">
+        #{gtTimeInt,jdbcType=DECIMAL},
+      </if>
+      <if test="gtDiagInfo != null">
+        #{gtDiagInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="gtProd != null">
+        #{gtProd,jdbcType=VARCHAR},
+      </if>
+      <if test="flowWaterPTotle != null">
+        #{flowWaterPTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterRTotle != null">
+        #{flowWaterRTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="gasConfig != null">
+        #{gasConfig,jdbcType=DECIMAL},
+      </if>
+      <if test="gasValue != null">
+        #{gasValue,jdbcType=DECIMAL},
+      </if>
+      <if test="gtTime != null">
+        #{gtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loadMax != null">
+        #{loadMax,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMin != null">
+        #{loadMin,jdbcType=DECIMAL},
+      </if>
+      <if test="runState != null">
+        #{runState,jdbcType=VARCHAR},
+      </if>
+      <if test="timeMark != null">
+        #{timeMark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flowWaterTotle8 != null">
+        #{flowWaterTotle8,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle8 != null">
+        #{flowGasTotle8,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownhole8 != null">
+        #{pressDownhole8,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpEff != null">
+        #{pumpEff,jdbcType=DECIMAL},
+      </if>
+      <if test="stateFrequency != null">
+        #{stateFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="gtDiagOpt != null">
+        #{gtDiagOpt,jdbcType=VARCHAR},
+      </if>
+      <if test="systemEff != null">
+        #{systemEff,jdbcType=VARCHAR},
+      </if>
+      <if test="drainageModel != null">
+        #{drainageModel,jdbcType=VARCHAR},
+      </if>
+      <if test="drainageValue != null">
+        #{drainageValue,jdbcType=DECIMAL},
+      </if>
+      <if test="wellLong != null">
+        #{wellLong,jdbcType=DECIMAL},
+      </if>
+      <if test="wellLat != null">
+        #{wellLat,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.map.WellDataCur">
+    update CBMDB.WELL_DATA_CUR
+    <set>
+      <if test="rtuIpaddr != null">
+        RTU_IPADDR = #{rtuIpaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="rtuPort != null">
+        RTU_PORT = #{rtuPort,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        WELL_ID = #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellNum != null">
+        WELL_NUM = #{wellNum,jdbcType=DECIMAL},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="uA != null">
+        U_A = #{uA,jdbcType=DECIMAL},
+      </if>
+      <if test="uB != null">
+        U_B = #{uB,jdbcType=DECIMAL},
+      </if>
+      <if test="uC != null">
+        U_C = #{uC,jdbcType=DECIMAL},
+      </if>
+      <if test="iA != null">
+        I_A = #{iA,jdbcType=DECIMAL},
+      </if>
+      <if test="iB != null">
+        I_B = #{iB,jdbcType=DECIMAL},
+      </if>
+      <if test="iC != null">
+        I_C = #{iC,jdbcType=DECIMAL},
+      </if>
+      <if test="eP != null">
+        E_P = #{eP,jdbcType=DECIMAL},
+      </if>
+      <if test="eQ != null">
+        E_Q = #{eQ,jdbcType=DECIMAL},
+      </if>
+      <if test="eCos != null">
+        E_COS = #{eCos,jdbcType=DECIMAL},
+      </if>
+      <if test="eE != null">
+        E_E = #{eE,jdbcType=DECIMAL},
+      </if>
+      <if test="eFreq != null">
+        E_FREQ = #{eFreq,jdbcType=DECIMAL},
+      </if>
+      <if test="eDay != null">
+        E_DAY = #{eDay,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStroke != null">
+        WELL_STROKE = #{wellStroke,jdbcType=DECIMAL},
+      </if>
+      <if test="wellFreq != null">
+        WELL_FREQ = #{wellFreq,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCase != null">
+        PRESS_CASE = #{pressCase,jdbcType=DECIMAL},
+      </if>
+      <if test="pressPipe != null">
+        PRESS_PIPE = #{pressPipe,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownhole != null">
+        PRESS_DOWNHOLE = #{pressDownhole,jdbcType=DECIMAL},
+      </if>
+      <if test="tempDownhole != null">
+        TEMP_DOWNHOLE = #{tempDownhole,jdbcType=DECIMAL},
+      </if>
+      <if test="lengthDownhole != null">
+        LENGTH_DOWNHOLE = #{lengthDownhole,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasInstant != null">
+        FLOW_GAS_INSTANT = #{flowGasInstant,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle != null">
+        FLOW_GAS_TOTLE = #{flowGasTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasPress != null">
+        FLOW_GAS_PRESS = #{flowGasPress,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTemp != null">
+        FLOW_GAS_TEMP = #{flowGasTemp,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle0 != null">
+        FLOW_GAS_TOTLE0 = #{flowGasTotle0,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle0Time != null">
+        FLOW_GAS_TOTLE0_TIME = #{flowGasTotle0Time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flowGasDay != null">
+        FLOW_GAS_DAY = #{flowGasDay,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterInstant != null">
+        FLOW_WATER_INSTANT = #{flowWaterInstant,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterTotle != null">
+        FLOW_WATER_TOTLE = #{flowWaterTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterTotle0 != null">
+        FLOW_WATER_TOTLE0 = #{flowWaterTotle0,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterTotle0Time != null">
+        FLOW_WATER_TOTLE0_TIME = #{flowWaterTotle0Time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flowWaterDay != null">
+        FLOW_WATER_DAY = #{flowWaterDay,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdRunMode != null">
+        VFD_RUN_MODE = #{vfdRunMode,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdRunModeInfo != null">
+        VFD_RUN_MODE_INFO = #{vfdRunModeInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="vfdCtrlMode != null">
+        VFD_CTRL_MODE = #{vfdCtrlMode,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdCtrlModeInfo != null">
+        VFD_CTRL_MODE_INFO = #{vfdCtrlModeInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="vfdFreqConf != null">
+        VFD_FREQ_CONF = #{vfdFreqConf,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdFreqRun != null">
+        VFD_FREQ_RUN = #{vfdFreqRun,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdFreqErr != null">
+        VFD_FREQ_ERR = #{vfdFreqErr,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdOutI != null">
+        VFD_OUT_I = #{vfdOutI,jdbcType=DECIMAL},
+      </if>
+      <if test="vfdOutTorque != null">
+        VFD_OUT_TORQUE = #{vfdOutTorque,jdbcType=DECIMAL},
+      </if>
+      <if test="autoMode != null">
+        AUTO_MODE = #{autoMode,jdbcType=DECIMAL},
+      </if>
+      <if test="autoModeInfo != null">
+        AUTO_MODE_INFO = #{autoModeInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="autoDownLen != null">
+        AUTO_DOWN_LEN = #{autoDownLen,jdbcType=DECIMAL},
+      </if>
+      <if test="deviceMode != null">
+        DEVICE_MODE = #{deviceMode,jdbcType=DECIMAL},
+      </if>
+      <if test="deviceModeInfo != null">
+        DEVICE_MODE_INFO = #{deviceModeInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceStat != null">
+        DEVICE_STAT = #{deviceStat,jdbcType=DECIMAL},
+      </if>
+      <if test="deviceStatInfo != null">
+        DEVICE_STAT_INFO = #{deviceStatInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="gtId != null">
+        GT_ID = #{gtId,jdbcType=DECIMAL},
+      </if>
+      <if test="gtBaseId != null">
+        GT_BASE_ID = #{gtBaseId,jdbcType=DECIMAL},
+      </if>
+      <if test="iUpper != null">
+        I_UPPER = #{iUpper,jdbcType=DECIMAL},
+      </if>
+      <if test="iLower != null">
+        I_LOWER = #{iLower,jdbcType=DECIMAL},
+      </if>
+      <if test="loadUpper != null">
+        LOAD_UPPER = #{loadUpper,jdbcType=DECIMAL},
+      </if>
+      <if test="loadLower != null">
+        LOAD_LOWER = #{loadLower,jdbcType=DECIMAL},
+      </if>
+      <if test="gtTimeInt != null">
+        GT_TIME_INT = #{gtTimeInt,jdbcType=DECIMAL},
+      </if>
+      <if test="gtDiagInfo != null">
+        GT_DIAG_INFO = #{gtDiagInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="gtProd != null">
+        GT_PROD = #{gtProd,jdbcType=VARCHAR},
+      </if>
+      <if test="flowWaterPTotle != null">
+        FLOW_WATER_P_TOTLE = #{flowWaterPTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterRTotle != null">
+        FLOW_WATER_R_TOTLE = #{flowWaterRTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="gasConfig != null">
+        GAS_CONFIG = #{gasConfig,jdbcType=DECIMAL},
+      </if>
+      <if test="gasValue != null">
+        GAS_VALUE = #{gasValue,jdbcType=DECIMAL},
+      </if>
+      <if test="gtTime != null">
+        GT_TIME = #{gtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loadMax != null">
+        LOAD_MAX = #{loadMax,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMin != null">
+        LOAD_MIN = #{loadMin,jdbcType=DECIMAL},
+      </if>
+      <if test="runState != null">
+        RUN_STATE = #{runState,jdbcType=VARCHAR},
+      </if>
+      <if test="timeMark != null">
+        TIME_MARK = #{timeMark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flowWaterTotle8 != null">
+        FLOW_WATER_TOTLE8 = #{flowWaterTotle8,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle8 != null">
+        FLOW_GAS_TOTLE8 = #{flowGasTotle8,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownhole8 != null">
+        PRESS_DOWNHOLE8 = #{pressDownhole8,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpEff != null">
+        PUMP_EFF = #{pumpEff,jdbcType=DECIMAL},
+      </if>
+      <if test="stateFrequency != null">
+        STATE_FREQUENCY = #{stateFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="gtDiagOpt != null">
+        GT_DIAG_OPT = #{gtDiagOpt,jdbcType=VARCHAR},
+      </if>
+      <if test="systemEff != null">
+        SYSTEM_EFF = #{systemEff,jdbcType=VARCHAR},
+      </if>
+      <if test="drainageModel != null">
+        DRAINAGE_MODEL = #{drainageModel,jdbcType=VARCHAR},
+      </if>
+      <if test="drainageValue != null">
+        DRAINAGE_VALUE = #{drainageValue,jdbcType=DECIMAL},
+      </if>
+      <if test="wellLong != null">
+        WELL_LONG = #{wellLong,jdbcType=DECIMAL},
+      </if>
+      <if test="wellLat != null">
+        WELL_LAT = #{wellLat,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.map.WellDataCur">
+    update CBMDB.WELL_DATA_CUR
+    set RTU_IPADDR = #{rtuIpaddr,jdbcType=VARCHAR},
+      RTU_PORT = #{rtuPort,jdbcType=DECIMAL},
+      WELL_ID = #{wellId,jdbcType=DECIMAL},
+      WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      WELL_NUM = #{wellNum,jdbcType=DECIMAL},
+      AREA_ID = #{areaId,jdbcType=DECIMAL},
+      AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      U_A = #{uA,jdbcType=DECIMAL},
+      U_B = #{uB,jdbcType=DECIMAL},
+      U_C = #{uC,jdbcType=DECIMAL},
+      I_A = #{iA,jdbcType=DECIMAL},
+      I_B = #{iB,jdbcType=DECIMAL},
+      I_C = #{iC,jdbcType=DECIMAL},
+      E_P = #{eP,jdbcType=DECIMAL},
+      E_Q = #{eQ,jdbcType=DECIMAL},
+      E_COS = #{eCos,jdbcType=DECIMAL},
+      E_E = #{eE,jdbcType=DECIMAL},
+      E_FREQ = #{eFreq,jdbcType=DECIMAL},
+      E_DAY = #{eDay,jdbcType=DECIMAL},
+      WELL_STROKE = #{wellStroke,jdbcType=DECIMAL},
+      WELL_FREQ = #{wellFreq,jdbcType=DECIMAL},
+      PRESS_CASE = #{pressCase,jdbcType=DECIMAL},
+      PRESS_PIPE = #{pressPipe,jdbcType=DECIMAL},
+      PRESS_DOWNHOLE = #{pressDownhole,jdbcType=DECIMAL},
+      TEMP_DOWNHOLE = #{tempDownhole,jdbcType=DECIMAL},
+      LENGTH_DOWNHOLE = #{lengthDownhole,jdbcType=DECIMAL},
+      FLOW_GAS_INSTANT = #{flowGasInstant,jdbcType=DECIMAL},
+      FLOW_GAS_TOTLE = #{flowGasTotle,jdbcType=DECIMAL},
+      FLOW_GAS_PRESS = #{flowGasPress,jdbcType=DECIMAL},
+      FLOW_GAS_TEMP = #{flowGasTemp,jdbcType=DECIMAL},
+      FLOW_GAS_TOTLE0 = #{flowGasTotle0,jdbcType=DECIMAL},
+      FLOW_GAS_TOTLE0_TIME = #{flowGasTotle0Time,jdbcType=TIMESTAMP},
+      FLOW_GAS_DAY = #{flowGasDay,jdbcType=DECIMAL},
+      FLOW_WATER_INSTANT = #{flowWaterInstant,jdbcType=DECIMAL},
+      FLOW_WATER_TOTLE = #{flowWaterTotle,jdbcType=DECIMAL},
+      FLOW_WATER_TOTLE0 = #{flowWaterTotle0,jdbcType=DECIMAL},
+      FLOW_WATER_TOTLE0_TIME = #{flowWaterTotle0Time,jdbcType=TIMESTAMP},
+      FLOW_WATER_DAY = #{flowWaterDay,jdbcType=DECIMAL},
+      VFD_RUN_MODE = #{vfdRunMode,jdbcType=DECIMAL},
+      VFD_RUN_MODE_INFO = #{vfdRunModeInfo,jdbcType=VARCHAR},
+      VFD_CTRL_MODE = #{vfdCtrlMode,jdbcType=DECIMAL},
+      VFD_CTRL_MODE_INFO = #{vfdCtrlModeInfo,jdbcType=VARCHAR},
+      VFD_FREQ_CONF = #{vfdFreqConf,jdbcType=DECIMAL},
+      VFD_FREQ_RUN = #{vfdFreqRun,jdbcType=DECIMAL},
+      VFD_FREQ_ERR = #{vfdFreqErr,jdbcType=DECIMAL},
+      VFD_OUT_I = #{vfdOutI,jdbcType=DECIMAL},
+      VFD_OUT_TORQUE = #{vfdOutTorque,jdbcType=DECIMAL},
+      AUTO_MODE = #{autoMode,jdbcType=DECIMAL},
+      AUTO_MODE_INFO = #{autoModeInfo,jdbcType=VARCHAR},
+      AUTO_DOWN_LEN = #{autoDownLen,jdbcType=DECIMAL},
+      DEVICE_MODE = #{deviceMode,jdbcType=DECIMAL},
+      DEVICE_MODE_INFO = #{deviceModeInfo,jdbcType=VARCHAR},
+      DEVICE_STAT = #{deviceStat,jdbcType=DECIMAL},
+      DEVICE_STAT_INFO = #{deviceStatInfo,jdbcType=VARCHAR},
+      GT_ID = #{gtId,jdbcType=DECIMAL},
+      GT_BASE_ID = #{gtBaseId,jdbcType=DECIMAL},
+      I_UPPER = #{iUpper,jdbcType=DECIMAL},
+      I_LOWER = #{iLower,jdbcType=DECIMAL},
+      LOAD_UPPER = #{loadUpper,jdbcType=DECIMAL},
+      LOAD_LOWER = #{loadLower,jdbcType=DECIMAL},
+      GT_TIME_INT = #{gtTimeInt,jdbcType=DECIMAL},
+      GT_DIAG_INFO = #{gtDiagInfo,jdbcType=VARCHAR},
+      GT_PROD = #{gtProd,jdbcType=VARCHAR},
+      FLOW_WATER_P_TOTLE = #{flowWaterPTotle,jdbcType=DECIMAL},
+      FLOW_WATER_R_TOTLE = #{flowWaterRTotle,jdbcType=DECIMAL},
+      GAS_CONFIG = #{gasConfig,jdbcType=DECIMAL},
+      GAS_VALUE = #{gasValue,jdbcType=DECIMAL},
+      GT_TIME = #{gtTime,jdbcType=TIMESTAMP},
+      LOAD_MAX = #{loadMax,jdbcType=DECIMAL},
+      LOAD_MIN = #{loadMin,jdbcType=DECIMAL},
+      RUN_STATE = #{runState,jdbcType=VARCHAR},
+      TIME_MARK = #{timeMark,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      FLOW_WATER_TOTLE8 = #{flowWaterTotle8,jdbcType=DECIMAL},
+      FLOW_GAS_TOTLE8 = #{flowGasTotle8,jdbcType=DECIMAL},
+      PRESS_DOWNHOLE8 = #{pressDownhole8,jdbcType=DECIMAL},
+      PUMP_EFF = #{pumpEff,jdbcType=DECIMAL},
+      STATE_FREQUENCY = #{stateFrequency,jdbcType=VARCHAR},
+      GT_DIAG_OPT = #{gtDiagOpt,jdbcType=VARCHAR},
+      SYSTEM_EFF = #{systemEff,jdbcType=VARCHAR},
+      DRAINAGE_MODEL = #{drainageModel,jdbcType=VARCHAR},
+      DRAINAGE_VALUE = #{drainageValue,jdbcType=DECIMAL},
+      WELL_LONG = #{wellLong,jdbcType=DECIMAL},
+      WELL_LAT = #{wellLat,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <select id="longitudeAndLatitude" resultMap="BaseResultMap">
+    SELECT  WELL_NAME,REMARK,WELL_LONG,WELL_LAT
+    FROM WELL_DATA_CUR
+    ORDER BY WELL_ID
+  </select>
+</mapper>

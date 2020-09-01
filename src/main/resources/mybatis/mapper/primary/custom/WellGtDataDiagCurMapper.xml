@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.WellGtDataDiagCurMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.WellGtDataDiagCur">
+    <result column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="GT_ID" jdbcType="DECIMAL" property="gtId" />
+    <result column="GT_RESP_ID" jdbcType="DECIMAL" property="gtRespId" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="RESULTSTATUS" jdbcType="DECIMAL" property="resultstatus" />
+    <result column="DIAG_RESULTCODE" jdbcType="DECIMAL" property="diagResultcode" />
+    <result column="DIAG_RESULTSTRING" jdbcType="VARCHAR" property="diagResultstring" />
+    <result column="ERRORCOUNTER" jdbcType="DECIMAL" property="errorcounter" />
+    <result column="ERRORSTRING" jdbcType="VARCHAR" property="errorstring" />
+    <result column="WARNINGCOUNTER" jdbcType="DECIMAL" property="warningcounter" />
+    <result column="WARNINGSTRING" jdbcType="VARCHAR" property="warningstring" />
+    <result column="SDKPLUSCOUNTER" jdbcType="DECIMAL" property="sdkpluscounter" />
+    <result column="SDKPLUSSTRING" jdbcType="VARCHAR" property="sdkplusstring" />
+    <result column="CNT" jdbcType="DECIMAL" property="cnt" />
+    <result column="LENGTHALL" jdbcType="DECIMAL" property="lengthall" />
+    <result column="WEIGHTALL" jdbcType="DECIMAL" property="weightall" />
+    <result column="BUOYANCYFORCEALL" jdbcType="DECIMAL" property="buoyancyforceall" />
+    <result column="LEAK_PUMP_V" jdbcType="DECIMAL" property="leakPumpV" />
+    <result column="LEAK_TV_V" jdbcType="DECIMAL" property="leakTvV" />
+    <result column="LEAK_SV_V" jdbcType="DECIMAL" property="leakSvV" />
+    <result column="GAS_INFLUENCE_V" jdbcType="DECIMAL" property="gasInfluenceV" />
+    <result column="LEAK_PUMP_W" jdbcType="DECIMAL" property="leakPumpW" />
+    <result column="LEAK_TV_W" jdbcType="DECIMAL" property="leakTvW" />
+    <result column="LEAK_SV_W" jdbcType="DECIMAL" property="leakSvW" />
+    <result column="GAS_INFLUENCE_W" jdbcType="DECIMAL" property="gasInfluenceW" />
+    <result column="GT_TIME" jdbcType="VARCHAR" property="gtTime" />
+    <result column="WELL_NUM" jdbcType="DECIMAL" property="wellNum" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="AREA_ID" jdbcType="DECIMAL" property="areaId" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="NCOUNT" jdbcType="DECIMAL" property="ncount" />
+    <result column="GT_DIAG_OPTIMIZATION" jdbcType="VARCHAR" property="gtDiagOptimization" />
+  </resultMap>
+  <insert id="insert" parameterType="server.db.primary.model.WellGtDataDiagCur">
+    insert into CBMDB.WELL_GT_DATA_DIAG_CUR (ID, GT_ID, GT_RESP_ID, 
+      WELL_ID, WELL_NAME, RESULTSTATUS, 
+      DIAG_RESULTCODE, DIAG_RESULTSTRING, ERRORCOUNTER, 
+      ERRORSTRING, WARNINGCOUNTER, WARNINGSTRING, 
+      SDKPLUSCOUNTER, SDKPLUSSTRING, CNT, 
+      LENGTHALL, WEIGHTALL, BUOYANCYFORCEALL, 
+      LEAK_PUMP_V, LEAK_TV_V, LEAK_SV_V, 
+      GAS_INFLUENCE_V, LEAK_PUMP_W, LEAK_TV_W, 
+      LEAK_SV_W, GAS_INFLUENCE_W, GT_TIME, 
+      WELL_NUM, MARK, STIME, 
+      AREA_ID, AREA_NAME)
+    values (#{id,jdbcType=DECIMAL}, #{gtId,jdbcType=DECIMAL}, #{gtRespId,jdbcType=DECIMAL}, 
+      #{wellId,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, #{resultstatus,jdbcType=DECIMAL}, 
+      #{diagResultcode,jdbcType=DECIMAL}, #{diagResultstring,jdbcType=VARCHAR}, #{errorcounter,jdbcType=DECIMAL}, 
+      #{errorstring,jdbcType=VARCHAR}, #{warningcounter,jdbcType=DECIMAL}, #{warningstring,jdbcType=VARCHAR}, 
+      #{sdkpluscounter,jdbcType=DECIMAL}, #{sdkplusstring,jdbcType=VARCHAR}, #{cnt,jdbcType=DECIMAL}, 
+      #{lengthall,jdbcType=DECIMAL}, #{weightall,jdbcType=DECIMAL}, #{buoyancyforceall,jdbcType=DECIMAL}, 
+      #{leakPumpV,jdbcType=DECIMAL}, #{leakTvV,jdbcType=DECIMAL}, #{leakSvV,jdbcType=DECIMAL}, 
+      #{gasInfluenceV,jdbcType=DECIMAL}, #{leakPumpW,jdbcType=DECIMAL}, #{leakTvW,jdbcType=DECIMAL}, 
+      #{leakSvW,jdbcType=DECIMAL}, #{gasInfluenceW,jdbcType=DECIMAL}, #{gtTime,jdbcType=VARCHAR}, 
+      #{wellNum,jdbcType=DECIMAL}, #{mark,jdbcType=DECIMAL}, #{stime,jdbcType=TIMESTAMP}, 
+      #{areaId,jdbcType=DECIMAL}, #{areaName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.WellGtDataDiagCur">
+    insert into CBMDB.WELL_GT_DATA_DIAG_CUR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="gtId != null">
+        GT_ID,
+      </if>
+      <if test="gtRespId != null">
+        GT_RESP_ID,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="resultstatus != null">
+        RESULTSTATUS,
+      </if>
+      <if test="diagResultcode != null">
+        DIAG_RESULTCODE,
+      </if>
+      <if test="diagResultstring != null">
+        DIAG_RESULTSTRING,
+      </if>
+      <if test="errorcounter != null">
+        ERRORCOUNTER,
+      </if>
+      <if test="errorstring != null">
+        ERRORSTRING,
+      </if>
+      <if test="warningcounter != null">
+        WARNINGCOUNTER,
+      </if>
+      <if test="warningstring != null">
+        WARNINGSTRING,
+      </if>
+      <if test="sdkpluscounter != null">
+        SDKPLUSCOUNTER,
+      </if>
+      <if test="sdkplusstring != null">
+        SDKPLUSSTRING,
+      </if>
+      <if test="cnt != null">
+        CNT,
+      </if>
+      <if test="lengthall != null">
+        LENGTHALL,
+      </if>
+      <if test="weightall != null">
+        WEIGHTALL,
+      </if>
+      <if test="buoyancyforceall != null">
+        BUOYANCYFORCEALL,
+      </if>
+      <if test="leakPumpV != null">
+        LEAK_PUMP_V,
+      </if>
+      <if test="leakTvV != null">
+        LEAK_TV_V,
+      </if>
+      <if test="leakSvV != null">
+        LEAK_SV_V,
+      </if>
+      <if test="gasInfluenceV != null">
+        GAS_INFLUENCE_V,
+      </if>
+      <if test="leakPumpW != null">
+        LEAK_PUMP_W,
+      </if>
+      <if test="leakTvW != null">
+        LEAK_TV_W,
+      </if>
+      <if test="leakSvW != null">
+        LEAK_SV_W,
+      </if>
+      <if test="gasInfluenceW != null">
+        GAS_INFLUENCE_W,
+      </if>
+      <if test="gtTime != null">
+        GT_TIME,
+      </if>
+      <if test="wellNum != null">
+        WELL_NUM,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="gtId != null">
+        #{gtId,jdbcType=DECIMAL},
+      </if>
+      <if test="gtRespId != null">
+        #{gtRespId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="resultstatus != null">
+        #{resultstatus,jdbcType=DECIMAL},
+      </if>
+      <if test="diagResultcode != null">
+        #{diagResultcode,jdbcType=DECIMAL},
+      </if>
+      <if test="diagResultstring != null">
+        #{diagResultstring,jdbcType=VARCHAR},
+      </if>
+      <if test="errorcounter != null">
+        #{errorcounter,jdbcType=DECIMAL},
+      </if>
+      <if test="errorstring != null">
+        #{errorstring,jdbcType=VARCHAR},
+      </if>
+      <if test="warningcounter != null">
+        #{warningcounter,jdbcType=DECIMAL},
+      </if>
+      <if test="warningstring != null">
+        #{warningstring,jdbcType=VARCHAR},
+      </if>
+      <if test="sdkpluscounter != null">
+        #{sdkpluscounter,jdbcType=DECIMAL},
+      </if>
+      <if test="sdkplusstring != null">
+        #{sdkplusstring,jdbcType=VARCHAR},
+      </if>
+      <if test="cnt != null">
+        #{cnt,jdbcType=DECIMAL},
+      </if>
+      <if test="lengthall != null">
+        #{lengthall,jdbcType=DECIMAL},
+      </if>
+      <if test="weightall != null">
+        #{weightall,jdbcType=DECIMAL},
+      </if>
+      <if test="buoyancyforceall != null">
+        #{buoyancyforceall,jdbcType=DECIMAL},
+      </if>
+      <if test="leakPumpV != null">
+        #{leakPumpV,jdbcType=DECIMAL},
+      </if>
+      <if test="leakTvV != null">
+        #{leakTvV,jdbcType=DECIMAL},
+      </if>
+      <if test="leakSvV != null">
+        #{leakSvV,jdbcType=DECIMAL},
+      </if>
+      <if test="gasInfluenceV != null">
+        #{gasInfluenceV,jdbcType=DECIMAL},
+      </if>
+      <if test="leakPumpW != null">
+        #{leakPumpW,jdbcType=DECIMAL},
+      </if>
+      <if test="leakTvW != null">
+        #{leakTvW,jdbcType=DECIMAL},
+      </if>
+      <if test="leakSvW != null">
+        #{leakSvW,jdbcType=DECIMAL},
+      </if>
+      <if test="gasInfluenceW != null">
+        #{gasInfluenceW,jdbcType=DECIMAL},
+      </if>
+      <if test="gtTime != null">
+        #{gtTime,jdbcType=VARCHAR},
+      </if>
+      <if test="wellNum != null">
+        #{wellNum,jdbcType=DECIMAL},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectNcountByObjId"  resultMap="BaseResultMap">
+    select DIAG_RESULTCODE,DIAG_RESULTSTRING,count(*) ncount
+    from WELL_GT_DATA_DIAG_CUR where area_id in
+    (select station_id from auth_obj_station where 1=1
+      and  obj_id=#{objId,jdbcType=DECIMAL}
+    )
+    group by DIAG_RESULTCODE,DIAG_RESULTSTRING having count(*) >= 1 ORDER BY diag_resultcode
+
+  </select>
+
+  <select id="selectByObjId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from well_gt_data_diag_cur
+    where  area_id in
+    (select station_id from auth_obj_station where 1=1
+
+    <if test="objId != null and objId!=''">
+      and  obj_id=#{objId,jdbcType=DECIMAL}
+    </if>
+    )
+    <if test="wellName != null and wellName!=''">
+      and  WELL_NAME like   CONCAT(CONCAT('%', #{wellName, jdbcType=VARCHAR}),'%')
+    </if>
+    order by area_id,well_id
+  </select>
+
+  <select id="selectByNo" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from well_gt_data_diag_cur
+    where DIAG_RESULTCODE!=1202
+    and area_id in
+    (select station_id from auth_obj_station where 1=1
+
+    <if test="objId != null and objId!=''">
+      and  obj_id=#{objId,jdbcType=DECIMAL}
+    </if>
+    )
+
+    <if test="wellName != null and wellName!=''">
+      and  WELL_NAME like   CONCAT(CONCAT('%', #{wellName, jdbcType=VARCHAR}),'%')
+    </if>
+    order by area_id,well_id
+  </select>
+
+</mapper>

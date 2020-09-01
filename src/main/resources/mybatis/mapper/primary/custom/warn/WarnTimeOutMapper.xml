@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.warn.WarnTimeOutMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.warn.WarnTimeOut">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="AREA_ID" jdbcType="DECIMAL" property="areaId" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="COMM_EX_TIME_OUT" jdbcType="DECIMAL" property="commExTimeOut" />
+    <result column="PRESS_COMM_EX_TIME_OUT" jdbcType="DECIMAL" property="pressCommExTimeOut" />
+    <result column="STROKE_COMM_EX_TIME_OUT" jdbcType="DECIMAL" property="strokeCommExTimeOut" />
+    <result column="U_TIME_OUT" jdbcType="DECIMAL" property="uTimeOut" />
+    <result column="I_TIME_OUT" jdbcType="DECIMAL" property="iTimeOut" />
+    <result column="PRESS_OIL_TIME_OUT" jdbcType="DECIMAL" property="pressOilTimeOut" />
+    <result column="JIG_FREQUENCY_TIME_OUT" jdbcType="DECIMAL" property="jigFrequencyTimeOut" />
+    <result column="WELL_STROKE_TIME_OUT" jdbcType="DECIMAL" property="wellStrokeTimeOut" />
+    <result column="LOAD_TIME_OUT" jdbcType="DECIMAL" property="loadTimeOut" />
+    <result column="TEMP_WELLHEAD_TIME_OUT" jdbcType="DECIMAL" property="tempWellheadTimeOut" />
+    <result column="GT_PROD_TIME_OUT" jdbcType="DECIMAL" property="gtProdTimeOut" />
+    <result column="GT_TIME_OUT" jdbcType="DECIMAL" property="gtTimeOut" />
+    <result column="MARK" jdbcType="VARCHAR" property="mark" />
+    <result column="FLOW_WATER_INSTANT_TIME_OUT" jdbcType="DECIMAL" property="flowWaterInstantTimeOut" />
+    <result column="CLOSE_WELL_EX_TIME_OUT" jdbcType="DECIMAL" property="closeWellExTimeOut" />
+    <result column="PRESS_CASE_TIME_OUT" jdbcType="DECIMAL" property="pressCaseTimeOut" />
+    <result column="PRESS_DOWNHOLE_TIME_OUT" jdbcType="DECIMAL" property="pressDownholeTimeOut" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID,USER_ID, USER_NAME, STIME, AREA_ID, AREA_NAME, COMM_EX_TIME_OUT, PRESS_COMM_EX_TIME_OUT, STROKE_COMM_EX_TIME_OUT,
+    U_TIME_OUT, I_TIME_OUT, PRESS_OIL_TIME_OUT, JIG_FREQUENCY_TIME_OUT, WELL_STROKE_TIME_OUT, 
+    LOAD_TIME_OUT, TEMP_WELLHEAD_TIME_OUT, GT_PROD_TIME_OUT, GT_TIME_OUT, MARK,FLOW_WATER_INSTANT_TIME_OUT,CLOSE_WELL_EX_TIME_OUT,PRESS_CASE_TIME_OUT,PRESS_DOWNHOLE_TIME_OUT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WARN_TIME_OUT
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from WARN_TIME_OUT
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.warn.WarnTimeOut">
+    insert into WARN_TIME_OUT (ID, USER_ID,USER_NAME, STIME,
+      AREA_ID, AREA_NAME, COMM_EX_TIME_OUT, 
+      PRESS_COMM_EX_TIME_OUT, STROKE_COMM_EX_TIME_OUT, 
+      U_TIME_OUT, I_TIME_OUT, PRESS_OIL_TIME_OUT, 
+      JIG_FREQUENCY_TIME_OUT, WELL_STROKE_TIME_OUT, 
+      LOAD_TIME_OUT, TEMP_WELLHEAD_TIME_OUT, GT_PROD_TIME_OUT, 
+      GT_TIME_OUT, MARK)
+    values (#{id,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL},#{userName,jdbcType=VARCHAR}, #{stime,jdbcType=TIMESTAMP},
+      #{areaId,jdbcType=DECIMAL}, #{areaName,jdbcType=VARCHAR}, #{commExTimeOut,jdbcType=DECIMAL}, 
+      #{pressCommExTimeOut,jdbcType=DECIMAL}, #{strokeCommExTimeOut,jdbcType=DECIMAL}, 
+      #{uTimeOut,jdbcType=DECIMAL}, #{iTimeOut,jdbcType=DECIMAL}, #{pressOilTimeOut,jdbcType=DECIMAL}, 
+      #{jigFrequencyTimeOut,jdbcType=DECIMAL}, #{wellStrokeTimeOut,jdbcType=DECIMAL}, 
+      #{loadTimeOut,jdbcType=DECIMAL}, #{tempWellheadTimeOut,jdbcType=DECIMAL}, #{gtProdTimeOut,jdbcType=DECIMAL}, 
+      #{gtTimeOut,jdbcType=DECIMAL}, #{mark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.warn.WarnTimeOut">
+    insert into WARN_TIME_OUT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+      <if test="commExTimeOut != null">
+        COMM_EX_TIME_OUT,
+      </if>
+      <if test="pressCommExTimeOut != null">
+        PRESS_COMM_EX_TIME_OUT,
+      </if>
+      <if test="strokeCommExTimeOut != null">
+        STROKE_COMM_EX_TIME_OUT,
+      </if>
+      <if test="uTimeOut != null">
+        U_TIME_OUT,
+      </if>
+      <if test="iTimeOut != null">
+        I_TIME_OUT,
+      </if>
+      <if test="pressOilTimeOut != null">
+        PRESS_OIL_TIME_OUT,
+      </if>
+      <if test="jigFrequencyTimeOut != null">
+        JIG_FREQUENCY_TIME_OUT,
+      </if>
+      <if test="wellStrokeTimeOut != null">
+        WELL_STROKE_TIME_OUT,
+      </if>
+      <if test="loadTimeOut != null">
+        LOAD_TIME_OUT,
+      </if>
+      <if test="tempWellheadTimeOut != null">
+        TEMP_WELLHEAD_TIME_OUT,
+      </if>
+      <if test="gtProdTimeOut != null">
+        GT_PROD_TIME_OUT,
+      </if>
+      <if test="gtTimeOut != null">
+        GT_TIME_OUT,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="flowWaterInstantTimeOut != null">
+        FLOW_WATER_INSTANT_TIME_OUT,
+      </if>
+      <if test="closeWellExTimeOut != null">
+        CLOSE_WELL_EX_TIME_OUT,
+      </if>
+
+      <if test="pressCaseTimeOut != null">
+        PRESS_CASE_TIME_OUT,
+      </if>
+      <if test="pressDownholeTimeOut != null">
+        PRESS_DOWNHOLE_TIME_OUT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="commExTimeOut != null">
+        #{commExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCommExTimeOut != null">
+        #{pressCommExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="strokeCommExTimeOut != null">
+        #{strokeCommExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="uTimeOut != null">
+        #{uTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="iTimeOut != null">
+        #{iTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilTimeOut != null">
+        #{pressOilTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyTimeOut != null">
+        #{jigFrequencyTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeTimeOut != null">
+        #{wellStrokeTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="loadTimeOut != null">
+        #{loadTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadTimeOut != null">
+        #{tempWellheadTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdTimeOut != null">
+        #{gtProdTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="gtTimeOut != null">
+        #{gtTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="flowWaterInstantTimeOut != null">
+        #{flowWaterInstantTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="closeWellExTimeOut != null">
+        #{closeWellExTimeOut,jdbcType=DECIMAL},
+      </if>
+
+      <if test="pressCaseTimeOut != null">
+        #{pressCaseTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownholeTimeOut != null">
+        #{pressDownholeTimeOut,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.warn.WarnTimeOut">
+    update WARN_TIME_OUT
+    <set>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="commExTimeOut != null">
+        COMM_EX_TIME_OUT = #{commExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCommExTimeOut != null">
+        PRESS_COMM_EX_TIME_OUT = #{pressCommExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="strokeCommExTimeOut != null">
+        STROKE_COMM_EX_TIME_OUT = #{strokeCommExTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="uTimeOut != null">
+        U_TIME_OUT = #{uTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="iTimeOut != null">
+        I_TIME_OUT = #{iTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilTimeOut != null">
+        PRESS_OIL_TIME_OUT = #{pressOilTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyTimeOut != null">
+        JIG_FREQUENCY_TIME_OUT = #{jigFrequencyTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeTimeOut != null">
+        WELL_STROKE_TIME_OUT = #{wellStrokeTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="loadTimeOut != null">
+        LOAD_TIME_OUT = #{loadTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadTimeOut != null">
+        TEMP_WELLHEAD_TIME_OUT = #{tempWellheadTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdTimeOut != null">
+        GT_PROD_TIME_OUT = #{gtProdTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="gtTimeOut != null">
+        GT_TIME_OUT = #{gtTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="flowWaterInstantTimeOut != null">
+        FLOW_WATER_INSTANT_TIME_OUT = #{flowWaterInstantTimeOut,jdbcType=VARCHAR},
+      </if>
+      <if test="closeWellExTimeOut != null">
+        CLOSE_WELL_EX_TIME_OUT = #{closeWellExTimeOut,jdbcType=DECIMAL},
+      </if>
+
+      <if test="pressCaseTimeOut != null">
+        PRESS_CASE_TIME_OUT = #{pressCaseTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownholeTimeOut != null">
+        PRESS_DOWNHOLE_TIME_OUT = #{pressDownholeTimeOut,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.warn.WarnTimeOut">
+    update WARN_TIME_OUT
+    set  USER_ID = #{userId,jdbcType=DECIMAL},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      AREA_ID = #{areaId,jdbcType=DECIMAL},
+      AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      COMM_EX_TIME_OUT = #{commExTimeOut,jdbcType=DECIMAL},
+      PRESS_COMM_EX_TIME_OUT = #{pressCommExTimeOut,jdbcType=DECIMAL},
+      STROKE_COMM_EX_TIME_OUT = #{strokeCommExTimeOut,jdbcType=DECIMAL},
+      U_TIME_OUT = #{uTimeOut,jdbcType=DECIMAL},
+      I_TIME_OUT = #{iTimeOut,jdbcType=DECIMAL},
+      PRESS_OIL_TIME_OUT = #{pressOilTimeOut,jdbcType=DECIMAL},
+      JIG_FREQUENCY_TIME_OUT = #{jigFrequencyTimeOut,jdbcType=DECIMAL},
+      WELL_STROKE_TIME_OUT = #{wellStrokeTimeOut,jdbcType=DECIMAL},
+      LOAD_TIME_OUT = #{loadTimeOut,jdbcType=DECIMAL},
+      TEMP_WELLHEAD_TIME_OUT = #{tempWellheadTimeOut,jdbcType=DECIMAL},
+      GT_PROD_TIME_OUT = #{gtProdTimeOut,jdbcType=DECIMAL},
+      GT_TIME_OUT = #{gtTimeOut,jdbcType=DECIMAL},
+      MARK = #{mark,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="search"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from WARN_TIME_OUT
+    where 1=1
+    and area_id in
+    <foreach collection="areaIds" index="index" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+   order by area_id asc
+  </select>
+
+  <select id="selectNotConfigTimeOut" resultMap="BaseResultMap">
+    select id,area_name from AREA_INFO where 1=1
+    and id in
+    <foreach collection="areaIds" index="index" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    and
+    id not in (select area_id from WARN_TIME_OUT)
+
+  </select>
+
+</mapper>

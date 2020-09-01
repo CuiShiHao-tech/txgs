@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.map.StationInfoMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.map.StationInfo">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="STATION_NAME" jdbcType="VARCHAR" property="stationName" />
+    <result column="AREA_ID" jdbcType="DECIMAL" property="areaId" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, STATION_NAME, AREA_ID, AREA_NAME, REMARK, MARK, STIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FOOD.STATION_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from FOOD.STATION_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.map.StationInfo">
+    insert into FOOD.STATION_INFO (ID, STATION_NAME, AREA_ID, 
+      AREA_NAME, REMARK, MARK, 
+      STIME)
+    values (#{id,jdbcType=DECIMAL}, #{stationName,jdbcType=VARCHAR}, #{areaId,jdbcType=DECIMAL}, 
+      #{areaName,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{mark,jdbcType=DECIMAL}, 
+      #{stime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.map.StationInfo">
+    insert into FOOD.STATION_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="stationName != null">
+        STATION_NAME,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.map.StationInfo">
+    update FOOD.STATION_INFO
+    <set>
+      <if test="stationName != null">
+        STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.map.StationInfo">
+    update FOOD.STATION_INFO
+    set STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      AREA_ID = #{areaId,jdbcType=DECIMAL},
+      AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="selectById" resultMap="BaseResultMap" >
+     select id,station_name from station_info
+     order by id
+  </select>
+
+  <select id="selectByAll" resultMap="BaseResultMap" >
+     select * from station_info
+     order by id
+  </select>
+</mapper>

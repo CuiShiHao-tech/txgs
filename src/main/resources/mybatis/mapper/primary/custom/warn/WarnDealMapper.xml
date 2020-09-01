@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.warn.WarnDealMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.warn.WarnDeal">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="WARN_ID" jdbcType="DECIMAL" property="warnId" />
+    <result column="REPORTER" jdbcType="VARCHAR" property="reporter" />
+    <result column="ALERT_DATE" jdbcType="TIMESTAMP" property="alertDate" />
+    <result column="MAINTAINER" jdbcType="VARCHAR" property="maintainer" />
+    <result column="MAINTAIN_DATE" jdbcType="TIMESTAMP" property="maintainDate" />
+    <result column="RESULT" jdbcType="VARCHAR" property="result" />
+    <result column="NEXT_HANDLE" jdbcType="VARCHAR" property="nextHandle" />
+    <result column="MARK" jdbcType="VARCHAR" property="mark" />
+    <result column="MARK1" jdbcType="VARCHAR" property="mark1" />
+    <result column="RECEIVER" jdbcType="VARCHAR" property="receiver" />
+    <result column="TIME_SPAN" jdbcType="DECIMAL" property="timeSpan" />
+    <result column="MAINTAIN_STATE" jdbcType="VARCHAR" property="maintainState" />
+    <result column="HANDLE_WAY" jdbcType="VARCHAR" property="handleWay" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, WARN_ID, REPORTER, ALERT_DATE, MAINTAINER, MAINTAIN_DATE, RESULT, NEXT_HANDLE,
+    MARK, MARK1, RECEIVER, TIME_SPAN, MAINTAIN_STATE, HANDLE_WAY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WARN_DEAL
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from WARN_DEAL
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.warn.WarnDeal">
+    insert into WARN_DEAL (ID, WARN_ID, REPORTER,
+      ALERT_DATE, MAINTAINER, MAINTAIN_DATE,
+      RESULT, NEXT_HANDLE, MARK, 
+      MARK1, RECEIVER, TIME_SPAN, 
+      MAINTAIN_STATE, HANDLE_WAY)
+    values (#{id,jdbcType=DECIMAL}, #{warnId,jdbcType=DECIMAL}, #{reporter,jdbcType=VARCHAR}, 
+      #{alertDate,jdbcType=TIMESTAMP}, #{maintainer,jdbcType=VARCHAR}, #{maintainDate,jdbcType=TIMESTAMP},
+      #{result,jdbcType=VARCHAR}, #{nextHandle,jdbcType=VARCHAR}, #{mark,jdbcType=VARCHAR}, 
+      #{mark1,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR}, #{timeSpan,jdbcType=DECIMAL}, 
+      #{maintainState,jdbcType=VARCHAR}, #{handleWay,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.warn.WarnDeal">
+    insert into WARN_DEAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="warnId != null">
+        WARN_ID,
+      </if>
+      <if test="reporter != null">
+        REPORTER,
+      </if>
+      <if test="alertDate != null">
+        ALERT_DATE,
+      </if>
+      <if test="maintainer != null">
+        MAINTAINER,
+      </if>
+      <if test="maintainDate != null">
+        MAINTAIN_DATE,
+      </if>
+      <if test="result != null">
+        RESULT,
+      </if>
+      <if test="nextHandle != null">
+        NEXT_HANDLE,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="mark1 != null">
+        MARK1,
+      </if>
+      <if test="receiver != null">
+        RECEIVER,
+      </if>
+      <if test="timeSpan != null">
+        TIME_SPAN,
+      </if>
+      <if test="maintainState != null">
+        MAINTAIN_STATE,
+      </if>
+      <if test="handleWay != null">
+        HANDLE_WAY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="warnId != null">
+        #{warnId,jdbcType=DECIMAL},
+      </if>
+      <if test="reporter != null">
+        #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="alertDate != null">
+        sysdate,
+      </if>
+      <if test="maintainer != null">
+        #{maintainer,jdbcType=VARCHAR},
+      </if>
+      <if test="maintainDate != null">
+        #{maintainDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="nextHandle != null">
+        #{nextHandle,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null">
+        #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="timeSpan != null">
+        #{timeSpan,jdbcType=DECIMAL},
+      </if>
+      <if test="maintainState != null">
+        #{maintainState,jdbcType=VARCHAR},
+      </if>
+      <if test="handleWay != null">
+        #{handleWay,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.warn.WarnDeal">
+    update WARN_DEAL
+    <set>
+      <if test="warnId != null">
+        WARN_ID = #{warnId,jdbcType=DECIMAL},
+      </if>
+      <if test="reporter != null">
+        REPORTER = #{reporter,jdbcType=VARCHAR},
+      </if>
+      <if test="alertDate != null">
+        ALERT_DATE = #{alertDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="maintainer != null">
+        MAINTAINER = #{maintainer,jdbcType=VARCHAR},
+      </if>
+      <if test="maintainDate != null">
+        MAINTAIN_DATE = #{maintainDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="result != null">
+        RESULT = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="nextHandle != null">
+        NEXT_HANDLE = #{nextHandle,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        MARK1 = #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null">
+        RECEIVER = #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="timeSpan != null">
+        TIME_SPAN = #{timeSpan,jdbcType=DECIMAL},
+      </if>
+      <if test="maintainState != null">
+        MAINTAIN_STATE = #{maintainState,jdbcType=VARCHAR},
+      </if>
+      <if test="handleWay != null">
+        HANDLE_WAY = #{handleWay,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.warn.WarnDeal">
+    update WARN_DEAL
+    set WARN_ID = #{warnId,jdbcType=DECIMAL},
+      REPORTER = #{reporter,jdbcType=VARCHAR},
+      ALERT_DATE = #{alertDate,jdbcType=TIMESTAMP},
+      MAINTAINER = #{maintainer,jdbcType=VARCHAR},
+      MAINTAIN_DATE = #{maintainDate,jdbcType=TIMESTAMP},
+      RESULT = #{result,jdbcType=VARCHAR},
+      NEXT_HANDLE = #{nextHandle,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=VARCHAR},
+      MARK1 = #{mark1,jdbcType=VARCHAR},
+      RECEIVER = #{receiver,jdbcType=VARCHAR},
+      TIME_SPAN = #{timeSpan,jdbcType=DECIMAL},
+      MAINTAIN_STATE = #{maintainState,jdbcType=VARCHAR},
+      HANDLE_WAY = #{handleWay,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from WARN_DEAL
+
+    order by alert_date desc
+  </select>
+
+  <select id="selectByWarnId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from WARN_DEAL  where warn_Id = #{warnId,jdbcType=DECIMAL}
+  </select>
+
+</mapper>

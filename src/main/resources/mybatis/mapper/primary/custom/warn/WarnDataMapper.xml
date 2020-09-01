@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.warn.WarnDataMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.warn.WarnData">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="ALERT_KIND_ID" jdbcType="DECIMAL" property="alertKindId" />
+    <result column="ALERT_KIND" jdbcType="VARCHAR" property="alertKind" />
+    <result column="ALERT_TYPE_ID" jdbcType="DECIMAL" property="alertTypeId" />
+    <result column="ALERT_TYPE" jdbcType="VARCHAR" property="alertType" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="MARK" jdbcType="VARCHAR" property="mark" />
+    <result column="MARK1" jdbcType="VARCHAR" property="mark1" />
+    <result column="ALERT_CUR" jdbcType="DECIMAL" property="alertCur" />
+    <result column="ALERT_UP" jdbcType="DECIMAL" property="alertUp" />
+    <result column="ALERT_DOWN" jdbcType="DECIMAL" property="alertDown" />
+    <result column="ADVICE" jdbcType="VARCHAR" property="advice" />
+    <result column="COUNT" jdbcType="DECIMAL" property="count" />
+    <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+  </resultMap>
+
+  <resultMap id="WarnDataAndDeal" type="server.db.primary.model.warn.WarnDataAndDeal">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="ALERT_KIND_ID" jdbcType="DECIMAL" property="alertKindId" />
+    <result column="ALERT_KIND" jdbcType="VARCHAR" property="alertKind" />
+    <result column="ALERT_TYPE_ID" jdbcType="DECIMAL" property="alertTypeId" />
+    <result column="ALERT_TYPE" jdbcType="VARCHAR" property="alertType" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="MARK" jdbcType="VARCHAR" property="mark" />
+    <result column="MARK1" jdbcType="VARCHAR" property="mark1" />
+    <result column="ALERT_CUR" jdbcType="DECIMAL" property="alertCur" />
+    <result column="ALERT_UP" jdbcType="DECIMAL" property="alertUp" />
+    <result column="ALERT_DOWN" jdbcType="DECIMAL" property="alertDown" />
+    <result column="ADVICE" jdbcType="VARCHAR" property="advice" />
+    <result column="REPORTER" jdbcType="VARCHAR" property="reporter" />
+    <result column="ALERT_DATE" jdbcType="TIMESTAMP" property="alertDate" />
+    <result column="MAINTAINER" jdbcType="VARCHAR" property="maintainer" />
+    <result column="MAINTAIN_DATE" jdbcType="TIMESTAMP" property="maintainDate" />
+    <result column="RESULT" jdbcType="VARCHAR" property="result" />
+    <result column="NEXT_HANDLE" jdbcType="VARCHAR" property="nextHandle" />
+    <result column="STATION_NAME" jdbcType="VARCHAR" property="stationName" />
+    <result column="RECEIVER" jdbcType="VARCHAR" property="receiver" />
+    <result column="TIME_SPAN" jdbcType="DECIMAL" property="timeSpan" />
+    <result column="MAINTAIN_STATE" jdbcType="VARCHAR" property="maintainState" />
+    <result column="HANDLE_WAY" jdbcType="VARCHAR" property="handleWay" />
+    <result column="WARN_DEAL_ID" jdbcType="DECIMAL" property="warnDealId" />
+    <result column="COUNT" jdbcType="DECIMAL" property="count" />
+    <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, WELL_ID, ALERT_KIND_ID, ALERT_KIND, ALERT_TYPE_ID, ALERT_TYPE, STATUS,
+    STIME, MARK, MARK1, ALERT_CUR, ALERT_UP, ALERT_DOWN,ADVICE,START_TIME,END_TIME,COUNT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WARN_DATA
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from WARN_DATA
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.warn.WarnData">
+    insert into WARN_DATA (ID, WELL_ID,
+      ALERT_KIND_ID, ALERT_KIND, ALERT_TYPE_ID, 
+      ALERT_TYPE, STATUS, STIME, 
+      MARK, MARK1, ALERT_CUR, 
+      ALERT_UP, ALERT_DOWN,ADVICE)
+    values (#{id,jdbcType=DECIMAL}, #{wellId,jdbcType=DECIMAL},
+      #{alertKindId,jdbcType=DECIMAL}, #{alertKind,jdbcType=VARCHAR}, #{alertTypeId,jdbcType=DECIMAL}, 
+      #{alertType,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{stime,jdbcType=TIMESTAMP}, 
+      #{mark,jdbcType=VARCHAR}, #{mark1,jdbcType=VARCHAR}, #{alertCur,jdbcType=DECIMAL}, 
+      #{alertUp,jdbcType=DECIMAL}, #{alertDown,jdbcType=DECIMAL}, #{advice,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.warn.WarnData">
+    insert into WARN_DATA
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="alertKindId != null">
+        ALERT_KIND_ID,
+      </if>
+      <if test="alertKind != null">
+        ALERT_KIND,
+      </if>
+      <if test="alertTypeId != null">
+        ALERT_TYPE_ID,
+      </if>
+      <if test="alertType != null">
+        ALERT_TYPE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="mark1 != null">
+        MARK1,
+      </if>
+      <if test="alertCur != null">
+        ALERT_CUR,
+      </if>
+      <if test="alertUp != null">
+        ALERT_UP,
+      </if>
+      <if test="alertDown != null">
+        ALERT_DOWN,
+      </if>
+      <if test="advice != null">
+        ADVICE,
+      </if>
+      <if test="count != null">
+        COUNT,
+      </if>
+      <if test="startTime != null">
+        START_TIME,
+      </if>
+      <if test="endTime != null">
+        END_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="alertKindId != null">
+        #{alertKindId,jdbcType=DECIMAL},
+      </if>
+      <if test="alertKind != null">
+        #{alertKind,jdbcType=VARCHAR},
+      </if>
+      <if test="alertTypeId != null">
+        #{alertTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="alertType != null">
+        #{alertType,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="alertCur != null">
+        #{alertCur,jdbcType=DECIMAL},
+      </if>
+      <if test="alertUp != null">
+        #{alertUp,jdbcType=DECIMAL},
+      </if>
+      <if test="alertDown != null">
+        #{alertDown,jdbcType=DECIMAL},
+      </if>
+      <if test="advice != null">
+        #{advice,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=DECIMAL},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.warn.WarnData">
+    update WARN_DATA
+    <set>
+      <if test="wellId != null">
+        WELL_ID = #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="alertKindId != null">
+        ALERT_KIND_ID = #{alertKindId,jdbcType=DECIMAL},
+      </if>
+      <if test="alertKind != null">
+        ALERT_KIND = #{alertKind,jdbcType=VARCHAR},
+      </if>
+      <if test="alertTypeId != null">
+        ALERT_TYPE_ID = #{alertTypeId,jdbcType=DECIMAL},
+      </if>
+      <if test="alertType != null">
+        ALERT_TYPE = #{alertType,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        MARK1 = #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="alertCur != null">
+        ALERT_CUR = #{alertCur,jdbcType=DECIMAL},
+      </if>
+      <if test="alertUp != null">
+        ALERT_UP = #{alertUp,jdbcType=DECIMAL},
+      </if>
+      <if test="alertDown != null">
+        ALERT_DOWN = #{alertDown,jdbcType=DECIMAL},
+      </if>
+      <if test="advice != null">
+        ADVICE = #{advice,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.warn.WarnData">
+    update WARN_DATA
+    set WELL_ID = #{wellId,jdbcType=DECIMAL},
+      ALERT_KIND_ID = #{alertKindId,jdbcType=DECIMAL},
+      ALERT_KIND = #{alertKind,jdbcType=VARCHAR},
+      ALERT_TYPE_ID = #{alertTypeId,jdbcType=DECIMAL},
+      ALERT_TYPE = #{alertType,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      MARK = #{mark,jdbcType=VARCHAR},
+      MARK1 = #{mark1,jdbcType=VARCHAR},
+      ALERT_CUR = #{alertCur,jdbcType=DECIMAL},
+      ALERT_UP = #{alertUp,jdbcType=DECIMAL},
+      ALERT_DOWN = #{alertDown,jdbcType=DECIMAL},
+       ADVICE = #{advice,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <select id="selectAll" resultMap="WarnDataAndDeal">
+    select
+    a.*,
+    c.well_name,
+    c.station_name,
+      b.ID as WARN_DEAL_ID,
+    b.reporter,
+    b.ALERT_DATE,
+    b.MAINTAINER,
+    b.MAINTAIN_DATE,
+    b.RESULT,
+    b.NEXT_HANDLE,
+    b.RECEIVER,
+    b.TIME_SPAN,
+    b.MAINTAIN_STATE,
+    b.HANDLE_WAY
+    from WARN_DATA a
+    join well_info c on c.id=a.well_id
+
+    left join warn_deal b  on
+    a.id=b.WARN_ID
+    where 1=1
+
+    and a.WELL_ID IN (  SELECT ID FROM WELL_INFO WHERE
+    <choose>
+      <when test="areaIds != null and areaIds.size>0 ">
+        AREA_ID in
+        <foreach collection="areaIds" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </when>
+      <otherwise>
+        1=1
+      </otherwise>
+    </choose>
+
+    )
+
+    <if test="alertKind!= null and alertKind!=''">
+      and  a.ALERT_KIND= #{alertKind,jdbcType=VARCHAR}
+    </if>
+
+      <![CDATA[   and a.stime<sysdate and a.stime>sysdate-1  ]]>
+    order by a.stime DESC
+  </select>
+
+  <select id="Search" resultMap="WarnDataAndDeal">
+    select
+    a.*,
+    c.well_name,
+    c.station_name,
+    b.ID as WARN_DEAL_ID,
+    b.reporter,
+    b.ALERT_DATE,
+    b.MAINTAINER,
+    b.MAINTAIN_DATE,
+    b.RESULT,
+    b.NEXT_HANDLE,
+    b.RECEIVER,
+    b.TIME_SPAN,
+    b.MAINTAIN_STATE,
+    b.HANDLE_WAY
+
+    from WARN_DATA a
+
+    join well_info c on c.id=a.well_id
+
+    left join warn_deal b  on   a.id=b.WARN_ID
+    where 1=1
+
+    and a.WELL_ID IN (
+
+    SELECT id FROM WELL_INFO WHERE
+    <choose>
+      <when test="areaIds != null and areaIds.size>0 ">
+        AREA_ID in
+        <foreach collection="areaIds" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </when>
+      <otherwise>
+        1=1
+      </otherwise>
+    </choose>
+
+    <if test="areaId != null and areaId!=''">
+   and    AREA_ID = #{areaId}
+    </if>
+
+    <if test="stationId != null and stationId!=''">
+   and  STATION_ID = #{stationId}
+    </if>
+    )
+
+    <if test="alertKind!= null and alertKind!=''">
+      and  a.ALERT_KIND= #{alertKind,jdbcType=VARCHAR}
+    </if>
+
+    <if test="alertType!= null and alertType!=''">
+      and    a.ALERT_TYPE= #{alertType,jdbcType=VARCHAR}
+    </if>
+
+    <if test="handleWay!= null and handleWay!=''">
+      and    b.HANDLE_WAY= #{handleWay,jdbcType=VARCHAR}
+    </if>
+
+    <if test="maintainState!= null and maintainState!=''">
+      and    b.MAINTAIN_STATE= #{maintainState,jdbcType=VARCHAR}
+    </if>
+
+    <if test="timeStart != null and timeStart != ''">
+      and  a.stime &gt;= to_date(#{timeStart}, 'yyyy-MM-dd hh24:mi:ss')
+    </if>
+    <if test="timeEnd != null and timeEnd != ''">
+    and  a.stime &lt;= to_date(#{timeEnd}, 'yyyy-MM-dd hh24:mi:ss')
+   </if>
+    <if test="wellName != null and wellName != ''">
+    and  c.well_name LIKE CONCAT (
+    CONCAT (
+    '%',
+    #{wellName}
+    ),
+    '%'
+    )
+    </if>
+
+    order by a.stime desc
+  </select>
+
+</mapper>

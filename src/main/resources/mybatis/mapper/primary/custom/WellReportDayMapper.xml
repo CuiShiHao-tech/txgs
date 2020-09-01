@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.WellReportDayMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.WellReportDay">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="AREA_ID" jdbcType="DECIMAL" property="areaId" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="REPORT_DATE" jdbcType="VARCHAR" property="reportDate" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="P_ID" jdbcType="VARCHAR" property="pId" />
+    <result column="P_NAME" jdbcType="VARCHAR" property="pName" />
+    <result column="PROD_WELL" jdbcType="VARCHAR" property="prodWell" />
+    <result column="PUMPBOREDIAMETER" jdbcType="DECIMAL" property="pumpborediameter" />
+    <result column="PUMP_DEPTH" jdbcType="DECIMAL" property="pumpDepth" />
+    <result column="PRESS_DEPTH" jdbcType="DECIMAL" property="pressDepth" />
+    <result column="WELL_STROKE" jdbcType="DECIMAL" property="wellStroke" />
+    <result column="WELL_FREQ" jdbcType="DECIMAL" property="wellFreq" />
+    <result column="PRODUCINGFLUIDLEVEL" jdbcType="DECIMAL" property="producingfluidlevel" />
+    <result column="FLOW_GAS_TOTLE" jdbcType="DECIMAL" property="flowGasTotle" />
+    <result column="FLOW_GAS_TOTLE8" jdbcType="DECIMAL" property="flowGasTotle8" />
+    <result column="FLOW_GAS_DAY" jdbcType="DECIMAL" property="flowGasDay" />
+    <result column="FLOW_WATER_TOTLE" jdbcType="DECIMAL" property="flowWaterTotle" />
+    <result column="FLOW_WATER_TOTLE8" jdbcType="DECIMAL" property="flowWaterTotle8" />
+    <result column="FLOW_WATER_DAY" jdbcType="DECIMAL" property="flowWaterDay" />
+    <result column="PRESS_DOWNHOLE" jdbcType="DECIMAL" property="pressDownhole" />
+    <result column="PRESS_CASE" jdbcType="DECIMAL" property="pressCase" />
+    <result column="PRESS_DOWNHOLE8" jdbcType="DECIMAL" property="pressDownhole8" />
+    <result column="PRESS_VALUE" jdbcType="DECIMAL" property="pressValue" />
+    <result column="DISCHARGE_STAGE" jdbcType="VARCHAR" property="dischargeStage" />
+    <result column="DESIGN_PRESS" jdbcType="VARCHAR" property="designPress" />
+    <result column="CI" jdbcType="VARCHAR" property="ci" />
+    <result column="PH" jdbcType="VARCHAR" property="ph" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="PUMP_EFF" jdbcType="DECIMAL" property="pumpEff" />
+    <result column="FLOW_WATER_MM" jdbcType="DECIMAL" property="flowWaterMm" />
+    <result column="FLOW_GAS_MM" jdbcType="DECIMAL" property="flowGasMm" />
+    <result column="FLOW_GAS_YY" jdbcType="DECIMAL" property="flowGasYy" />
+    <result column="FLOW_WATER_YY" jdbcType="DECIMAL" property="flowWaterYy" />
+    <result column="PUMP_TYPE" jdbcType="VARCHAR" property="pumpType" />
+    <result column="PUMP_NAME" jdbcType="VARCHAR" property="pumpName" />
+    <result column="DRAIN_TIME" jdbcType="DECIMAL" property="drainTime" />
+    <result column="PROD_DATE" jdbcType="DECIMAL" property="prodDate" />
+    <result column="START_DATE" jdbcType="VARCHAR" property="startDate" />
+    <result column="PUMP_ID" jdbcType="DECIMAL" property="pumpId" />
+    <result column="PUMP_KW" jdbcType="DECIMAL" property="pumpKw" />
+    <result column="WELL_GAS" jdbcType="VARCHAR" property="wellGas" />
+    <result column="VFD_FREQ_RUN" jdbcType="DECIMAL" property="vfdFreqRun" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, AREA_ID, AREA_NAME, REPORT_DATE, WELL_ID, WELL_NAME, P_ID, P_NAME, PROD_WELL, 
+    PUMPBOREDIAMETER, PUMP_DEPTH, PRESS_DEPTH, WELL_STROKE, WELL_FREQ, PRODUCINGFLUIDLEVEL, 
+    FLOW_GAS_TOTLE, FLOW_GAS_TOTLE8, FLOW_GAS_DAY, FLOW_WATER_TOTLE, FLOW_WATER_TOTLE8, 
+    FLOW_WATER_DAY, PRESS_DOWNHOLE, PRESS_CASE, PRESS_DOWNHOLE8, PRESS_VALUE, DISCHARGE_STAGE, 
+    DESIGN_PRESS, CI, PH, REMARK, MARK, STIME, PUMP_EFF, FLOW_WATER_MM, FLOW_GAS_MM, 
+    FLOW_GAS_YY, FLOW_WATER_YY, PUMP_TYPE, PUMP_NAME, DRAIN_TIME, PROD_DATE, START_DATE, 
+    PUMP_ID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CBMDB.WELL_REPORT_DAY
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CBMDB.WELL_REPORT_DAY
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.WellReportDay">
+    insert into CBMDB.WELL_REPORT_DAY (ID, AREA_ID, AREA_NAME, 
+      REPORT_DATE, WELL_ID, WELL_NAME, 
+      P_ID, P_NAME, PROD_WELL, 
+      PUMPBOREDIAMETER, PUMP_DEPTH, PRESS_DEPTH, 
+      WELL_STROKE, WELL_FREQ, PRODUCINGFLUIDLEVEL, 
+      FLOW_GAS_TOTLE, FLOW_GAS_TOTLE8, FLOW_GAS_DAY, 
+      FLOW_WATER_TOTLE, FLOW_WATER_TOTLE8, FLOW_WATER_DAY, 
+      PRESS_DOWNHOLE, PRESS_CASE, PRESS_DOWNHOLE8, 
+      PRESS_VALUE, DISCHARGE_STAGE, DESIGN_PRESS, 
+      CI, PH, REMARK, MARK, 
+      STIME, PUMP_EFF, FLOW_WATER_MM, 
+      FLOW_GAS_MM, FLOW_GAS_YY, FLOW_WATER_YY, 
+      PUMP_TYPE, PUMP_NAME, DRAIN_TIME, 
+      PROD_DATE, START_DATE, PUMP_ID
+      )
+    values (#{id,jdbcType=DECIMAL}, #{areaId,jdbcType=DECIMAL}, #{areaName,jdbcType=VARCHAR}, 
+      #{reportDate,jdbcType=VARCHAR}, #{wellId,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, 
+      #{pId,jdbcType=VARCHAR}, #{pName,jdbcType=VARCHAR}, #{prodWell,jdbcType=VARCHAR}, 
+      #{pumpborediameter,jdbcType=DECIMAL}, #{pumpDepth,jdbcType=DECIMAL}, #{pressDepth,jdbcType=DECIMAL}, 
+      #{wellStroke,jdbcType=DECIMAL}, #{wellFreq,jdbcType=DECIMAL}, #{producingfluidlevel,jdbcType=DECIMAL}, 
+      #{flowGasTotle,jdbcType=DECIMAL}, #{flowGasTotle8,jdbcType=DECIMAL}, #{flowGasDay,jdbcType=DECIMAL}, 
+      #{flowWaterTotle,jdbcType=DECIMAL}, #{flowWaterTotle8,jdbcType=DECIMAL}, #{flowWaterDay,jdbcType=DECIMAL}, 
+      #{pressDownhole,jdbcType=DECIMAL}, #{pressCase,jdbcType=DECIMAL}, #{pressDownhole8,jdbcType=DECIMAL}, 
+      #{pressValue,jdbcType=DECIMAL}, #{dischargeStage,jdbcType=VARCHAR}, #{designPress,jdbcType=VARCHAR}, 
+      #{ci,jdbcType=VARCHAR}, #{ph,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{mark,jdbcType=DECIMAL}, 
+      #{stime,jdbcType=TIMESTAMP}, #{pumpEff,jdbcType=DECIMAL}, #{flowWaterMm,jdbcType=DECIMAL}, 
+      #{flowGasMm,jdbcType=DECIMAL}, #{flowGasYy,jdbcType=DECIMAL}, #{flowWaterYy,jdbcType=DECIMAL}, 
+      #{pumpType,jdbcType=VARCHAR}, #{pumpName,jdbcType=VARCHAR}, #{drainTime,jdbcType=DECIMAL}, 
+      #{prodDate,jdbcType=DECIMAL}, #{startDate,jdbcType=VARCHAR}, #{pumpId,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.WellReportDay">
+    insert into CBMDB.WELL_REPORT_DAY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+      <if test="reportDate != null">
+        REPORT_DATE,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="pId != null">
+        P_ID,
+      </if>
+      <if test="pName != null">
+        P_NAME,
+      </if>
+      <if test="prodWell != null">
+        PROD_WELL,
+      </if>
+      <if test="pumpborediameter != null">
+        PUMPBOREDIAMETER,
+      </if>
+      <if test="pumpDepth != null">
+        PUMP_DEPTH,
+      </if>
+      <if test="pressDepth != null">
+        PRESS_DEPTH,
+      </if>
+      <if test="wellStroke != null">
+        WELL_STROKE,
+      </if>
+      <if test="wellFreq != null">
+        WELL_FREQ,
+      </if>
+      <if test="producingfluidlevel != null">
+        PRODUCINGFLUIDLEVEL,
+      </if>
+      <if test="flowGasTotle != null">
+        FLOW_GAS_TOTLE,
+      </if>
+      <if test="flowGasTotle8 != null">
+        FLOW_GAS_TOTLE8,
+      </if>
+      <if test="flowGasDay != null">
+        FLOW_GAS_DAY,
+      </if>
+      <if test="flowWaterTotle != null">
+        FLOW_WATER_TOTLE,
+      </if>
+      <if test="flowWaterTotle8 != null">
+        FLOW_WATER_TOTLE8,
+      </if>
+      <if test="flowWaterDay != null">
+        FLOW_WATER_DAY,
+      </if>
+      <if test="pressDownhole != null">
+        PRESS_DOWNHOLE,
+      </if>
+      <if test="pressCase != null">
+        PRESS_CASE,
+      </if>
+      <if test="pressDownhole8 != null">
+        PRESS_DOWNHOLE8,
+      </if>
+      <if test="pressValue != null">
+        PRESS_VALUE,
+      </if>
+      <if test="dischargeStage != null">
+        DISCHARGE_STAGE,
+      </if>
+      <if test="designPress != null">
+        DESIGN_PRESS,
+      </if>
+      <if test="ci != null">
+        CI,
+      </if>
+      <if test="ph != null">
+        PH,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="pumpEff != null">
+        PUMP_EFF,
+      </if>
+      <if test="flowWaterMm != null">
+        FLOW_WATER_MM,
+      </if>
+      <if test="flowGasMm != null">
+        FLOW_GAS_MM,
+      </if>
+      <if test="flowGasYy != null">
+        FLOW_GAS_YY,
+      </if>
+      <if test="flowWaterYy != null">
+        FLOW_WATER_YY,
+      </if>
+      <if test="pumpType != null">
+        PUMP_TYPE,
+      </if>
+      <if test="pumpName != null">
+        PUMP_NAME,
+      </if>
+      <if test="drainTime != null">
+        DRAIN_TIME,
+      </if>
+      <if test="prodDate != null">
+        PROD_DATE,
+      </if>
+      <if test="startDate != null">
+        START_DATE,
+      </if>
+      <if test="pumpId != null">
+        PUMP_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDate != null">
+        #{reportDate,jdbcType=VARCHAR},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null">
+        #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="pName != null">
+        #{pName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodWell != null">
+        #{prodWell,jdbcType=VARCHAR},
+      </if>
+      <if test="pumpborediameter != null">
+        #{pumpborediameter,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpDepth != null">
+        #{pumpDepth,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDepth != null">
+        #{pressDepth,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStroke != null">
+        #{wellStroke,jdbcType=DECIMAL},
+      </if>
+      <if test="wellFreq != null">
+        #{wellFreq,jdbcType=DECIMAL},
+      </if>
+      <if test="producingfluidlevel != null">
+        #{producingfluidlevel,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle != null">
+        #{flowGasTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle8 != null">
+        #{flowGasTotle8,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasDay != null">
+        #{flowGasDay,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterTotle != null">
+        #{flowWaterTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterTotle8 != null">
+        #{flowWaterTotle8,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterDay != null">
+        #{flowWaterDay,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownhole != null">
+        #{pressDownhole,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCase != null">
+        #{pressCase,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownhole8 != null">
+        #{pressDownhole8,jdbcType=DECIMAL},
+      </if>
+      <if test="pressValue != null">
+        #{pressValue,jdbcType=DECIMAL},
+      </if>
+      <if test="dischargeStage != null">
+        #{dischargeStage,jdbcType=VARCHAR},
+      </if>
+      <if test="designPress != null">
+        #{designPress,jdbcType=VARCHAR},
+      </if>
+      <if test="ci != null">
+        #{ci,jdbcType=VARCHAR},
+      </if>
+      <if test="ph != null">
+        #{ph,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pumpEff != null">
+        #{pumpEff,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterMm != null">
+        #{flowWaterMm,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasMm != null">
+        #{flowGasMm,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasYy != null">
+        #{flowGasYy,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterYy != null">
+        #{flowWaterYy,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpType != null">
+        #{pumpType,jdbcType=VARCHAR},
+      </if>
+      <if test="pumpName != null">
+        #{pumpName,jdbcType=VARCHAR},
+      </if>
+      <if test="drainTime != null">
+        #{drainTime,jdbcType=DECIMAL},
+      </if>
+      <if test="prodDate != null">
+        #{prodDate,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="pumpId != null">
+        #{pumpId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.WellReportDay">
+    update CBMDB.WELL_REPORT_DAY
+    <set>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDate != null">
+        REPORT_DATE = #{reportDate,jdbcType=VARCHAR},
+      </if>
+      <if test="wellId != null">
+        WELL_ID = #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null">
+        P_ID = #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="pName != null">
+        P_NAME = #{pName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodWell != null">
+        PROD_WELL = #{prodWell,jdbcType=VARCHAR},
+      </if>
+      <if test="pumpborediameter != null">
+        PUMPBOREDIAMETER = #{pumpborediameter,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpDepth != null">
+        PUMP_DEPTH = #{pumpDepth,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDepth != null">
+        PRESS_DEPTH = #{pressDepth,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStroke != null">
+        WELL_STROKE = #{wellStroke,jdbcType=DECIMAL},
+      </if>
+      <if test="wellFreq != null">
+        WELL_FREQ = #{wellFreq,jdbcType=DECIMAL},
+      </if>
+      <if test="producingfluidlevel != null">
+        PRODUCINGFLUIDLEVEL = #{producingfluidlevel,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle != null">
+        FLOW_GAS_TOTLE = #{flowGasTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasTotle8 != null">
+        FLOW_GAS_TOTLE8 = #{flowGasTotle8,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasDay != null">
+        FLOW_GAS_DAY = #{flowGasDay,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterTotle != null">
+        FLOW_WATER_TOTLE = #{flowWaterTotle,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterTotle8 != null">
+        FLOW_WATER_TOTLE8 = #{flowWaterTotle8,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterDay != null">
+        FLOW_WATER_DAY = #{flowWaterDay,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownhole != null">
+        PRESS_DOWNHOLE = #{pressDownhole,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCase != null">
+        PRESS_CASE = #{pressCase,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownhole8 != null">
+        PRESS_DOWNHOLE8 = #{pressDownhole8,jdbcType=DECIMAL},
+      </if>
+      <if test="pressValue != null">
+        PRESS_VALUE = #{pressValue,jdbcType=DECIMAL},
+      </if>
+      <if test="dischargeStage != null">
+        DISCHARGE_STAGE = #{dischargeStage,jdbcType=VARCHAR},
+      </if>
+      <if test="designPress != null">
+        DESIGN_PRESS = #{designPress,jdbcType=VARCHAR},
+      </if>
+      <if test="ci != null">
+        CI = #{ci,jdbcType=VARCHAR},
+      </if>
+      <if test="ph != null">
+        PH = #{ph,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pumpEff != null">
+        PUMP_EFF = #{pumpEff,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterMm != null">
+        FLOW_WATER_MM = #{flowWaterMm,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasMm != null">
+        FLOW_GAS_MM = #{flowGasMm,jdbcType=DECIMAL},
+      </if>
+      <if test="flowGasYy != null">
+        FLOW_GAS_YY = #{flowGasYy,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterYy != null">
+        FLOW_WATER_YY = #{flowWaterYy,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpType != null">
+        PUMP_TYPE = #{pumpType,jdbcType=VARCHAR},
+      </if>
+      <if test="pumpName != null">
+        PUMP_NAME = #{pumpName,jdbcType=VARCHAR},
+      </if>
+      <if test="drainTime != null">
+        DRAIN_TIME = #{drainTime,jdbcType=DECIMAL},
+      </if>
+      <if test="prodDate != null">
+        PROD_DATE = #{prodDate,jdbcType=DECIMAL},
+      </if>
+      <if test="startDate != null">
+        START_DATE = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="pumpId != null">
+        PUMP_ID = #{pumpId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellGas != null">
+        WELL_GAS = #{wellGas,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.WellReportDay">
+    update CBMDB.WELL_REPORT_DAY
+    set AREA_ID = #{areaId,jdbcType=DECIMAL},
+      AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      REPORT_DATE = #{reportDate,jdbcType=VARCHAR},
+      WELL_ID = #{wellId,jdbcType=DECIMAL},
+      WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      P_ID = #{pId,jdbcType=VARCHAR},
+      P_NAME = #{pName,jdbcType=VARCHAR},
+      PROD_WELL = #{prodWell,jdbcType=VARCHAR},
+      PUMPBOREDIAMETER = #{pumpborediameter,jdbcType=DECIMAL},
+      PUMP_DEPTH = #{pumpDepth,jdbcType=DECIMAL},
+      PRESS_DEPTH = #{pressDepth,jdbcType=DECIMAL},
+      WELL_STROKE = #{wellStroke,jdbcType=DECIMAL},
+      WELL_FREQ = #{wellFreq,jdbcType=DECIMAL},
+      PRODUCINGFLUIDLEVEL = #{producingfluidlevel,jdbcType=DECIMAL},
+      FLOW_GAS_TOTLE = #{flowGasTotle,jdbcType=DECIMAL},
+      FLOW_GAS_TOTLE8 = #{flowGasTotle8,jdbcType=DECIMAL},
+      FLOW_GAS_DAY = #{flowGasDay,jdbcType=DECIMAL},
+      FLOW_WATER_TOTLE = #{flowWaterTotle,jdbcType=DECIMAL},
+      FLOW_WATER_TOTLE8 = #{flowWaterTotle8,jdbcType=DECIMAL},
+      FLOW_WATER_DAY = #{flowWaterDay,jdbcType=DECIMAL},
+      PRESS_DOWNHOLE = #{pressDownhole,jdbcType=DECIMAL},
+      PRESS_CASE = #{pressCase,jdbcType=DECIMAL},
+      PRESS_DOWNHOLE8 = #{pressDownhole8,jdbcType=DECIMAL},
+      PRESS_VALUE = #{pressValue,jdbcType=DECIMAL},
+      DISCHARGE_STAGE = #{dischargeStage,jdbcType=VARCHAR},
+      DESIGN_PRESS = #{designPress,jdbcType=VARCHAR},
+      CI = #{ci,jdbcType=VARCHAR},
+      PH = #{ph,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      PUMP_EFF = #{pumpEff,jdbcType=DECIMAL},
+      FLOW_WATER_MM = #{flowWaterMm,jdbcType=DECIMAL},
+      FLOW_GAS_MM = #{flowGasMm,jdbcType=DECIMAL},
+      FLOW_GAS_YY = #{flowGasYy,jdbcType=DECIMAL},
+      FLOW_WATER_YY = #{flowWaterYy,jdbcType=DECIMAL},
+      PUMP_TYPE = #{pumpType,jdbcType=VARCHAR},
+      PUMP_NAME = #{pumpName,jdbcType=VARCHAR},
+      DRAIN_TIME = #{drainTime,jdbcType=DECIMAL},
+      PROD_DATE = #{prodDate,jdbcType=DECIMAL},
+      START_DATE = #{startDate,jdbcType=VARCHAR},
+      PUMP_ID = #{pumpId,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByWellId" resultMap="BaseResultMap">
+    select * from WELL_REPORT_DAY
+    where Well_ID = #{wellId}
+    and well_id in (select id from well_info where AUTOMATION_MARK=0 and mark=0)
+
+    <if test="timeStart != null and timeStart != ''">
+      AND report_date>=#{timeStart}
+    </if>
+    <if test="timeEnd != null and timeEnd != ''">
+      <![CDATA[
+      AND report_date<=#{timeEnd}
+      ]]>
+    </if>
+    ORDER BY report_date
+  </select>
+  <select id="selectByReportDate" resultMap="BaseResultMap">
+    select * from WELL_REPORT_DAY
+    where well_id in (select id from well_info where AUTOMATION_MARK=0 and mark=0)
+    AND report_date=#{reportDate}
+    ORDER BY well_id
+  </select>
+  <select id="dayProportion" resultMap="BaseResultMap">
+    SELECT  WELL_NAME,FLOW_GAS_DAY,FLOW_WATER_DAY
+    FROM WELL_REPORT_DAY
+    WHERE REPORT_DATE=#{reportDate}
+    ORDER BY WELL_ID
+  </select>
+  <select id="selectByDay" resultMap="BaseResultMap">
+    SELECT SUM(a1) a1,SUM(a2) a2  from (
+      select
+      FLOW_GAS_DAY a1,FLOW_WATER_DAY a2
+      FROM WELL_REPORT_DAY
+      WHERE REPORT_DATE=#{reportDate})
+  </select>
+  <select id="sevenDayTrend" resultMap="BaseResultMap">
+    SELECT REPORT_DATE,SUM(FLOW_GAS_DAY) FLOW_GAS_DAY,SUM(FLOW_WATER_DAY) FLOW_WATER_DAY from (
+      select
+	  REPORT_DATE,FLOW_GAS_DAY,FLOW_WATER_DAY
+	  FROM WELL_REPORT_DAY
+	  WHERE REPORT_DATE &gt;= to_char(sysdate-6,'yyyy-mm-dd'))
+	GROUP BY REPORT_DATE
+	ORDER BY REPORT_DATE
+  </select>
+
+
+
+</mapper>

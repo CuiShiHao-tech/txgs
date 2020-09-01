@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.WellInfoMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.WellInfo">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="WELL_NAME_ALIAS" jdbcType="VARCHAR" property="wellNameAlias" />
+    <result column="WELL_NUM" jdbcType="DECIMAL" property="wellNum" />
+    <result column="CO_ID" jdbcType="DECIMAL" property="coId" />
+    <result column="CO_NAME" jdbcType="VARCHAR" property="coName" />
+    <result column="AREA_ID" jdbcType="DECIMAL" property="areaId" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="AREA_NUM" jdbcType="DECIMAL" property="areaNum" />
+    <result column="STATION_ID" jdbcType="DECIMAL" property="stationId" />
+    <result column="STATION_NAME" jdbcType="VARCHAR" property="stationName" />
+    <result column="STATION_NUM" jdbcType="DECIMAL" property="stationNum" />
+    <result column="GROUP_ID" jdbcType="DECIMAL" property="groupId" />
+    <result column="GROUP_NAME" jdbcType="VARCHAR" property="groupName" />
+    <result column="RTU_TYPE" jdbcType="VARCHAR" property="rtuType" />
+    <result column="RTU_IPADDR" jdbcType="VARCHAR" property="rtuIpaddr" />
+    <result column="RTU_PORT" jdbcType="DECIMAL" property="rtuPort" />
+    <result column="WELL_X" jdbcType="DECIMAL" property="wellX" />
+    <result column="WELL_Y" jdbcType="DECIMAL" property="wellY" />
+    <result column="WELL_TYPE" jdbcType="VARCHAR" property="wellType" />
+    <result column="PUMP_TYPE" jdbcType="VARCHAR" property="pumpType" />
+    <result column="AUTOMATION_MARK" jdbcType="DECIMAL" property="automationMark" />
+    <result column="PRESS_PIPE_W_ID" jdbcType="DECIMAL" property="pressPipeWId" />
+    <result column="PRESS_PIPE_W_NAME" jdbcType="VARCHAR" property="pressPipeWName" />
+    <result column="AUTO_DRAINAGE" jdbcType="DECIMAL" property="autoDrainage" />
+    <result column="V_MARK" jdbcType="DECIMAL" property="vMark" />
+    <result column="V_TYPE" jdbcType="DECIMAL" property="vType" />
+    <result column="V_TYPE_NAME" jdbcType="VARCHAR" property="vTypeName" />
+    <result column="V_IPADDR" jdbcType="VARCHAR" property="vIpaddr" />
+    <result column="WELL_STATE" jdbcType="VARCHAR" property="wellState" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, WELL_NAME, WELL_NAME_ALIAS, WELL_NUM, CO_ID, CO_NAME, AREA_ID, AREA_NAME, AREA_NUM, 
+    STATION_ID, STATION_NAME, STATION_NUM, GROUP_ID, GROUP_NAME, RTU_TYPE, RTU_IPADDR, 
+    RTU_PORT, WELL_X, WELL_Y, WELL_TYPE, PUMP_TYPE, AUTOMATION_MARK, PRESS_PIPE_W_ID, 
+    PRESS_PIPE_W_NAME, AUTO_DRAINAGE, V_MARK, V_TYPE, V_TYPE_NAME, V_IPADDR, WELL_STATE, 
+    MARK, STIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CBMDB.WELL_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CBMDB.WELL_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.WellInfo">
+    insert into CBMDB.WELL_INFO (ID, WELL_NAME, WELL_NAME_ALIAS, 
+      WELL_NUM, CO_ID, CO_NAME, 
+      AREA_ID, AREA_NAME, AREA_NUM, 
+      STATION_ID, STATION_NAME, STATION_NUM, 
+      GROUP_ID, GROUP_NAME, RTU_TYPE, 
+      RTU_IPADDR, RTU_PORT, WELL_X, 
+      WELL_Y, WELL_TYPE, PUMP_TYPE, 
+      AUTOMATION_MARK, PRESS_PIPE_W_ID, PRESS_PIPE_W_NAME, 
+      AUTO_DRAINAGE, V_MARK, V_TYPE, 
+      V_TYPE_NAME, V_IPADDR, WELL_STATE, 
+      MARK, STIME)
+    values (#{id,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, #{wellNameAlias,jdbcType=VARCHAR}, 
+      #{wellNum,jdbcType=DECIMAL}, #{coId,jdbcType=DECIMAL}, #{coName,jdbcType=VARCHAR}, 
+      #{areaId,jdbcType=DECIMAL}, #{areaName,jdbcType=VARCHAR}, #{areaNum,jdbcType=DECIMAL}, 
+      #{stationId,jdbcType=DECIMAL}, #{stationName,jdbcType=VARCHAR}, #{stationNum,jdbcType=DECIMAL}, 
+      #{groupId,jdbcType=DECIMAL}, #{groupName,jdbcType=VARCHAR}, #{rtuType,jdbcType=VARCHAR}, 
+      #{rtuIpaddr,jdbcType=VARCHAR}, #{rtuPort,jdbcType=DECIMAL}, #{wellX,jdbcType=DECIMAL}, 
+      #{wellY,jdbcType=DECIMAL}, #{wellType,jdbcType=VARCHAR}, #{pumpType,jdbcType=VARCHAR}, 
+      #{automationMark,jdbcType=DECIMAL}, #{pressPipeWId,jdbcType=DECIMAL}, #{pressPipeWName,jdbcType=VARCHAR}, 
+      #{autoDrainage,jdbcType=DECIMAL}, #{vMark,jdbcType=DECIMAL}, #{vType,jdbcType=DECIMAL}, 
+      #{vTypeName,jdbcType=VARCHAR}, #{vIpaddr,jdbcType=VARCHAR}, #{wellState,jdbcType=VARCHAR}, 
+      #{mark,jdbcType=DECIMAL}, #{stime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.WellInfo">
+    insert into CBMDB.WELL_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="wellNameAlias != null">
+        WELL_NAME_ALIAS,
+      </if>
+      <if test="wellNum != null">
+        WELL_NUM,
+      </if>
+      <if test="coId != null">
+        CO_ID,
+      </if>
+      <if test="coName != null">
+        CO_NAME,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+      <if test="areaNum != null">
+        AREA_NUM,
+      </if>
+      <if test="stationId != null">
+        STATION_ID,
+      </if>
+      <if test="stationName != null">
+        STATION_NAME,
+      </if>
+      <if test="stationNum != null">
+        STATION_NUM,
+      </if>
+      <if test="groupId != null">
+        GROUP_ID,
+      </if>
+      <if test="groupName != null">
+        GROUP_NAME,
+      </if>
+      <if test="rtuType != null">
+        RTU_TYPE,
+      </if>
+      <if test="rtuIpaddr != null">
+        RTU_IPADDR,
+      </if>
+      <if test="rtuPort != null">
+        RTU_PORT,
+      </if>
+      <if test="wellX != null">
+        WELL_X,
+      </if>
+      <if test="wellY != null">
+        WELL_Y,
+      </if>
+      <if test="wellType != null">
+        WELL_TYPE,
+      </if>
+      <if test="pumpType != null">
+        PUMP_TYPE,
+      </if>
+      <if test="automationMark != null">
+        AUTOMATION_MARK,
+      </if>
+      <if test="pressPipeWId != null">
+        PRESS_PIPE_W_ID,
+      </if>
+      <if test="pressPipeWName != null">
+        PRESS_PIPE_W_NAME,
+      </if>
+      <if test="autoDrainage != null">
+        AUTO_DRAINAGE,
+      </if>
+      <if test="vMark != null">
+        V_MARK,
+      </if>
+      <if test="vType != null">
+        V_TYPE,
+      </if>
+      <if test="vTypeName != null">
+        V_TYPE_NAME,
+      </if>
+      <if test="vIpaddr != null">
+        V_IPADDR,
+      </if>
+      <if test="wellState != null">
+        WELL_STATE,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellNameAlias != null">
+        #{wellNameAlias,jdbcType=VARCHAR},
+      </if>
+      <if test="wellNum != null">
+        #{wellNum,jdbcType=DECIMAL},
+      </if>
+      <if test="coId != null">
+        #{coId,jdbcType=DECIMAL},
+      </if>
+      <if test="coName != null">
+        #{coName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaNum != null">
+        #{areaNum,jdbcType=DECIMAL},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationNum != null">
+        #{stationNum,jdbcType=DECIMAL},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=DECIMAL},
+      </if>
+      <if test="groupName != null">
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="rtuType != null">
+        #{rtuType,jdbcType=VARCHAR},
+      </if>
+      <if test="rtuIpaddr != null">
+        #{rtuIpaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="rtuPort != null">
+        #{rtuPort,jdbcType=DECIMAL},
+      </if>
+      <if test="wellX != null">
+        #{wellX,jdbcType=DECIMAL},
+      </if>
+      <if test="wellY != null">
+        #{wellY,jdbcType=DECIMAL},
+      </if>
+      <if test="wellType != null">
+        #{wellType,jdbcType=VARCHAR},
+      </if>
+      <if test="pumpType != null">
+        #{pumpType,jdbcType=VARCHAR},
+      </if>
+      <if test="automationMark != null">
+        #{automationMark,jdbcType=DECIMAL},
+      </if>
+      <if test="pressPipeWId != null">
+        #{pressPipeWId,jdbcType=DECIMAL},
+      </if>
+      <if test="pressPipeWName != null">
+        #{pressPipeWName,jdbcType=VARCHAR},
+      </if>
+      <if test="autoDrainage != null">
+        #{autoDrainage,jdbcType=DECIMAL},
+      </if>
+      <if test="vMark != null">
+        #{vMark,jdbcType=DECIMAL},
+      </if>
+      <if test="vType != null">
+        #{vType,jdbcType=DECIMAL},
+      </if>
+      <if test="vTypeName != null">
+        #{vTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="vIpaddr != null">
+        #{vIpaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="wellState != null">
+        #{wellState,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.WellInfo">
+    update CBMDB.WELL_INFO
+    <set>
+      <if test="wellName != null">
+        WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellNameAlias != null">
+        WELL_NAME_ALIAS = #{wellNameAlias,jdbcType=VARCHAR},
+      </if>
+      <if test="wellNum != null">
+        WELL_NUM = #{wellNum,jdbcType=DECIMAL},
+      </if>
+      <if test="coId != null">
+        CO_ID = #{coId,jdbcType=DECIMAL},
+      </if>
+      <if test="coName != null">
+        CO_NAME = #{coName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaNum != null">
+        AREA_NUM = #{areaNum,jdbcType=DECIMAL},
+      </if>
+      <if test="stationId != null">
+        STATION_ID = #{stationId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationName != null">
+        STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationNum != null">
+        STATION_NUM = #{stationNum,jdbcType=DECIMAL},
+      </if>
+      <if test="groupId != null">
+        GROUP_ID = #{groupId,jdbcType=DECIMAL},
+      </if>
+      <if test="groupName != null">
+        GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="rtuType != null">
+        RTU_TYPE = #{rtuType,jdbcType=VARCHAR},
+      </if>
+      <if test="rtuIpaddr != null">
+        RTU_IPADDR = #{rtuIpaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="rtuPort != null">
+        RTU_PORT = #{rtuPort,jdbcType=DECIMAL},
+      </if>
+      <if test="wellX != null">
+        WELL_X = #{wellX,jdbcType=DECIMAL},
+      </if>
+      <if test="wellY != null">
+        WELL_Y = #{wellY,jdbcType=DECIMAL},
+      </if>
+      <if test="wellType != null">
+        WELL_TYPE = #{wellType,jdbcType=VARCHAR},
+      </if>
+      <if test="pumpType != null">
+        PUMP_TYPE = #{pumpType,jdbcType=VARCHAR},
+      </if>
+      <if test="automationMark != null">
+        AUTOMATION_MARK = #{automationMark,jdbcType=DECIMAL},
+      </if>
+      <if test="pressPipeWId != null">
+        PRESS_PIPE_W_ID = #{pressPipeWId,jdbcType=DECIMAL},
+      </if>
+      <if test="pressPipeWName != null">
+        PRESS_PIPE_W_NAME = #{pressPipeWName,jdbcType=VARCHAR},
+      </if>
+      <if test="autoDrainage != null">
+        AUTO_DRAINAGE = #{autoDrainage,jdbcType=DECIMAL},
+      </if>
+      <if test="vMark != null">
+        V_MARK = #{vMark,jdbcType=DECIMAL},
+      </if>
+      <if test="vType != null">
+        V_TYPE = #{vType,jdbcType=DECIMAL},
+      </if>
+      <if test="vTypeName != null">
+        V_TYPE_NAME = #{vTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="vIpaddr != null">
+        V_IPADDR = #{vIpaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="wellState != null">
+        WELL_STATE = #{wellState,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.WellInfo">
+    update CBMDB.WELL_INFO
+    set WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      WELL_NAME_ALIAS = #{wellNameAlias,jdbcType=VARCHAR},
+      WELL_NUM = #{wellNum,jdbcType=DECIMAL},
+      CO_ID = #{coId,jdbcType=DECIMAL},
+      CO_NAME = #{coName,jdbcType=VARCHAR},
+      AREA_ID = #{areaId,jdbcType=DECIMAL},
+      AREA_NAME = #{areaName,jdbcType=VARCHAR},
+      AREA_NUM = #{areaNum,jdbcType=DECIMAL},
+      STATION_ID = #{stationId,jdbcType=DECIMAL},
+      STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      STATION_NUM = #{stationNum,jdbcType=DECIMAL},
+      GROUP_ID = #{groupId,jdbcType=DECIMAL},
+      GROUP_NAME = #{groupName,jdbcType=VARCHAR},
+      RTU_TYPE = #{rtuType,jdbcType=VARCHAR},
+      RTU_IPADDR = #{rtuIpaddr,jdbcType=VARCHAR},
+      RTU_PORT = #{rtuPort,jdbcType=DECIMAL},
+      WELL_X = #{wellX,jdbcType=DECIMAL},
+      WELL_Y = #{wellY,jdbcType=DECIMAL},
+      WELL_TYPE = #{wellType,jdbcType=VARCHAR},
+      PUMP_TYPE = #{pumpType,jdbcType=VARCHAR},
+      AUTOMATION_MARK = #{automationMark,jdbcType=DECIMAL},
+      PRESS_PIPE_W_ID = #{pressPipeWId,jdbcType=DECIMAL},
+      PRESS_PIPE_W_NAME = #{pressPipeWName,jdbcType=VARCHAR},
+      AUTO_DRAINAGE = #{autoDrainage,jdbcType=DECIMAL},
+      V_MARK = #{vMark,jdbcType=DECIMAL},
+      V_TYPE = #{vType,jdbcType=DECIMAL},
+      V_TYPE_NAME = #{vTypeName,jdbcType=VARCHAR},
+      V_IPADDR = #{vIpaddr,jdbcType=VARCHAR},
+      WELL_STATE = #{wellState,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="selectAllNotWarnConfig"  resultMap="BaseResultMap">
+    select
+    id,well_name
+    from WELL_info
+    where id not in(
+    select well_id from WARN_SYS_CONFIG where WELL_ID is not null
+    union  select well_id from WARN_LIMIT_CONFIG where WELL_ID is not null
+    union  select well_id from WARN_GT_CONFIG where WELL_ID is not null
+    group by well_id
+    )
+    and
+    <choose>
+      <when test="areaIds != null and areaIds.size>0 ">
+        AREA_ID in
+        <foreach collection="areaIds" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </when>
+      <otherwise>
+        1=1
+      </otherwise>
+    </choose>
+    ORDER BY id
+  </select>
+  <select id="selectByVipaddr"  resultMap="BaseResultMap">
+    select well_name,v_ipaddr from WELL_INFO WHERE ID = #{Id}
+  </select>
+
+  <select id="selectById"  resultMap="BaseResultMap">
+    select id,well_name from WELL_INFO where AUTOMATION_MARK=0 and mark=0
+    and area_id in
+    (select station_id from auth_obj_station where 1=1
+      and  obj_id=#{objId,jdbcType=DECIMAL}
+    )
+    order by id
+  </select>
+
+  <select id="selectByWell"  resultMap="BaseResultMap">
+    select a.id,a.well_name,a.well_x,a.well_y,b.REMARK from well_info a LEFT JOIN well_data_cur b on a.id=b.well_id
+    where a.AUTOMATION_MARK=0 and a.mark=0
+    and a.area_id in
+    (select station_id from auth_obj_station where 1=1
+      and  obj_id=#{objId,jdbcType=DECIMAL}
+    )
+  </select>
+</mapper>

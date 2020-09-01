@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.warn.WarnGtConfigMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.warn.WarnGtConfig">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="D1_LIMIT" jdbcType="DECIMAL" property="d1Limit" />
+    <result column="D1_COUNT" jdbcType="DECIMAL" property="d1Count" />
+    <result column="D2_LIMIT" jdbcType="DECIMAL" property="d2Limit" />
+    <result column="D2_COUNT" jdbcType="DECIMAL" property="d2Count" />
+    <result column="D3_LIMIT" jdbcType="DECIMAL" property="d3Limit" />
+    <result column="D3_COUNT" jdbcType="DECIMAL" property="d3Count" />
+    <result column="D4_LIMIT" jdbcType="DECIMAL" property="d4Limit" />
+    <result column="D4_COUNT" jdbcType="DECIMAL" property="d4Count" />
+    <result column="D5_LIMIT" jdbcType="DECIMAL" property="d5Limit" />
+    <result column="D5_COUNT" jdbcType="DECIMAL" property="d5Count" />
+    <result column="D6_LIMIT" jdbcType="DECIMAL" property="d6Limit" />
+    <result column="D6_COUNT" jdbcType="DECIMAL" property="d6Count" />
+    <result column="D7_LIMIT" jdbcType="DECIMAL" property="d7Limit" />
+    <result column="D7_COUNT" jdbcType="DECIMAL" property="d7Count" />
+    <result column="D8_LIMIT" jdbcType="DECIMAL" property="d8Limit" />
+    <result column="D8_COUNT" jdbcType="DECIMAL" property="d8Count" />
+    <result column="D9_LIMIT" jdbcType="DECIMAL" property="d9Limit" />
+    <result column="D9_COUNT" jdbcType="DECIMAL" property="d9Count" />
+    <result column="D10_LIMIT" jdbcType="DECIMAL" property="d10Limit" />
+    <result column="D10_COUNT" jdbcType="DECIMAL" property="d10Count" />
+    <result column="D11_LIMIT" jdbcType="DECIMAL" property="d11Limit" />
+    <result column="D11_COUNT" jdbcType="DECIMAL" property="d11Count" />
+    <result column="D12_LIMIT" jdbcType="DECIMAL" property="d12Limit" />
+    <result column="D12_COUNT" jdbcType="DECIMAL" property="d12Count" />
+    <result column="D13_LIMIT" jdbcType="DECIMAL" property="d13Limit" />
+    <result column="D13_COUNT" jdbcType="DECIMAL" property="d13Count" />
+    <result column="D14_LIMIT" jdbcType="DECIMAL" property="d14Limit" />
+    <result column="D14_COUNT" jdbcType="DECIMAL" property="d14Count" />
+    <result column="D15_LIMIT" jdbcType="DECIMAL" property="d15Limit" />
+    <result column="D15_COUNT" jdbcType="DECIMAL" property="d15Count" />
+    <result column="D16_LIMIT" jdbcType="DECIMAL" property="d16Limit" />
+    <result column="D16_COUNT" jdbcType="DECIMAL" property="d16Count" />
+    <result column="D17_LIMIT" jdbcType="DECIMAL" property="d17Limit" />
+    <result column="D17_COUNT" jdbcType="DECIMAL" property="d17Count" />
+    <result column="D18_LIMIT" jdbcType="DECIMAL" property="d18Limit" />
+    <result column="D18_COUNT" jdbcType="DECIMAL" property="d18Count" />
+    <result column="D19_LIMIT" jdbcType="DECIMAL" property="d19Limit" />
+    <result column="D19_COUNT" jdbcType="DECIMAL" property="d19Count" />
+    <result column="D20_LIMIT" jdbcType="DECIMAL" property="d20Limit" />
+    <result column="D20_COUNT" jdbcType="DECIMAL" property="d20Count" />
+    <result column="D21_LIMIT" jdbcType="DECIMAL" property="d21Limit" />
+    <result column="D21_COUNT" jdbcType="DECIMAL" property="d21Count" />
+    <result column="D22_LIMIT" jdbcType="DECIMAL" property="d22Limit" />
+    <result column="D22_COUNT" jdbcType="DECIMAL" property="d22Count" />
+    <result column="D23_LIMIT" jdbcType="DECIMAL" property="d23Limit" />
+    <result column="D23_COUNT" jdbcType="DECIMAL" property="d23Count" />
+    <result column="D24_LIMIT" jdbcType="DECIMAL" property="d24Limit" />
+    <result column="D24_COUNT" jdbcType="DECIMAL" property="d24Count" />
+    <result column="D25_LIMIT" jdbcType="DECIMAL" property="d25Limit" />
+    <result column="D25_COUNT" jdbcType="DECIMAL" property="d25Count" />
+    <result column="D26_LIMIT" jdbcType="DECIMAL" property="d26Limit" />
+    <result column="D26_COUNT" jdbcType="DECIMAL" property="d26Count" />
+    <result column="D27_LIMIT" jdbcType="DECIMAL" property="d27Limit" />
+    <result column="D27_COUNT" jdbcType="DECIMAL" property="d27Count" />
+    <result column="D28_LIMIT" jdbcType="DECIMAL" property="d28Limit" />
+    <result column="D28_COUNT" jdbcType="DECIMAL" property="d28Count" />
+    <result column="D29_LIMIT" jdbcType="DECIMAL" property="d29Limit" />
+    <result column="D29_COUNT" jdbcType="DECIMAL" property="d29Count" />
+    <result column="MARK" jdbcType="VARCHAR" property="mark" />
+    <result column="MARK1" jdbcType="VARCHAR" property="mark1" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="GT_TIME_OUT" jdbcType="DECIMAL" property="gtTimeOut" />
+  </resultMap>
+  <sql id="Base_Column_List">
+     ID, WELL_ID, D1_LIMIT, D1_COUNT, D2_LIMIT, D2_COUNT, D3_LIMIT, D3_COUNT, D4_LIMIT,
+    D4_COUNT, D5_LIMIT, D5_COUNT, D6_LIMIT, D6_COUNT, D7_LIMIT, D7_COUNT, D8_LIMIT, D8_COUNT,
+    D9_LIMIT, D9_COUNT, D10_LIMIT, D10_COUNT, D11_LIMIT, D11_COUNT, D12_LIMIT, D12_COUNT,
+    D13_LIMIT, D13_COUNT, D14_LIMIT, D14_COUNT, D15_LIMIT, D15_COUNT, D16_LIMIT, D16_COUNT,
+    D17_LIMIT, D17_COUNT, D18_LIMIT, D18_COUNT, D19_LIMIT, D19_COUNT, D20_LIMIT, D20_COUNT,
+    D21_LIMIT, D21_COUNT, D22_LIMIT, D22_COUNT, D23_LIMIT, D23_COUNT, D24_LIMIT, D24_COUNT,
+    D25_LIMIT, D25_COUNT, D26_LIMIT, D26_COUNT, D27_LIMIT, D27_COUNT, D28_LIMIT, D28_COUNT,
+    D29_LIMIT, D29_COUNT, MARK, MARK1, STIME, GT_TIME_OUT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WARN_GT_CONFIG
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from WARN_GT_CONFIG
+    where WELL_ID = #{wellId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.warn.WarnGtConfig">
+    insert into WARN_GT_CONFIG (ID, WELL_ID, D1_LIMIT,
+      D1_COUNT, D2_LIMIT, D2_COUNT, 
+      D3_LIMIT, D3_COUNT, D4_LIMIT, 
+      D4_COUNT, D5_LIMIT, D5_COUNT, 
+      D6_LIMIT, D6_COUNT, D7_LIMIT, 
+      D7_COUNT, D8_LIMIT, D8_COUNT, 
+      D9_LIMIT, D9_COUNT, D10_LIMIT, 
+      D10_COUNT, D11_LIMIT, D11_COUNT, 
+      D12_LIMIT, D12_COUNT, D13_LIMIT, 
+      D13_COUNT, D14_LIMIT, D14_COUNT, 
+      D15_LIMIT, D15_COUNT, D16_LIMIT, 
+      D16_COUNT, D17_LIMIT, D17_COUNT, 
+      D18_LIMIT, D18_COUNT, D19_LIMIT, 
+      D19_COUNT, D20_LIMIT, D20_COUNT, 
+      D21_LIMIT, D21_COUNT, D22_LIMIT, 
+      D22_COUNT, D23_LIMIT, D23_COUNT, 
+      D24_LIMIT, D24_COUNT, D25_LIMIT, 
+      D25_COUNT, D26_LIMIT, D26_COUNT, 
+      D27_LIMIT, D27_COUNT, D28_LIMIT, 
+      D28_COUNT, D29_LIMIT, D29_COUNT, 
+      MARK, MARK1, STIME,
+      GT_TIME_OUT)
+    values (#{id,jdbcType=DECIMAL}, #{wellId,jdbcType=DECIMAL}, #{d1Limit,jdbcType=DECIMAL},
+      #{d1Count,jdbcType=DECIMAL}, #{d2Limit,jdbcType=DECIMAL}, #{d2Count,jdbcType=DECIMAL},
+      #{d3Limit,jdbcType=DECIMAL}, #{d3Count,jdbcType=DECIMAL}, #{d4Limit,jdbcType=DECIMAL},
+      #{d4Count,jdbcType=DECIMAL}, #{d5Limit,jdbcType=DECIMAL}, #{d5Count,jdbcType=DECIMAL},
+      #{d6Limit,jdbcType=DECIMAL}, #{d6Count,jdbcType=DECIMAL}, #{d7Limit,jdbcType=DECIMAL},
+      #{d7Count,jdbcType=DECIMAL}, #{d8Limit,jdbcType=DECIMAL}, #{d8Count,jdbcType=DECIMAL},
+      #{d9Limit,jdbcType=DECIMAL}, #{d9Count,jdbcType=DECIMAL}, #{d10Limit,jdbcType=DECIMAL},
+      #{d10Count,jdbcType=DECIMAL}, #{d11Limit,jdbcType=DECIMAL}, #{d11Count,jdbcType=DECIMAL},
+      #{d12Limit,jdbcType=DECIMAL}, #{d12Count,jdbcType=DECIMAL}, #{d13Limit,jdbcType=DECIMAL},
+      #{d13Count,jdbcType=DECIMAL}, #{d14Limit,jdbcType=DECIMAL}, #{d14Count,jdbcType=DECIMAL},
+      #{d15Limit,jdbcType=DECIMAL}, #{d15Count,jdbcType=DECIMAL}, #{d16Limit,jdbcType=DECIMAL},
+      #{d16Count,jdbcType=DECIMAL}, #{d17Limit,jdbcType=DECIMAL}, #{d17Count,jdbcType=DECIMAL},
+      #{d18Limit,jdbcType=DECIMAL}, #{d18Count,jdbcType=DECIMAL}, #{d19Limit,jdbcType=DECIMAL},
+      #{d19Count,jdbcType=DECIMAL}, #{d20Limit,jdbcType=DECIMAL}, #{d20Count,jdbcType=DECIMAL},
+      #{d21Limit,jdbcType=DECIMAL}, #{d21Count,jdbcType=DECIMAL}, #{d22Limit,jdbcType=DECIMAL},
+      #{d22Count,jdbcType=DECIMAL}, #{d23Limit,jdbcType=DECIMAL}, #{d23Count,jdbcType=DECIMAL},
+      #{d24Limit,jdbcType=DECIMAL}, #{d24Count,jdbcType=DECIMAL}, #{d25Limit,jdbcType=DECIMAL},
+      #{d25Count,jdbcType=DECIMAL}, #{d26Limit,jdbcType=DECIMAL}, #{d26Count,jdbcType=DECIMAL},
+      #{d27Limit,jdbcType=DECIMAL}, #{d27Count,jdbcType=DECIMAL}, #{d28Limit,jdbcType=DECIMAL},
+      #{d28Count,jdbcType=DECIMAL}, #{d29Limit,jdbcType=DECIMAL}, #{d29Count,jdbcType=DECIMAL},
+      #{mark,jdbcType=VARCHAR}, #{mark1,jdbcType=VARCHAR}, #{stime,jdbcType=TIMESTAMP},
+      #{gtTimeOut,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.warn.WarnGtConfig">
+    insert into WARN_GT_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="d1Limit != null">
+        D1_LIMIT,
+      </if>
+      <if test="d1Count != null">
+        D1_COUNT,
+      </if>
+      <if test="d2Limit != null">
+        D2_LIMIT,
+      </if>
+      <if test="d2Count != null">
+        D2_COUNT,
+      </if>
+      <if test="d3Limit != null">
+        D3_LIMIT,
+      </if>
+      <if test="d3Count != null">
+        D3_COUNT,
+      </if>
+      <if test="d4Limit != null">
+        D4_LIMIT,
+      </if>
+      <if test="d4Count != null">
+        D4_COUNT,
+      </if>
+      <if test="d5Limit != null">
+        D5_LIMIT,
+      </if>
+      <if test="d5Count != null">
+        D5_COUNT,
+      </if>
+      <if test="d6Limit != null">
+        D6_LIMIT,
+      </if>
+      <if test="d6Count != null">
+        D6_COUNT,
+      </if>
+      <if test="d7Limit != null">
+        D7_LIMIT,
+      </if>
+      <if test="d7Count != null">
+        D7_COUNT,
+      </if>
+      <if test="d8Limit != null">
+        D8_LIMIT,
+      </if>
+      <if test="d8Count != null">
+        D8_COUNT,
+      </if>
+      <if test="d9Limit != null">
+        D9_LIMIT,
+      </if>
+      <if test="d9Count != null">
+        D9_COUNT,
+      </if>
+      <if test="d10Limit != null">
+        D10_LIMIT,
+      </if>
+      <if test="d10Count != null">
+        D10_COUNT,
+      </if>
+      <if test="d11Limit != null">
+        D11_LIMIT,
+      </if>
+      <if test="d11Count != null">
+        D11_COUNT,
+      </if>
+      <if test="d12Limit != null">
+        D12_LIMIT,
+      </if>
+      <if test="d12Count != null">
+        D12_COUNT,
+      </if>
+      <if test="d13Limit != null">
+        D13_LIMIT,
+      </if>
+      <if test="d13Count != null">
+        D13_COUNT,
+      </if>
+      <if test="d14Limit != null">
+        D14_LIMIT,
+      </if>
+      <if test="d14Count != null">
+        D14_COUNT,
+      </if>
+      <if test="d15Limit != null">
+        D15_LIMIT,
+      </if>
+      <if test="d15Count != null">
+        D15_COUNT,
+      </if>
+      <if test="d16Limit != null">
+        D16_LIMIT,
+      </if>
+      <if test="d16Count != null">
+        D16_COUNT,
+      </if>
+      <if test="d17Limit != null">
+        D17_LIMIT,
+      </if>
+      <if test="d17Count != null">
+        D17_COUNT,
+      </if>
+      <if test="d18Limit != null">
+        D18_LIMIT,
+      </if>
+      <if test="d18Count != null">
+        D18_COUNT,
+      </if>
+      <if test="d19Limit != null">
+        D19_LIMIT,
+      </if>
+      <if test="d19Count != null">
+        D19_COUNT,
+      </if>
+      <if test="d20Limit != null">
+        D20_LIMIT,
+      </if>
+      <if test="d20Count != null">
+        D20_COUNT,
+      </if>
+      <if test="d21Limit != null">
+        D21_LIMIT,
+      </if>
+      <if test="d21Count != null">
+        D21_COUNT,
+      </if>
+      <if test="d22Limit != null">
+        D22_LIMIT,
+      </if>
+      <if test="d22Count != null">
+        D22_COUNT,
+      </if>
+      <if test="d23Limit != null">
+        D23_LIMIT,
+      </if>
+      <if test="d23Count != null">
+        D23_COUNT,
+      </if>
+      <if test="d24Limit != null">
+        D24_LIMIT,
+      </if>
+      <if test="d24Count != null">
+        D24_COUNT,
+      </if>
+      <if test="d25Limit != null">
+        D25_LIMIT,
+      </if>
+      <if test="d25Count != null">
+        D25_COUNT,
+      </if>
+      <if test="d26Limit != null">
+        D26_LIMIT,
+      </if>
+      <if test="d26Count != null">
+        D26_COUNT,
+      </if>
+      <if test="d27Limit != null">
+        D27_LIMIT,
+      </if>
+      <if test="d27Count != null">
+        D27_COUNT,
+      </if>
+      <if test="d28Limit != null">
+        D28_LIMIT,
+      </if>
+      <if test="d28Count != null">
+        D28_COUNT,
+      </if>
+      <if test="d29Limit != null">
+        D29_LIMIT,
+      </if>
+      <if test="d29Count != null">
+        D29_COUNT,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="mark1 != null">
+        MARK1,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="gtTimeOut != null">
+        GT_TIME_OUT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="d1Limit != null">
+        #{d1Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d1Count != null">
+        #{d1Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d2Limit != null">
+        #{d2Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d2Count != null">
+        #{d2Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d3Limit != null">
+        #{d3Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d3Count != null">
+        #{d3Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d4Limit != null">
+        #{d4Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d4Count != null">
+        #{d4Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d5Limit != null">
+        #{d5Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d5Count != null">
+        #{d5Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d6Limit != null">
+        #{d6Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d6Count != null">
+        #{d6Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d7Limit != null">
+        #{d7Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d7Count != null">
+        #{d7Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d8Limit != null">
+        #{d8Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d8Count != null">
+        #{d8Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d9Limit != null">
+        #{d9Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d9Count != null">
+        #{d9Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d10Limit != null">
+        #{d10Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d10Count != null">
+        #{d10Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d11Limit != null">
+        #{d11Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d11Count != null">
+        #{d11Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d12Limit != null">
+        #{d12Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d12Count != null">
+        #{d12Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d13Limit != null">
+        #{d13Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d13Count != null">
+        #{d13Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d14Limit != null">
+        #{d14Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d14Count != null">
+        #{d14Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d15Limit != null">
+        #{d15Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d15Count != null">
+        #{d15Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d16Limit != null">
+        #{d16Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d16Count != null">
+        #{d16Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d17Limit != null">
+        #{d17Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d17Count != null">
+        #{d17Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d18Limit != null">
+        #{d18Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d18Count != null">
+        #{d18Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d19Limit != null">
+        #{d19Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d19Count != null">
+        #{d19Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d20Limit != null">
+        #{d20Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d20Count != null">
+        #{d20Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d21Limit != null">
+        #{d21Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d21Count != null">
+        #{d21Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d22Limit != null">
+        #{d22Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d22Count != null">
+        #{d22Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d23Limit != null">
+        #{d23Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d23Count != null">
+        #{d23Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d24Limit != null">
+        #{d24Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d24Count != null">
+        #{d24Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d25Limit != null">
+        #{d25Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d25Count != null">
+        #{d25Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d26Limit != null">
+        #{d26Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d26Count != null">
+        #{d26Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d27Limit != null">
+        #{d27Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d27Count != null">
+        #{d27Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d28Limit != null">
+        #{d28Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d28Count != null">
+        #{d28Count,jdbcType=DECIMAL},
+      </if>
+      <if test="d29Limit != null">
+        #{d29Limit,jdbcType=DECIMAL},
+      </if>
+      <if test="d29Count != null">
+        #{d29Count,jdbcType=DECIMAL},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gtTimeOut != null">
+        #{gtTimeOut,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.warn.WarnGtConfig">
+    update WARN_GT_CONFIG
+    <set>
+      <if test="wellId != null">
+        WELL_ID = #{wellId,jdbcType=DECIMAL},
+      </if>
+
+        D1_LIMIT = #{d1Limit,jdbcType=DECIMAL},
+
+      <if test="d1Count != null">
+        D1_COUNT = #{d1Count,jdbcType=DECIMAL},
+      </if>
+
+        D2_LIMIT = #{d2Limit,jdbcType=DECIMAL},
+
+      <if test="d2Count != null">
+        D2_COUNT = #{d2Count,jdbcType=DECIMAL},
+      </if>
+
+        D3_LIMIT = #{d3Limit,jdbcType=DECIMAL},
+
+      <if test="d3Count != null">
+        D3_COUNT = #{d3Count,jdbcType=DECIMAL},
+      </if>
+
+        D4_LIMIT = #{d4Limit,jdbcType=DECIMAL},
+
+      <if test="d4Count != null">
+        D4_COUNT = #{d4Count,jdbcType=DECIMAL},
+      </if>
+
+        D5_LIMIT = #{d5Limit,jdbcType=DECIMAL},
+
+      <if test="d5Count != null">
+        D5_COUNT = #{d5Count,jdbcType=DECIMAL},
+      </if>
+
+        D6_LIMIT = #{d6Limit,jdbcType=DECIMAL},
+
+      <if test="d6Count != null">
+        D6_COUNT = #{d6Count,jdbcType=DECIMAL},
+      </if>
+
+        D7_LIMIT = #{d7Limit,jdbcType=DECIMAL},
+
+      <if test="d7Count != null">
+        D7_COUNT = #{d7Count,jdbcType=DECIMAL},
+      </if>
+
+        D8_LIMIT = #{d8Limit,jdbcType=DECIMAL},
+
+      <if test="d8Count != null">
+        D8_COUNT = #{d8Count,jdbcType=DECIMAL},
+      </if>
+
+        D9_LIMIT = #{d9Limit,jdbcType=DECIMAL},
+
+      <if test="d9Count != null">
+        D9_COUNT = #{d9Count,jdbcType=DECIMAL},
+      </if>
+
+        D10_LIMIT = #{d10Limit,jdbcType=DECIMAL},
+
+      <if test="d10Count != null">
+        D10_COUNT = #{d10Count,jdbcType=DECIMAL},
+      </if>
+
+        D11_LIMIT = #{d11Limit,jdbcType=DECIMAL},
+
+      <if test="d11Count != null">
+        D11_COUNT = #{d11Count,jdbcType=DECIMAL},
+      </if>
+
+        D12_LIMIT = #{d12Limit,jdbcType=DECIMAL},
+
+      <if test="d12Count != null">
+        D12_COUNT = #{d12Count,jdbcType=DECIMAL},
+      </if>
+
+        D13_LIMIT = #{d13Limit,jdbcType=DECIMAL},
+
+      <if test="d13Count != null">
+        D13_COUNT = #{d13Count,jdbcType=DECIMAL},
+      </if>
+
+        D14_LIMIT = #{d14Limit,jdbcType=DECIMAL},
+
+      <if test="d14Count != null">
+        D14_COUNT = #{d14Count,jdbcType=DECIMAL},
+      </if>
+
+        D15_LIMIT = #{d15Limit,jdbcType=DECIMAL},
+
+      <if test="d15Count != null">
+        D15_COUNT = #{d15Count,jdbcType=DECIMAL},
+      </if>
+
+        D16_LIMIT = #{d16Limit,jdbcType=DECIMAL},
+
+      <if test="d16Count != null">
+        D16_COUNT = #{d16Count,jdbcType=DECIMAL},
+      </if>
+
+        D17_LIMIT = #{d17Limit,jdbcType=DECIMAL},
+
+      <if test="d17Count != null">
+        D17_COUNT = #{d17Count,jdbcType=DECIMAL},
+      </if>
+
+        D18_LIMIT = #{d18Limit,jdbcType=DECIMAL},
+
+      <if test="d18Count != null">
+        D18_COUNT = #{d18Count,jdbcType=DECIMAL},
+      </if>
+
+        D19_LIMIT = #{d19Limit,jdbcType=DECIMAL},
+
+      <if test="d19Count != null">
+        D19_COUNT = #{d19Count,jdbcType=DECIMAL},
+      </if>
+
+        D20_LIMIT = #{d20Limit,jdbcType=DECIMAL},
+
+      <if test="d20Count != null">
+        D20_COUNT = #{d20Count,jdbcType=DECIMAL},
+      </if>
+
+        D21_LIMIT = #{d21Limit,jdbcType=DECIMAL},
+
+      <if test="d21Count != null">
+        D21_COUNT = #{d21Count,jdbcType=DECIMAL},
+      </if>
+
+        D22_LIMIT = #{d22Limit,jdbcType=DECIMAL},
+
+      <if test="d22Count != null">
+        D22_COUNT = #{d22Count,jdbcType=DECIMAL},
+      </if>
+
+        D23_LIMIT = #{d23Limit,jdbcType=DECIMAL},
+
+      <if test="d23Count != null">
+        D23_COUNT = #{d23Count,jdbcType=DECIMAL},
+      </if>
+
+        D24_LIMIT = #{d24Limit,jdbcType=DECIMAL},
+
+      <if test="d24Count != null">
+        D24_COUNT = #{d24Count,jdbcType=DECIMAL},
+      </if>
+
+        D25_LIMIT = #{d25Limit,jdbcType=DECIMAL},
+
+      <if test="d25Count != null">
+        D25_COUNT = #{d25Count,jdbcType=DECIMAL},
+      </if>
+
+        D26_LIMIT = #{d26Limit,jdbcType=DECIMAL},
+
+      <if test="d26Count != null">
+        D26_COUNT = #{d26Count,jdbcType=DECIMAL},
+      </if>
+
+        D27_LIMIT = #{d27Limit,jdbcType=DECIMAL},
+
+      <if test="d27Count != null">
+        D27_COUNT = #{d27Count,jdbcType=DECIMAL},
+      </if>
+
+        D28_LIMIT = #{d28Limit,jdbcType=DECIMAL},
+
+      <if test="d28Count != null">
+        D28_COUNT = #{d28Count,jdbcType=DECIMAL},
+      </if>
+
+        D29_LIMIT = #{d29Limit,jdbcType=DECIMAL},
+
+      <if test="d29Count != null">
+        D29_COUNT = #{d29Count,jdbcType=DECIMAL},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        MARK1 = #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gtTimeOut != null">
+        GT_TIME_OUT = #{gtTimeOut,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where  WELL_ID = #{wellId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.warn.WarnGtConfig">
+    update WARN_GT_CONFIG
+    set WELL_ID = #{wellId,jdbcType=DECIMAL},
+      D1_LIMIT = #{d1Limit,jdbcType=DECIMAL},
+      D1_COUNT = #{d1Count,jdbcType=DECIMAL},
+      D2_LIMIT = #{d2Limit,jdbcType=DECIMAL},
+      D2_COUNT = #{d2Count,jdbcType=DECIMAL},
+      D3_LIMIT = #{d3Limit,jdbcType=DECIMAL},
+      D3_COUNT = #{d3Count,jdbcType=DECIMAL},
+      D4_LIMIT = #{d4Limit,jdbcType=DECIMAL},
+      D4_COUNT = #{d4Count,jdbcType=DECIMAL},
+      D5_LIMIT = #{d5Limit,jdbcType=DECIMAL},
+      D5_COUNT = #{d5Count,jdbcType=DECIMAL},
+      D6_LIMIT = #{d6Limit,jdbcType=DECIMAL},
+      D6_COUNT = #{d6Count,jdbcType=DECIMAL},
+      D7_LIMIT = #{d7Limit,jdbcType=DECIMAL},
+      D7_COUNT = #{d7Count,jdbcType=DECIMAL},
+      D8_LIMIT = #{d8Limit,jdbcType=DECIMAL},
+      D8_COUNT = #{d8Count,jdbcType=DECIMAL},
+      D9_LIMIT = #{d9Limit,jdbcType=DECIMAL},
+      D9_COUNT = #{d9Count,jdbcType=DECIMAL},
+      D10_LIMIT = #{d10Limit,jdbcType=DECIMAL},
+      D10_COUNT = #{d10Count,jdbcType=DECIMAL},
+      D11_LIMIT = #{d11Limit,jdbcType=DECIMAL},
+      D11_COUNT = #{d11Count,jdbcType=DECIMAL},
+      D12_LIMIT = #{d12Limit,jdbcType=DECIMAL},
+      D12_COUNT = #{d12Count,jdbcType=DECIMAL},
+      D13_LIMIT = #{d13Limit,jdbcType=DECIMAL},
+      D13_COUNT = #{d13Count,jdbcType=DECIMAL},
+      D14_LIMIT = #{d14Limit,jdbcType=DECIMAL},
+      D14_COUNT = #{d14Count,jdbcType=DECIMAL},
+      D15_LIMIT = #{d15Limit,jdbcType=DECIMAL},
+      D15_COUNT = #{d15Count,jdbcType=DECIMAL},
+      D16_LIMIT = #{d16Limit,jdbcType=DECIMAL},
+      D16_COUNT = #{d16Count,jdbcType=DECIMAL},
+      D17_LIMIT = #{d17Limit,jdbcType=DECIMAL},
+      D17_COUNT = #{d17Count,jdbcType=DECIMAL},
+      D18_LIMIT = #{d18Limit,jdbcType=DECIMAL},
+      D18_COUNT = #{d18Count,jdbcType=DECIMAL},
+      D19_LIMIT = #{d19Limit,jdbcType=DECIMAL},
+      D19_COUNT = #{d19Count,jdbcType=DECIMAL},
+      D20_LIMIT = #{d20Limit,jdbcType=DECIMAL},
+      D20_COUNT = #{d20Count,jdbcType=DECIMAL},
+      D21_LIMIT = #{d21Limit,jdbcType=DECIMAL},
+      D21_COUNT = #{d21Count,jdbcType=DECIMAL},
+      D22_LIMIT = #{d22Limit,jdbcType=DECIMAL},
+      D22_COUNT = #{d22Count,jdbcType=DECIMAL},
+      D23_LIMIT = #{d23Limit,jdbcType=DECIMAL},
+      D23_COUNT = #{d23Count,jdbcType=DECIMAL},
+      D24_LIMIT = #{d24Limit,jdbcType=DECIMAL},
+      D24_COUNT = #{d24Count,jdbcType=DECIMAL},
+      D25_LIMIT = #{d25Limit,jdbcType=DECIMAL},
+      D25_COUNT = #{d25Count,jdbcType=DECIMAL},
+      D26_LIMIT = #{d26Limit,jdbcType=DECIMAL},
+      D26_COUNT = #{d26Count,jdbcType=DECIMAL},
+      D27_LIMIT = #{d27Limit,jdbcType=DECIMAL},
+      D27_COUNT = #{d27Count,jdbcType=DECIMAL},
+      D28_LIMIT = #{d28Limit,jdbcType=DECIMAL},
+      D28_COUNT = #{d28Count,jdbcType=DECIMAL},
+      D29_LIMIT = #{d29Limit,jdbcType=DECIMAL},
+      D29_COUNT = #{d29Count,jdbcType=DECIMAL},
+      MARK = #{mark,jdbcType=VARCHAR},
+      MARK1 = #{mark1,jdbcType=VARCHAR},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      GT_TIME_OUT = #{gtTimeOut,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="Count" resultType="java.lang.Integer"  parameterType="java.math.BigDecimal" >
+    select count(*) from WARN_GT_CONFIG where well_id=#{wellId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectByWellId"  parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from WARN_GT_CONFIG where well_id=#{wellId,jdbcType=DECIMAL}
+    order by stime  desc
+  </select>
+</mapper>

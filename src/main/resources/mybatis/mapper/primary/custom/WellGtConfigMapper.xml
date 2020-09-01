@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.WellGtConfigMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.WellGtConfig">
+    <result column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="WELL_NUM" jdbcType="DECIMAL" property="wellNum" />
+    <result column="NATURALGASRELATIVEDENSITY" jdbcType="DECIMAL" property="naturalgasrelativedensity" />
+    <result column="WATERDENSITY" jdbcType="DECIMAL" property="waterdensity" />
+    <result column="DEPTH_RESERVOIR" jdbcType="DECIMAL" property="depthReservoir" />
+    <result column="TEMP_RESERVOIR" jdbcType="DECIMAL" property="tempReservoir" />
+    <result column="ROD1_TYPE" jdbcType="DECIMAL" property="rod1Type" />
+    <result column="ROD1_GRADE" jdbcType="VARCHAR" property="rod1Grade" />
+    <result column="ROD1_LENGTH" jdbcType="DECIMAL" property="rod1Length" />
+    <result column="ROD1_DIAMETER" jdbcType="DECIMAL" property="rod1Diameter" />
+    <result column="ROD2_TYPE" jdbcType="DECIMAL" property="rod2Type" />
+    <result column="ROD2_GRADE" jdbcType="VARCHAR" property="rod2Grade" />
+    <result column="ROD2_LENGTH" jdbcType="DECIMAL" property="rod2Length" />
+    <result column="ROD2_DIAMETER" jdbcType="DECIMAL" property="rod2Diameter" />
+    <result column="ROD3_TYPE" jdbcType="DECIMAL" property="rod3Type" />
+    <result column="ROD3_GRADE" jdbcType="VARCHAR" property="rod3Grade" />
+    <result column="ROD3_LENGTH" jdbcType="DECIMAL" property="rod3Length" />
+    <result column="ROD3_DIAMETER" jdbcType="DECIMAL" property="rod3Diameter" />
+    <result column="ROD4_TYPE" jdbcType="DECIMAL" property="rod4Type" />
+    <result column="ROD4_GRADE" jdbcType="VARCHAR" property="rod4Grade" />
+    <result column="ROD4_LENGTH" jdbcType="DECIMAL" property="rod4Length" />
+    <result column="ROD4_DIAMETER" jdbcType="DECIMAL" property="rod4Diameter" />
+    <result column="PUMP_TYPE" jdbcType="VARCHAR" property="pumpType" />
+    <result column="PUMP_GRADE" jdbcType="DECIMAL" property="pumpGrade" />
+    <result column="PLUNGERLENGTH" jdbcType="DECIMAL" property="plungerlength" />
+    <result column="PUMPBOREDIAMETER" jdbcType="DECIMAL" property="pumpborediameter" />
+    <result column="TUBING_INSIDEDIAMETER" jdbcType="DECIMAL" property="tubingInsidediameter" />
+    <result column="CASING_INSIDEDIAMETER" jdbcType="DECIMAL" property="casingInsidediameter" />
+    <result column="TUBINGPRESSURE" jdbcType="DECIMAL" property="tubingpressure" />
+    <result column="CASINGPRESSURE" jdbcType="DECIMAL" property="casingpressure" />
+    <result column="WELLHEADFLUIDTEMPERATURE" jdbcType="DECIMAL" property="wellheadfluidtemperature" />
+    <result column="PRODUCINGFLUIDLEVEL" jdbcType="DECIMAL" property="producingfluidlevel" />
+    <result column="PUMPSETTINGDEPTH" jdbcType="DECIMAL" property="pumpsettingdepth" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+  </resultMap>
+  <insert id="insert" parameterType="server.db.primary.model.WellGtConfig">
+    insert into CBMDB.WELL_GT_CONFIG (ID, WELL_ID, WELL_NAME, 
+      WELL_NUM, NATURALGASRELATIVEDENSITY, WATERDENSITY, 
+      DEPTH_RESERVOIR, TEMP_RESERVOIR, ROD1_TYPE, 
+      ROD1_GRADE, ROD1_LENGTH, ROD1_DIAMETER, 
+      ROD2_TYPE, ROD2_GRADE, ROD2_LENGTH, 
+      ROD2_DIAMETER, ROD3_TYPE, ROD3_GRADE, 
+      ROD3_LENGTH, ROD3_DIAMETER, ROD4_TYPE, 
+      ROD4_GRADE, ROD4_LENGTH, ROD4_DIAMETER, 
+      PUMP_TYPE, PUMP_GRADE, PLUNGERLENGTH, 
+      PUMPBOREDIAMETER, TUBING_INSIDEDIAMETER, 
+      CASING_INSIDEDIAMETER, TUBINGPRESSURE, CASINGPRESSURE, 
+      WELLHEADFLUIDTEMPERATURE, PRODUCINGFLUIDLEVEL, 
+      PUMPSETTINGDEPTH, MARK, STIME
+      )
+    values (#{id,jdbcType=DECIMAL}, #{wellId,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, 
+      #{wellNum,jdbcType=DECIMAL}, #{naturalgasrelativedensity,jdbcType=DECIMAL}, #{waterdensity,jdbcType=DECIMAL}, 
+      #{depthReservoir,jdbcType=DECIMAL}, #{tempReservoir,jdbcType=DECIMAL}, #{rod1Type,jdbcType=DECIMAL}, 
+      #{rod1Grade,jdbcType=VARCHAR}, #{rod1Length,jdbcType=DECIMAL}, #{rod1Diameter,jdbcType=DECIMAL}, 
+      #{rod2Type,jdbcType=DECIMAL}, #{rod2Grade,jdbcType=VARCHAR}, #{rod2Length,jdbcType=DECIMAL}, 
+      #{rod2Diameter,jdbcType=DECIMAL}, #{rod3Type,jdbcType=DECIMAL}, #{rod3Grade,jdbcType=VARCHAR}, 
+      #{rod3Length,jdbcType=DECIMAL}, #{rod3Diameter,jdbcType=DECIMAL}, #{rod4Type,jdbcType=DECIMAL}, 
+      #{rod4Grade,jdbcType=VARCHAR}, #{rod4Length,jdbcType=DECIMAL}, #{rod4Diameter,jdbcType=DECIMAL}, 
+      #{pumpType,jdbcType=VARCHAR}, #{pumpGrade,jdbcType=DECIMAL}, #{plungerlength,jdbcType=DECIMAL}, 
+      #{pumpborediameter,jdbcType=DECIMAL}, #{tubingInsidediameter,jdbcType=DECIMAL}, 
+      #{casingInsidediameter,jdbcType=DECIMAL}, #{tubingpressure,jdbcType=DECIMAL}, #{casingpressure,jdbcType=DECIMAL}, 
+      #{wellheadfluidtemperature,jdbcType=DECIMAL}, #{producingfluidlevel,jdbcType=DECIMAL}, 
+      #{pumpsettingdepth,jdbcType=DECIMAL}, #{mark,jdbcType=DECIMAL}, #{stime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.WellGtConfig">
+    insert into CBMDB.WELL_GT_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="wellNum != null">
+        WELL_NUM,
+      </if>
+      <if test="naturalgasrelativedensity != null">
+        NATURALGASRELATIVEDENSITY,
+      </if>
+      <if test="waterdensity != null">
+        WATERDENSITY,
+      </if>
+      <if test="depthReservoir != null">
+        DEPTH_RESERVOIR,
+      </if>
+      <if test="tempReservoir != null">
+        TEMP_RESERVOIR,
+      </if>
+      <if test="rod1Type != null">
+        ROD1_TYPE,
+      </if>
+      <if test="rod1Grade != null">
+        ROD1_GRADE,
+      </if>
+      <if test="rod1Length != null">
+        ROD1_LENGTH,
+      </if>
+      <if test="rod1Diameter != null">
+        ROD1_DIAMETER,
+      </if>
+      <if test="rod2Type != null">
+        ROD2_TYPE,
+      </if>
+      <if test="rod2Grade != null">
+        ROD2_GRADE,
+      </if>
+      <if test="rod2Length != null">
+        ROD2_LENGTH,
+      </if>
+      <if test="rod2Diameter != null">
+        ROD2_DIAMETER,
+      </if>
+      <if test="rod3Type != null">
+        ROD3_TYPE,
+      </if>
+      <if test="rod3Grade != null">
+        ROD3_GRADE,
+      </if>
+      <if test="rod3Length != null">
+        ROD3_LENGTH,
+      </if>
+      <if test="rod3Diameter != null">
+        ROD3_DIAMETER,
+      </if>
+      <if test="rod4Type != null">
+        ROD4_TYPE,
+      </if>
+      <if test="rod4Grade != null">
+        ROD4_GRADE,
+      </if>
+      <if test="rod4Length != null">
+        ROD4_LENGTH,
+      </if>
+      <if test="rod4Diameter != null">
+        ROD4_DIAMETER,
+      </if>
+      <if test="pumpType != null">
+        PUMP_TYPE,
+      </if>
+      <if test="pumpGrade != null">
+        PUMP_GRADE,
+      </if>
+      <if test="plungerlength != null">
+        PLUNGERLENGTH,
+      </if>
+      <if test="pumpborediameter != null">
+        PUMPBOREDIAMETER,
+      </if>
+      <if test="tubingInsidediameter != null">
+        TUBING_INSIDEDIAMETER,
+      </if>
+      <if test="casingInsidediameter != null">
+        CASING_INSIDEDIAMETER,
+      </if>
+      <if test="tubingpressure != null">
+        TUBINGPRESSURE,
+      </if>
+      <if test="casingpressure != null">
+        CASINGPRESSURE,
+      </if>
+      <if test="wellheadfluidtemperature != null">
+        WELLHEADFLUIDTEMPERATURE,
+      </if>
+      <if test="producingfluidlevel != null">
+        PRODUCINGFLUIDLEVEL,
+      </if>
+      <if test="pumpsettingdepth != null">
+        PUMPSETTINGDEPTH,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellNum != null">
+        #{wellNum,jdbcType=DECIMAL},
+      </if>
+      <if test="naturalgasrelativedensity != null">
+        #{naturalgasrelativedensity,jdbcType=DECIMAL},
+      </if>
+      <if test="waterdensity != null">
+        #{waterdensity,jdbcType=DECIMAL},
+      </if>
+      <if test="depthReservoir != null">
+        #{depthReservoir,jdbcType=DECIMAL},
+      </if>
+      <if test="tempReservoir != null">
+        #{tempReservoir,jdbcType=DECIMAL},
+      </if>
+      <if test="rod1Type != null">
+        #{rod1Type,jdbcType=DECIMAL},
+      </if>
+      <if test="rod1Grade != null">
+        #{rod1Grade,jdbcType=VARCHAR},
+      </if>
+      <if test="rod1Length != null">
+        #{rod1Length,jdbcType=DECIMAL},
+      </if>
+      <if test="rod1Diameter != null">
+        #{rod1Diameter,jdbcType=DECIMAL},
+      </if>
+      <if test="rod2Type != null">
+        #{rod2Type,jdbcType=DECIMAL},
+      </if>
+      <if test="rod2Grade != null">
+        #{rod2Grade,jdbcType=VARCHAR},
+      </if>
+      <if test="rod2Length != null">
+        #{rod2Length,jdbcType=DECIMAL},
+      </if>
+      <if test="rod2Diameter != null">
+        #{rod2Diameter,jdbcType=DECIMAL},
+      </if>
+      <if test="rod3Type != null">
+        #{rod3Type,jdbcType=DECIMAL},
+      </if>
+      <if test="rod3Grade != null">
+        #{rod3Grade,jdbcType=VARCHAR},
+      </if>
+      <if test="rod3Length != null">
+        #{rod3Length,jdbcType=DECIMAL},
+      </if>
+      <if test="rod3Diameter != null">
+        #{rod3Diameter,jdbcType=DECIMAL},
+      </if>
+      <if test="rod4Type != null">
+        #{rod4Type,jdbcType=DECIMAL},
+      </if>
+      <if test="rod4Grade != null">
+        #{rod4Grade,jdbcType=VARCHAR},
+      </if>
+      <if test="rod4Length != null">
+        #{rod4Length,jdbcType=DECIMAL},
+      </if>
+      <if test="rod4Diameter != null">
+        #{rod4Diameter,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpType != null">
+        #{pumpType,jdbcType=VARCHAR},
+      </if>
+      <if test="pumpGrade != null">
+        #{pumpGrade,jdbcType=DECIMAL},
+      </if>
+      <if test="plungerlength != null">
+        #{plungerlength,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpborediameter != null">
+        #{pumpborediameter,jdbcType=DECIMAL},
+      </if>
+      <if test="tubingInsidediameter != null">
+        #{tubingInsidediameter,jdbcType=DECIMAL},
+      </if>
+      <if test="casingInsidediameter != null">
+        #{casingInsidediameter,jdbcType=DECIMAL},
+      </if>
+      <if test="tubingpressure != null">
+        #{tubingpressure,jdbcType=DECIMAL},
+      </if>
+      <if test="casingpressure != null">
+        #{casingpressure,jdbcType=DECIMAL},
+      </if>
+      <if test="wellheadfluidtemperature != null">
+        #{wellheadfluidtemperature,jdbcType=DECIMAL},
+      </if>
+      <if test="producingfluidlevel != null">
+        #{producingfluidlevel,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpsettingdepth != null">
+        #{pumpsettingdepth,jdbcType=DECIMAL},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectGtConfigByWellId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select *
+    from WELL_GT_CONFIG
+    where WELL_ID = #{wellId}
+  </select>
+
+</mapper>

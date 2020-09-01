@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.WellGtDataZyProdMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.WellGtDataZyProd">
+    <result column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="GT_ID" jdbcType="DECIMAL" property="gtId" />
+    <result column="GT_RESP_ID" jdbcType="DECIMAL" property="gtRespId" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="AREA_ID" jdbcType="DECIMAL" property="areaId" />
+    <result column="AREA_NAME" jdbcType="VARCHAR" property="areaName" />
+    <result column="STATION_ID" jdbcType="DECIMAL" property="stationId" />
+    <result column="STATION_NAME" jdbcType="VARCHAR" property="stationName" />
+    <result column="WATERCUT" jdbcType="DECIMAL" property="watercut" />
+    <result column="PROD_GASOIL_RATIO" jdbcType="DECIMAL" property="prodGasoilRatio" />
+    <result column="PRESS_TUBING" jdbcType="DECIMAL" property="pressTubing" />
+    <result column="PRESS_CASING" jdbcType="DECIMAL" property="pressCasing" />
+    <result column="TEMP_WELLHEAD" jdbcType="DECIMAL" property="tempWellhead" />
+    <result column="LEVEL_PROD_FLUID" jdbcType="DECIMAL" property="levelProdFluid" />
+    <result column="DEPTH_PUMP" jdbcType="DECIMAL" property="depthPump" />
+    <result column="SUBMERGENCE" jdbcType="DECIMAL" property="submergence" />
+    <result column="PUMP_IN_TAKE_P" jdbcType="DECIMAL" property="pumpInTakeP" />
+    <result column="PUMP_IN_TAKE_T" jdbcType="DECIMAL" property="pumpInTakeT" />
+    <result column="PUMP_IN_TAKE_GOL" jdbcType="DECIMAL" property="pumpInTakeGol" />
+    <result column="PUMP_OUT_LET_P" jdbcType="DECIMAL" property="pumpOutLetP" />
+    <result column="PUMP_OUT_LET_T" jdbcType="DECIMAL" property="pumpOutLetT" />
+    <result column="PUMP_OUT_LET_GOL" jdbcType="DECIMAL" property="pumpOutLetGol" />
+    <result column="PUMP_OUT_LET_VISL" jdbcType="DECIMAL" property="pumpOutLetVisl" />
+    <result column="PUMP_OUT_LET_BO" jdbcType="DECIMAL" property="pumpOutLetBo" />
+    <result column="OUTPUT_COEFFICIENT" jdbcType="DECIMAL" property="outputCoefficient" />
+    <result column="PROD_LIQUID_V" jdbcType="DECIMAL" property="prodLiquidV" />
+    <result column="PROD_OIL_V" jdbcType="DECIMAL" property="prodOilV" />
+    <result column="PROD_WATER_V" jdbcType="DECIMAL" property="prodWaterV" />
+    <result column="PROD_STROKE_V" jdbcType="DECIMAL" property="prodStrokeV" />
+    <result column="PROD_LEAK_PUMP_V" jdbcType="DECIMAL" property="prodLeakPumpV" />
+    <result column="PROD_LEAK_TV_V" jdbcType="DECIMAL" property="prodLeakTvV" />
+    <result column="PROD_LEAK_SV_V" jdbcType="DECIMAL" property="prodLeakSvV" />
+    <result column="PROD_GAS_INFLUENCE_V" jdbcType="DECIMAL" property="prodGasInfluenceV" />
+    <result column="PROD_LIQUID_W" jdbcType="DECIMAL" property="prodLiquidW" />
+    <result column="PROD_OIL_W" jdbcType="DECIMAL" property="prodOilW" />
+    <result column="PROD_WATER_W" jdbcType="DECIMAL" property="prodWaterW" />
+    <result column="PROD_STROKE_W" jdbcType="DECIMAL" property="prodStrokeW" />
+    <result column="PROD_LEAK_PUMP_W" jdbcType="DECIMAL" property="prodLeakPumpW" />
+    <result column="PROD_LEAK_TV_W" jdbcType="DECIMAL" property="prodLeakTvW" />
+    <result column="PROD_LEAK_SV_W" jdbcType="DECIMAL" property="prodLeakSvW" />
+    <result column="PROD_GAS_INFLUENCE_W" jdbcType="DECIMAL" property="prodGasInfluenceW" />
+    <result column="GT_TIME" jdbcType="VARCHAR" property="gtTime" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+  </resultMap>
+  <insert id="insert" parameterType="server.db.primary.model.WellGtDataZyProd">
+    insert into CBMDB.WELL_GT_DATA_ZY_PROD (ID, GT_ID, GT_RESP_ID, 
+      WELL_ID, WELL_NAME, AREA_ID, 
+      AREA_NAME, STATION_ID, STATION_NAME, 
+      WATERCUT, PROD_GASOIL_RATIO, PRESS_TUBING, 
+      PRESS_CASING, TEMP_WELLHEAD, LEVEL_PROD_FLUID, 
+      DEPTH_PUMP, SUBMERGENCE, PUMP_IN_TAKE_P, 
+      PUMP_IN_TAKE_T, PUMP_IN_TAKE_GOL, PUMP_OUT_LET_P, 
+      PUMP_OUT_LET_T, PUMP_OUT_LET_GOL, PUMP_OUT_LET_VISL, 
+      PUMP_OUT_LET_BO, OUTPUT_COEFFICIENT, PROD_LIQUID_V, 
+      PROD_OIL_V, PROD_WATER_V, PROD_STROKE_V, 
+      PROD_LEAK_PUMP_V, PROD_LEAK_TV_V, PROD_LEAK_SV_V, 
+      PROD_GAS_INFLUENCE_V, PROD_LIQUID_W, PROD_OIL_W, 
+      PROD_WATER_W, PROD_STROKE_W, PROD_LEAK_PUMP_W, 
+      PROD_LEAK_TV_W, PROD_LEAK_SV_W, PROD_GAS_INFLUENCE_W, 
+      GT_TIME, MARK, STIME
+      )
+    values (#{id,jdbcType=DECIMAL}, #{gtId,jdbcType=DECIMAL}, #{gtRespId,jdbcType=DECIMAL}, 
+      #{wellId,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, #{areaId,jdbcType=DECIMAL}, 
+      #{areaName,jdbcType=VARCHAR}, #{stationId,jdbcType=DECIMAL}, #{stationName,jdbcType=VARCHAR}, 
+      #{watercut,jdbcType=DECIMAL}, #{prodGasoilRatio,jdbcType=DECIMAL}, #{pressTubing,jdbcType=DECIMAL}, 
+      #{pressCasing,jdbcType=DECIMAL}, #{tempWellhead,jdbcType=DECIMAL}, #{levelProdFluid,jdbcType=DECIMAL}, 
+      #{depthPump,jdbcType=DECIMAL}, #{submergence,jdbcType=DECIMAL}, #{pumpInTakeP,jdbcType=DECIMAL}, 
+      #{pumpInTakeT,jdbcType=DECIMAL}, #{pumpInTakeGol,jdbcType=DECIMAL}, #{pumpOutLetP,jdbcType=DECIMAL}, 
+      #{pumpOutLetT,jdbcType=DECIMAL}, #{pumpOutLetGol,jdbcType=DECIMAL}, #{pumpOutLetVisl,jdbcType=DECIMAL}, 
+      #{pumpOutLetBo,jdbcType=DECIMAL}, #{outputCoefficient,jdbcType=DECIMAL}, #{prodLiquidV,jdbcType=DECIMAL}, 
+      #{prodOilV,jdbcType=DECIMAL}, #{prodWaterV,jdbcType=DECIMAL}, #{prodStrokeV,jdbcType=DECIMAL}, 
+      #{prodLeakPumpV,jdbcType=DECIMAL}, #{prodLeakTvV,jdbcType=DECIMAL}, #{prodLeakSvV,jdbcType=DECIMAL}, 
+      #{prodGasInfluenceV,jdbcType=DECIMAL}, #{prodLiquidW,jdbcType=DECIMAL}, #{prodOilW,jdbcType=DECIMAL}, 
+      #{prodWaterW,jdbcType=DECIMAL}, #{prodStrokeW,jdbcType=DECIMAL}, #{prodLeakPumpW,jdbcType=DECIMAL}, 
+      #{prodLeakTvW,jdbcType=DECIMAL}, #{prodLeakSvW,jdbcType=DECIMAL}, #{prodGasInfluenceW,jdbcType=DECIMAL}, 
+      #{gtTime,jdbcType=VARCHAR}, #{mark,jdbcType=DECIMAL}, #{stime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.WellGtDataZyProd">
+    insert into CBMDB.WELL_GT_DATA_ZY_PROD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="gtId != null">
+        GT_ID,
+      </if>
+      <if test="gtRespId != null">
+        GT_RESP_ID,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="areaId != null">
+        AREA_ID,
+      </if>
+      <if test="areaName != null">
+        AREA_NAME,
+      </if>
+      <if test="stationId != null">
+        STATION_ID,
+      </if>
+      <if test="stationName != null">
+        STATION_NAME,
+      </if>
+      <if test="watercut != null">
+        WATERCUT,
+      </if>
+      <if test="prodGasoilRatio != null">
+        PROD_GASOIL_RATIO,
+      </if>
+      <if test="pressTubing != null">
+        PRESS_TUBING,
+      </if>
+      <if test="pressCasing != null">
+        PRESS_CASING,
+      </if>
+      <if test="tempWellhead != null">
+        TEMP_WELLHEAD,
+      </if>
+      <if test="levelProdFluid != null">
+        LEVEL_PROD_FLUID,
+      </if>
+      <if test="depthPump != null">
+        DEPTH_PUMP,
+      </if>
+      <if test="submergence != null">
+        SUBMERGENCE,
+      </if>
+      <if test="pumpInTakeP != null">
+        PUMP_IN_TAKE_P,
+      </if>
+      <if test="pumpInTakeT != null">
+        PUMP_IN_TAKE_T,
+      </if>
+      <if test="pumpInTakeGol != null">
+        PUMP_IN_TAKE_GOL,
+      </if>
+      <if test="pumpOutLetP != null">
+        PUMP_OUT_LET_P,
+      </if>
+      <if test="pumpOutLetT != null">
+        PUMP_OUT_LET_T,
+      </if>
+      <if test="pumpOutLetGol != null">
+        PUMP_OUT_LET_GOL,
+      </if>
+      <if test="pumpOutLetVisl != null">
+        PUMP_OUT_LET_VISL,
+      </if>
+      <if test="pumpOutLetBo != null">
+        PUMP_OUT_LET_BO,
+      </if>
+      <if test="outputCoefficient != null">
+        OUTPUT_COEFFICIENT,
+      </if>
+      <if test="prodLiquidV != null">
+        PROD_LIQUID_V,
+      </if>
+      <if test="prodOilV != null">
+        PROD_OIL_V,
+      </if>
+      <if test="prodWaterV != null">
+        PROD_WATER_V,
+      </if>
+      <if test="prodStrokeV != null">
+        PROD_STROKE_V,
+      </if>
+      <if test="prodLeakPumpV != null">
+        PROD_LEAK_PUMP_V,
+      </if>
+      <if test="prodLeakTvV != null">
+        PROD_LEAK_TV_V,
+      </if>
+      <if test="prodLeakSvV != null">
+        PROD_LEAK_SV_V,
+      </if>
+      <if test="prodGasInfluenceV != null">
+        PROD_GAS_INFLUENCE_V,
+      </if>
+      <if test="prodLiquidW != null">
+        PROD_LIQUID_W,
+      </if>
+      <if test="prodOilW != null">
+        PROD_OIL_W,
+      </if>
+      <if test="prodWaterW != null">
+        PROD_WATER_W,
+      </if>
+      <if test="prodStrokeW != null">
+        PROD_STROKE_W,
+      </if>
+      <if test="prodLeakPumpW != null">
+        PROD_LEAK_PUMP_W,
+      </if>
+      <if test="prodLeakTvW != null">
+        PROD_LEAK_TV_W,
+      </if>
+      <if test="prodLeakSvW != null">
+        PROD_LEAK_SV_W,
+      </if>
+      <if test="prodGasInfluenceW != null">
+        PROD_GAS_INFLUENCE_W,
+      </if>
+      <if test="gtTime != null">
+        GT_TIME,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="gtId != null">
+        #{gtId,jdbcType=DECIMAL},
+      </if>
+      <if test="gtRespId != null">
+        #{gtRespId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=DECIMAL},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="watercut != null">
+        #{watercut,jdbcType=DECIMAL},
+      </if>
+      <if test="prodGasoilRatio != null">
+        #{prodGasoilRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="pressTubing != null">
+        #{pressTubing,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCasing != null">
+        #{pressCasing,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellhead != null">
+        #{tempWellhead,jdbcType=DECIMAL},
+      </if>
+      <if test="levelProdFluid != null">
+        #{levelProdFluid,jdbcType=DECIMAL},
+      </if>
+      <if test="depthPump != null">
+        #{depthPump,jdbcType=DECIMAL},
+      </if>
+      <if test="submergence != null">
+        #{submergence,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpInTakeP != null">
+        #{pumpInTakeP,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpInTakeT != null">
+        #{pumpInTakeT,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpInTakeGol != null">
+        #{pumpInTakeGol,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpOutLetP != null">
+        #{pumpOutLetP,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpOutLetT != null">
+        #{pumpOutLetT,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpOutLetGol != null">
+        #{pumpOutLetGol,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpOutLetVisl != null">
+        #{pumpOutLetVisl,jdbcType=DECIMAL},
+      </if>
+      <if test="pumpOutLetBo != null">
+        #{pumpOutLetBo,jdbcType=DECIMAL},
+      </if>
+      <if test="outputCoefficient != null">
+        #{outputCoefficient,jdbcType=DECIMAL},
+      </if>
+      <if test="prodLiquidV != null">
+        #{prodLiquidV,jdbcType=DECIMAL},
+      </if>
+      <if test="prodOilV != null">
+        #{prodOilV,jdbcType=DECIMAL},
+      </if>
+      <if test="prodWaterV != null">
+        #{prodWaterV,jdbcType=DECIMAL},
+      </if>
+      <if test="prodStrokeV != null">
+        #{prodStrokeV,jdbcType=DECIMAL},
+      </if>
+      <if test="prodLeakPumpV != null">
+        #{prodLeakPumpV,jdbcType=DECIMAL},
+      </if>
+      <if test="prodLeakTvV != null">
+        #{prodLeakTvV,jdbcType=DECIMAL},
+      </if>
+      <if test="prodLeakSvV != null">
+        #{prodLeakSvV,jdbcType=DECIMAL},
+      </if>
+      <if test="prodGasInfluenceV != null">
+        #{prodGasInfluenceV,jdbcType=DECIMAL},
+      </if>
+      <if test="prodLiquidW != null">
+        #{prodLiquidW,jdbcType=DECIMAL},
+      </if>
+      <if test="prodOilW != null">
+        #{prodOilW,jdbcType=DECIMAL},
+      </if>
+      <if test="prodWaterW != null">
+        #{prodWaterW,jdbcType=DECIMAL},
+      </if>
+      <if test="prodStrokeW != null">
+        #{prodStrokeW,jdbcType=DECIMAL},
+      </if>
+      <if test="prodLeakPumpW != null">
+        #{prodLeakPumpW,jdbcType=DECIMAL},
+      </if>
+      <if test="prodLeakTvW != null">
+        #{prodLeakTvW,jdbcType=DECIMAL},
+      </if>
+      <if test="prodLeakSvW != null">
+        #{prodLeakSvW,jdbcType=DECIMAL},
+      </if>
+      <if test="prodGasInfluenceW != null">
+        #{prodGasInfluenceW,jdbcType=DECIMAL},
+      </if>
+      <if test="gtTime != null">
+        #{gtTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectByWellIdSum" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT SUM(a1) a1,SUM(a2) a2  from (
+    select
+    substr(gt_time,1,10) time,well_id,well_name,count(*) ncount,
+    avg(prod_liquid_v) a1,avg(prod_oil_v) a2
+    from well_gt_data_zy_prod
+    where Well_ID in
+    (
+    select id from well_info
+    where     1=1 and area_id in
+    (select station_id from auth_obj_station where 1=1
+    and  obj_id=#{objId,jdbcType=DECIMAL}
+    )
+    )
+    <if test="timeStart != null and timeStart != ''">
+      and substr(gt_time,1,10) &gt;= #{timeStart}
+    </if>
+    <if test="timeEnd != null and timeEnd != ''">
+      and substr(gt_time,1,10) &lt;= #{timeEnd}
+    </if>
+    group by substr(gt_time,1,10),well_id,well_name
+    order by substr(gt_time,1,10),well_id)
+  </select>
+</mapper>

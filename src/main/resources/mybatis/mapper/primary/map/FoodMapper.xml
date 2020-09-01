@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.map.FoodMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.map.Food">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="TYPE_ID" jdbcType="DECIMAL" property="typeId" />
+    <result column="TYPE_NAME" jdbcType="VARCHAR" property="typeName" />
+    <result column="FOOD1" jdbcType="VARCHAR" property="food1" />
+    <result column="FOOD2" jdbcType="VARCHAR" property="food2" />
+    <result column="FOOD3" jdbcType="VARCHAR" property="food3" />
+    <result column="FOOD4" jdbcType="VARCHAR" property="food4" />
+    <result column="FOOD5" jdbcType="VARCHAR" property="food5" />
+    <result column="FOOD6" jdbcType="VARCHAR" property="food6" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="WEEK" jdbcType="VARCHAR" property="week" />
+    <result column="ETIME" jdbcType="TIMESTAMP" property="etime" />
+    <result column="WEEK_ID" jdbcType="DECIMAL" property="weekId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TYPE_ID, TYPE_NAME, FOOD1, FOOD2, FOOD3, FOOD4, FOOD5, FOOD6, REMARK, MARK, STIME, 
+    WEEK, ETIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FOOD.FOOD
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from FOOD.FOOD
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.map.Food">
+    insert into FOOD.FOOD (ID, TYPE_ID, TYPE_NAME, 
+      FOOD1, FOOD2, FOOD3, 
+      FOOD4, FOOD5, FOOD6, 
+      REMARK, MARK, STIME, 
+      WEEK, ETIME)
+    values (#{id,jdbcType=DECIMAL}, #{typeId,jdbcType=DECIMAL}, #{typeName,jdbcType=VARCHAR}, 
+      #{food1,jdbcType=VARCHAR}, #{food2,jdbcType=VARCHAR}, #{food3,jdbcType=VARCHAR}, 
+      #{food4,jdbcType=VARCHAR}, #{food5,jdbcType=VARCHAR}, #{food6,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{mark,jdbcType=DECIMAL}, #{stime,jdbcType=TIMESTAMP}, 
+      #{week,jdbcType=VARCHAR}, #{etime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.map.Food">
+    insert into FOOD.FOOD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="typeId != null">
+        TYPE_ID,
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME,
+      </if>
+      <if test="food1 != null">
+        FOOD1,
+      </if>
+      <if test="food2 != null">
+        FOOD2,
+      </if>
+      <if test="food3 != null">
+        FOOD3,
+      </if>
+      <if test="food4 != null">
+        FOOD4,
+      </if>
+      <if test="food5 != null">
+        FOOD5,
+      </if>
+      <if test="food6 != null">
+        FOOD6,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="week != null">
+        WEEK,
+      </if>
+      <if test="etime != null">
+        ETIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=DECIMAL},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="food1 != null">
+        #{food1,jdbcType=VARCHAR},
+      </if>
+      <if test="food2 != null">
+        #{food2,jdbcType=VARCHAR},
+      </if>
+      <if test="food3 != null">
+        #{food3,jdbcType=VARCHAR},
+      </if>
+      <if test="food4 != null">
+        #{food4,jdbcType=VARCHAR},
+      </if>
+      <if test="food5 != null">
+        #{food5,jdbcType=VARCHAR},
+      </if>
+      <if test="food6 != null">
+        #{food6,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="week != null">
+        #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.map.Food">
+    update FOOD.FOOD
+    <set>
+      <if test="typeId != null">
+        TYPE_ID = #{typeId,jdbcType=DECIMAL},
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME = #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="food1 != null">
+        FOOD1 = #{food1,jdbcType=VARCHAR},
+      </if>
+      <if test="food2 != null">
+        FOOD2 = #{food2,jdbcType=VARCHAR},
+      </if>
+      <if test="food3 != null">
+        FOOD3 = #{food3,jdbcType=VARCHAR},
+      </if>
+      <if test="food4 != null">
+        FOOD4 = #{food4,jdbcType=VARCHAR},
+      </if>
+      <if test="food5 != null">
+        FOOD5 = #{food5,jdbcType=VARCHAR},
+      </if>
+      <if test="food6 != null">
+        FOOD6 = #{food6,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="week != null">
+        WEEK = #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null">
+        ETIME = #{etime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.map.Food">
+    update FOOD.FOOD
+    set TYPE_ID = #{typeId,jdbcType=DECIMAL},
+      TYPE_NAME = #{typeName,jdbcType=VARCHAR},
+      FOOD1 = #{food1,jdbcType=VARCHAR},
+      FOOD2 = #{food2,jdbcType=VARCHAR},
+      FOOD3 = #{food3,jdbcType=VARCHAR},
+      FOOD4 = #{food4,jdbcType=VARCHAR},
+      FOOD5 = #{food5,jdbcType=VARCHAR},
+      FOOD6 = #{food6,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      WEEK = #{week,jdbcType=VARCHAR},
+      ETIME = #{etime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByFood" resultMap="BaseResultMap" >
+  select * from food where to_char(etime,'iw')=to_char(to_date(#{time},'yyyy-MM-dd'),'iw')
+  </select>
+
+  <select id="selectOneByFood" resultMap="BaseResultMap" >
+  select * from food where 1=1
+    <if test="timeStart != null and timeStart != ''">
+      and etime &gt;= to_date(#{timeStart}, 'yyyy-MM-dd hh24:mi:ss')
+    </if>
+    <if test="timeEnd != null and timeEnd != ''">
+      and etime &lt;= to_date(#{timeEnd}, 'yyyy-MM-dd hh24:mi:ss')
+    </if>
+    order by id desc
+  </select>
+
+</mapper>

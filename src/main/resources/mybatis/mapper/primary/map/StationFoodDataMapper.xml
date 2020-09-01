@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.map.StationFoodDataMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.map.StationFoodData">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="STATION_ID" jdbcType="DECIMAL" property="stationId" />
+    <result column="STATION_NAME" jdbcType="VARCHAR" property="stationName" />
+    <result column="MORNING_A" jdbcType="DECIMAL" property="morningA" />
+    <result column="MORNING_A_MONEY" jdbcType="DECIMAL" property="morningAMoney" />
+    <result column="MORNING_B" jdbcType="DECIMAL" property="morningB" />
+    <result column="MORNING_B_MONEY" jdbcType="DECIMAL" property="morningBMoney" />
+    <result column="NOON_A_MAX" jdbcType="DECIMAL" property="noonAMax" />
+    <result column="NOON_A_MAX_MONEY" jdbcType="DECIMAL" property="noonAMaxMoney" />
+    <result column="NOON_A_MIN" jdbcType="DECIMAL" property="noonAMin" />
+    <result column="NOON_A_MIN_MONEY" jdbcType="DECIMAL" property="noonAMinMoney" />
+    <result column="NOON_B_MAX" jdbcType="DECIMAL" property="noonBMax" />
+    <result column="NOON_B_MAX_MONEY" jdbcType="DECIMAL" property="noonBMaxMoney" />
+    <result column="NOON_B_MIN" jdbcType="DECIMAL" property="noonBMin" />
+    <result column="NOON_B_MIN_MONEY" jdbcType="DECIMAL" property="noonBMinMoney" />
+    <result column="NIGHT_A_MAX" jdbcType="DECIMAL" property="nightAMax" />
+    <result column="NIGHT_A_MAX_MONEY" jdbcType="DECIMAL" property="nightAMaxMoney" />
+    <result column="NIGHT_A_MIN" jdbcType="DECIMAL" property="nightAMin" />
+    <result column="NIGHT_A_MIN_MONEY" jdbcType="DECIMAL" property="nightAMinMoney" />
+    <result column="NIGHT_B_MAX" jdbcType="DECIMAL" property="nightBMax" />
+    <result column="NIGHT_B_MAX_MONEY" jdbcType="DECIMAL" property="nightBMaxMoney" />
+    <result column="NIGHT_B_MIN" jdbcType="DECIMAL" property="nightBMin" />
+    <result column="NIGHT_B_MIN_MONEY" jdbcType="DECIMAL" property="nightBMinMoney" />
+    <result column="DATA_TIME" jdbcType="TIMESTAMP" property="dataTime" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="NCOUNT_MONEY" jdbcType="DECIMAL" property="ncountMoney" />
+    <result column="MORNING" jdbcType="DECIMAL" property="morning" />
+    <result column="MORNING_MONEY" jdbcType="DECIMAL" property="morningMoney" />
+    <result column="NOON_MAX" jdbcType="DECIMAL" property="noonMax" />
+    <result column="NOON_MAX_MONEY" jdbcType="DECIMAL" property="noonMaxMoney" />
+    <result column="NOON_MIN" jdbcType="DECIMAL" property="noonMin" />
+    <result column="NOON_MIN_MONEY" jdbcType="DECIMAL" property="noonMinMoney" />
+    <result column="NIGHT_MAX" jdbcType="DECIMAL" property="nightMax" />
+    <result column="NIGHT_MAX_MONEY" jdbcType="DECIMAL" property="nightMaxMoney" />
+    <result column="NIGHT_MIN" jdbcType="DECIMAL" property="nightMin" />
+    <result column="NIGHT_MIN_MONEY" jdbcType="DECIMAL" property="nightMinMoney" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, STATION_ID, STATION_NAME, MORNING_A, MORNING_A_MONEY, MORNING_B, MORNING_B_MONEY,
+    NOON_A_MAX, NOON_A_MAX_MONEY, NOON_A_MIN, NOON_A_MIN_MONEY, NOON_B_MAX, NOON_B_MAX_MONEY, 
+    NOON_B_MIN, NOON_B_MIN_MONEY, NIGHT_A_MAX, NIGHT_A_MAX_MONEY, NIGHT_A_MIN, NIGHT_A_MIN_MONEY, 
+    NIGHT_B_MAX, NIGHT_B_MAX_MONEY, NIGHT_B_MIN, NIGHT_B_MIN_MONEY, DATA_TIME, REMARK, 
+    MARK, STIME, NCOUNT_MONEY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FOOD.STATION_FOOD_DATA
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from FOOD.STATION_FOOD_DATA
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.map.StationFoodData">
+    insert into FOOD.STATION_FOOD_DATA (ID, STATION_ID, STATION_NAME,
+      MORNING_A, MORNING_A_MONEY, MORNING_B, 
+      MORNING_B_MONEY, NOON_A_MAX, NOON_A_MAX_MONEY, 
+      NOON_A_MIN, NOON_A_MIN_MONEY, NOON_B_MAX, 
+      NOON_B_MAX_MONEY, NOON_B_MIN, NOON_B_MIN_MONEY, 
+      NIGHT_A_MAX, NIGHT_A_MAX_MONEY, NIGHT_A_MIN, 
+      NIGHT_A_MIN_MONEY, NIGHT_B_MAX, NIGHT_B_MAX_MONEY, 
+      NIGHT_B_MIN, NIGHT_B_MIN_MONEY, DATA_TIME, 
+      REMARK, MARK, STIME, 
+      NCOUNT_MONEY)
+    values (#{id,jdbcType=DECIMAL}, #{stationId,jdbcType=DECIMAL}, #{stationName,jdbcType=VARCHAR},
+      #{morningA,jdbcType=DECIMAL}, #{morningAMoney,jdbcType=DECIMAL}, #{morningB,jdbcType=DECIMAL}, 
+      #{morningBMoney,jdbcType=DECIMAL}, #{noonAMax,jdbcType=DECIMAL}, #{noonAMaxMoney,jdbcType=DECIMAL}, 
+      #{noonAMin,jdbcType=DECIMAL}, #{noonAMinMoney,jdbcType=DECIMAL}, #{noonBMax,jdbcType=DECIMAL}, 
+      #{noonBMaxMoney,jdbcType=DECIMAL}, #{noonBMin,jdbcType=DECIMAL}, #{noonBMinMoney,jdbcType=DECIMAL}, 
+      #{nightAMax,jdbcType=DECIMAL}, #{nightAMaxMoney,jdbcType=DECIMAL}, #{nightAMin,jdbcType=DECIMAL}, 
+      #{nightAMinMoney,jdbcType=DECIMAL}, #{nightBMax,jdbcType=DECIMAL}, #{nightBMaxMoney,jdbcType=DECIMAL}, 
+      #{nightBMin,jdbcType=DECIMAL}, #{nightBMinMoney,jdbcType=DECIMAL}, #{dataTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{mark,jdbcType=DECIMAL}, #{stime,jdbcType=TIMESTAMP}, 
+      #{ncountMoney,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.map.StationFoodData">
+    insert into FOOD.STATION_FOOD_DATA
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="stationId != null">
+        STATION_ID,
+      </if>
+      <if test="stationName != null">
+        STATION_NAME,
+      </if>
+      <if test="morningA != null">
+        MORNING_A,
+      </if>
+      <if test="morningAMoney != null">
+        MORNING_A_MONEY,
+      </if>
+      <if test="morningB != null">
+        MORNING_B,
+      </if>
+      <if test="morningBMoney != null">
+        MORNING_B_MONEY,
+      </if>
+      <if test="noonAMax != null">
+        NOON_A_MAX,
+      </if>
+      <if test="noonAMaxMoney != null">
+        NOON_A_MAX_MONEY,
+      </if>
+      <if test="noonAMin != null">
+        NOON_A_MIN,
+      </if>
+      <if test="noonAMinMoney != null">
+        NOON_A_MIN_MONEY,
+      </if>
+      <if test="noonBMax != null">
+        NOON_B_MAX,
+      </if>
+      <if test="noonBMaxMoney != null">
+        NOON_B_MAX_MONEY,
+      </if>
+      <if test="noonBMin != null">
+        NOON_B_MIN,
+      </if>
+      <if test="noonBMinMoney != null">
+        NOON_B_MIN_MONEY,
+      </if>
+      <if test="nightAMax != null">
+        NIGHT_A_MAX,
+      </if>
+      <if test="nightAMaxMoney != null">
+        NIGHT_A_MAX_MONEY,
+      </if>
+      <if test="nightAMin != null">
+        NIGHT_A_MIN,
+      </if>
+      <if test="nightAMinMoney != null">
+        NIGHT_A_MIN_MONEY,
+      </if>
+      <if test="nightBMax != null">
+        NIGHT_B_MAX,
+      </if>
+      <if test="nightBMaxMoney != null">
+        NIGHT_B_MAX_MONEY,
+      </if>
+      <if test="nightBMin != null">
+        NIGHT_B_MIN,
+      </if>
+      <if test="nightBMinMoney != null">
+        NIGHT_B_MIN_MONEY,
+      </if>
+      <if test="dataTime != null">
+        DATA_TIME,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="ncountMoney != null">
+        NCOUNT_MONEY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="morningA != null">
+        #{morningA,jdbcType=DECIMAL},
+      </if>
+      <if test="morningAMoney != null">
+        #{morningAMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="morningB != null">
+        #{morningB,jdbcType=DECIMAL},
+      </if>
+      <if test="morningBMoney != null">
+        #{morningBMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="noonAMax != null">
+        #{noonAMax,jdbcType=DECIMAL},
+      </if>
+      <if test="noonAMaxMoney != null">
+        #{noonAMaxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="noonAMin != null">
+        #{noonAMin,jdbcType=DECIMAL},
+      </if>
+      <if test="noonAMinMoney != null">
+        #{noonAMinMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="noonBMax != null">
+        #{noonBMax,jdbcType=DECIMAL},
+      </if>
+      <if test="noonBMaxMoney != null">
+        #{noonBMaxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="noonBMin != null">
+        #{noonBMin,jdbcType=DECIMAL},
+      </if>
+      <if test="noonBMinMoney != null">
+        #{noonBMinMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nightAMax != null">
+        #{nightAMax,jdbcType=DECIMAL},
+      </if>
+      <if test="nightAMaxMoney != null">
+        #{nightAMaxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nightAMin != null">
+        #{nightAMin,jdbcType=DECIMAL},
+      </if>
+      <if test="nightAMinMoney != null">
+        #{nightAMinMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nightBMax != null">
+        #{nightBMax,jdbcType=DECIMAL},
+      </if>
+      <if test="nightBMaxMoney != null">
+        #{nightBMaxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nightBMin != null">
+        #{nightBMin,jdbcType=DECIMAL},
+      </if>
+      <if test="nightBMinMoney != null">
+        #{nightBMinMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="dataTime != null">
+        #{dataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ncountMoney != null">
+        #{ncountMoney,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.map.StationFoodData">
+    update FOOD.STATION_FOOD_DATA
+    <set>
+      <if test="stationId != null">
+        STATION_ID = #{stationId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationName != null">
+        STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="morningA != null">
+        MORNING_A = #{morningA,jdbcType=DECIMAL},
+      </if>
+      <if test="morningAMoney != null">
+        MORNING_A_MONEY = #{morningAMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="morningB != null">
+        MORNING_B = #{morningB,jdbcType=DECIMAL},
+      </if>
+      <if test="morningBMoney != null">
+        MORNING_B_MONEY = #{morningBMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="noonAMax != null">
+        NOON_A_MAX = #{noonAMax,jdbcType=DECIMAL},
+      </if>
+      <if test="noonAMaxMoney != null">
+        NOON_A_MAX_MONEY = #{noonAMaxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="noonAMin != null">
+        NOON_A_MIN = #{noonAMin,jdbcType=DECIMAL},
+      </if>
+      <if test="noonAMinMoney != null">
+        NOON_A_MIN_MONEY = #{noonAMinMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="noonBMax != null">
+        NOON_B_MAX = #{noonBMax,jdbcType=DECIMAL},
+      </if>
+      <if test="noonBMaxMoney != null">
+        NOON_B_MAX_MONEY = #{noonBMaxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="noonBMin != null">
+        NOON_B_MIN = #{noonBMin,jdbcType=DECIMAL},
+      </if>
+      <if test="noonBMinMoney != null">
+        NOON_B_MIN_MONEY = #{noonBMinMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nightAMax != null">
+        NIGHT_A_MAX = #{nightAMax,jdbcType=DECIMAL},
+      </if>
+      <if test="nightAMaxMoney != null">
+        NIGHT_A_MAX_MONEY = #{nightAMaxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nightAMin != null">
+        NIGHT_A_MIN = #{nightAMin,jdbcType=DECIMAL},
+      </if>
+      <if test="nightAMinMoney != null">
+        NIGHT_A_MIN_MONEY = #{nightAMinMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nightBMax != null">
+        NIGHT_B_MAX = #{nightBMax,jdbcType=DECIMAL},
+      </if>
+      <if test="nightBMaxMoney != null">
+        NIGHT_B_MAX_MONEY = #{nightBMaxMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="nightBMin != null">
+        NIGHT_B_MIN = #{nightBMin,jdbcType=DECIMAL},
+      </if>
+      <if test="nightBMinMoney != null">
+        NIGHT_B_MIN_MONEY = #{nightBMinMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="dataTime != null">
+        DATA_TIME = #{dataTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ncountMoney != null">
+        NCOUNT_MONEY = #{ncountMoney,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.map.StationFoodData">
+    update FOOD.STATION_FOOD_DATA
+    set STATION_ID = #{stationId,jdbcType=DECIMAL},
+      STATION_NAME = #{stationName,jdbcType=VARCHAR},
+      MORNING_A = #{morningA,jdbcType=DECIMAL},
+      MORNING_A_MONEY = #{morningAMoney,jdbcType=DECIMAL},
+      MORNING_B = #{morningB,jdbcType=DECIMAL},
+      MORNING_B_MONEY = #{morningBMoney,jdbcType=DECIMAL},
+      NOON_A_MAX = #{noonAMax,jdbcType=DECIMAL},
+      NOON_A_MAX_MONEY = #{noonAMaxMoney,jdbcType=DECIMAL},
+      NOON_A_MIN = #{noonAMin,jdbcType=DECIMAL},
+      NOON_A_MIN_MONEY = #{noonAMinMoney,jdbcType=DECIMAL},
+      NOON_B_MAX = #{noonBMax,jdbcType=DECIMAL},
+      NOON_B_MAX_MONEY = #{noonBMaxMoney,jdbcType=DECIMAL},
+      NOON_B_MIN = #{noonBMin,jdbcType=DECIMAL},
+      NOON_B_MIN_MONEY = #{noonBMinMoney,jdbcType=DECIMAL},
+      NIGHT_A_MAX = #{nightAMax,jdbcType=DECIMAL},
+      NIGHT_A_MAX_MONEY = #{nightAMaxMoney,jdbcType=DECIMAL},
+      NIGHT_A_MIN = #{nightAMin,jdbcType=DECIMAL},
+      NIGHT_A_MIN_MONEY = #{nightAMinMoney,jdbcType=DECIMAL},
+      NIGHT_B_MAX = #{nightBMax,jdbcType=DECIMAL},
+      NIGHT_B_MAX_MONEY = #{nightBMaxMoney,jdbcType=DECIMAL},
+      NIGHT_B_MIN = #{nightBMin,jdbcType=DECIMAL},
+      NIGHT_B_MIN_MONEY = #{nightBMinMoney,jdbcType=DECIMAL},
+      DATA_TIME = #{dataTime,jdbcType=TIMESTAMP},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      NCOUNT_MONEY = #{ncountMoney,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="selectByStationId" resultMap="BaseResultMap" >
+    select STATION_ID,station_name,sum(MORNING_A+MORNING_B) MORNING,sum(MORNING_A_MONEY+MORNING_B_MONEY) MORNING_MONEY,
+    sum(NOON_A_MAX+NOON_B_MAX) NOON_MAX,sum(NOON_A_MAX_MONEY+NOON_B_MAX_MONEY) NOON_MAX_MONEY,sum(NOON_A_MIN+NOON_B_MIN) NOON_MIN,sum(NOON_A_MIN_MONEY+NOON_B_MIN_MONEY) NOON_MIN_MONEY,
+    sum(NIGHT_A_MAX+NIGHT_B_MAX) NIGHT_MAX,sum(NIGHT_A_MAX_MONEY+NIGHT_B_MAX_MONEY) NIGHT_MAX_MONEY,sum(NIGHT_A_MIN+NIGHT_B_MIN) NIGHT_MIN,sum(NIGHT_A_MIN_MONEY+NIGHT_B_MIN_MONEY) NIGHT_MIN_MONEY
+    from station_food_data
+    where station_id = #{stationId}
+    <if test="timeStart != null and timeStart != ''">
+      and data_time &gt;= to_date(#{timeStart}, 'yyyy-MM-dd hh24:mi:ss')
+    </if>
+    <if test="timeEnd != null and timeEnd != ''">
+      and data_time &lt;= to_date(#{timeEnd}, 'yyyy-MM-dd hh24:mi:ss')
+    </if>
+    GROUP BY STATION_ID,station_name
+  </select>
+
+
+  <select id="selectByHisdate" resultMap="BaseResultMap" >
+    select *
+    from station_food_data
+    where 1=1
+    <if test="stationId != null and stationId!=''">
+      and  station_id=#{stationId,jdbcType=DECIMAL}
+    </if>
+    <if test="timeStart != null and timeStart != ''">
+      and data_time &gt;= to_date(#{timeStart}, 'yyyy-MM-dd hh24:mi:ss')
+    </if>
+    <if test="timeEnd != null and timeEnd != ''">
+      and data_time &lt;= to_date(#{timeEnd}, 'yyyy-MM-dd hh24:mi:ss')
+    </if>
+    order by id desc
+  </select>
+</mapper>

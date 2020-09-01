@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.SysControlMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.SysControl">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="CMD_VALUE" jdbcType="DECIMAL" property="cmdValue" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="TYPE_ID" jdbcType="DECIMAL" property="typeId" />
+    <result column="CMD_NAME" jdbcType="VARCHAR" property="cmdName" />
+    <result column="CMD_ADDRESS" jdbcType="VARCHAR" property="cmdAddress" />
+    <result column="PORT" jdbcType="DECIMAL" property="port" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, WELL_ID, WELL_NAME, CMD_VALUE, IP, STIME, TYPE_ID, CMD_NAME, CMD_ADDRESS, PORT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CBMDB.SYS_CONTROL
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from CBMDB.SYS_CONTROL
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.SysControl">
+    insert into CBMDB.SYS_CONTROL (ID, WELL_ID, WELL_NAME, 
+      CMD_VALUE, IP, STIME, 
+      TYPE_ID, CMD_NAME, CMD_ADDRESS, 
+      PORT)
+    values (#{id,jdbcType=DECIMAL}, #{wellId,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, 
+      #{cmdValue,jdbcType=DECIMAL}, #{ip,jdbcType=VARCHAR}, #{stime,jdbcType=TIMESTAMP}, 
+      #{typeId,jdbcType=DECIMAL}, #{cmdName,jdbcType=VARCHAR}, #{cmdAddress,jdbcType=VARCHAR}, 
+      #{port,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.SysControl">
+    insert into CBMDB.SYS_CONTROL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="cmdValue != null">
+        CMD_VALUE,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="typeId != null">
+        TYPE_ID,
+      </if>
+      <if test="cmdName != null">
+        CMD_NAME,
+      </if>
+      <if test="cmdAddress != null">
+        CMD_ADDRESS,
+      </if>
+      <if test="port != null">
+        PORT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="cmdValue != null">
+        #{cmdValue,jdbcType=DECIMAL},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=DECIMAL},
+      </if>
+      <if test="cmdName != null">
+        #{cmdName,jdbcType=VARCHAR},
+      </if>
+      <if test="cmdAddress != null">
+        #{cmdAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.SysControl">
+    update CBMDB.SYS_CONTROL
+    <set>
+      <if test="wellId != null">
+        WELL_ID = #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="cmdValue != null">
+        CMD_VALUE = #{cmdValue,jdbcType=DECIMAL},
+      </if>
+      <if test="ip != null">
+        IP = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="typeId != null">
+        TYPE_ID = #{typeId,jdbcType=DECIMAL},
+      </if>
+      <if test="cmdName != null">
+        CMD_NAME = #{cmdName,jdbcType=VARCHAR},
+      </if>
+      <if test="cmdAddress != null">
+        CMD_ADDRESS = #{cmdAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        PORT = #{port,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.SysControl">
+    update CBMDB.SYS_CONTROL
+    set WELL_ID = #{wellId,jdbcType=DECIMAL},
+      WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      CMD_VALUE = #{cmdValue,jdbcType=DECIMAL},
+      IP = #{ip,jdbcType=VARCHAR},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      TYPE_ID = #{typeId,jdbcType=DECIMAL},
+      CMD_NAME = #{cmdName,jdbcType=VARCHAR},
+      CMD_ADDRESS = #{cmdAddress,jdbcType=VARCHAR},
+      PORT = #{port,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

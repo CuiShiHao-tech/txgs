@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.sysoption.well.FunFactoryInfoMapper">
+    <resultMap id="BaseResultMap" type="server.db.primary.model.sysoption.well.FactoryInfo">
+        <id column="ID" jdbcType="DECIMAL" property="id"/>
+        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <collection property="areaInfoList" ofType="server.db.primary.model.sysoption.well.AreaInfo">
+            <id column="A_ID" jdbcType="DECIMAL" property="id"/>
+            <result column="A_AREA_NAME" jdbcType="VARCHAR" property="areaName"/>
+            <result column="A_AREA_NAME_ALIAS" jdbcType="VARCHAR" property="areaNameAlias"/>
+            <result column="A_CO_ID" jdbcType="DECIMAL" property="coId"/>
+            <result column="A_CO_NAME" jdbcType="VARCHAR" property="coName"/>
+            <result column="A_REMARK" jdbcType="VARCHAR" property="remark"/>
+            <result column="A_MARK" jdbcType="DECIMAL" property="mark"/>
+            <result column="A_STIME" jdbcType="TIMESTAMP" property="stime"/>
+        </collection>
+    </resultMap>
+    <!--<select id="selectUnitTree" resultMap="BaseResultMap">-->
+        <!--select-->
+            <!--FACTORY_INFO.ID,-->
+            <!--FACTORY_INFO.NAME, -->
+               <!---->
+            <!--AREA_INFO.ID                     A_ID,-->
+            <!--AREA_INFO.AREA_NAME              A_AREA_NAME,-->
+ <!---->
+            <!--STATION_INFO.ID                  S_ID,-->
+            <!--STATION_INFO.STATION_NAME        S_STATION_NAME-->
+ <!---->
+        <!--from FACTORY_INFO-->
+            <!--left join AREA_INFO on FACTORY_INFO.ID = AREA_INFO.CO_ID-->
+            <!--left join STATION_INFO on AREA_INFO.ID = STATION_INFO.AREA_ID-->
+    <!--</select>-->
+
+    <select id="selecFactoryAreaTree" resultMap="BaseResultMap">
+        select
+            FACTORY_INFO.ID,
+            FACTORY_INFO.NAME,
+            AREA_INFO.ID                     A_ID,
+            AREA_INFO.AREA_NAME              A_AREA_NAME
+        from FACTORY_INFO
+            left join AREA_INFO on FACTORY_INFO.ID = AREA_INFO.CO_ID
+    </select>
+</mapper>

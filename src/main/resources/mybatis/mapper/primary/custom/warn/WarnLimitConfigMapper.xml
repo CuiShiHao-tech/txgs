@@ -1,0 +1,1473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.warn.WarnLimitConfigMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.warn.WarnLimitConfig">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="U_UP" jdbcType="DECIMAL" property="uUp" />
+    <result column="U_UP_LIMIT" jdbcType="DECIMAL" property="uUpLimit" />
+    <result column="U_DOWN" jdbcType="DECIMAL" property="uDown" />
+    <result column="U_DOWN_LIMIT" jdbcType="DECIMAL" property="uDownLimit" />
+    <result column="PRESS_OIL_UP" jdbcType="DECIMAL" property="pressOilUp" />
+    <result column="PRESS_OIL_UP_LIMIT" jdbcType="DECIMAL" property="pressOilUpLimit" />
+    <result column="PRESS_OIL_DOWN" jdbcType="DECIMAL" property="pressOilDown" />
+    <result column="PRESS_OIL_DOWN_LIMIT" jdbcType="DECIMAL" property="pressOilDownLimit" />
+    <result column="JIG_FREQUENCY_UP" jdbcType="DECIMAL" property="jigFrequencyUp" />
+    <result column="JIG_FREQUENCY_UP_LIMIT" jdbcType="DECIMAL" property="jigFrequencyUpLimit" />
+    <result column="JIG_FREQUENCY_DOWN" jdbcType="DECIMAL" property="jigFrequencyDown" />
+    <result column="JIG_FREQUENCY_DOWN_LIMIT" jdbcType="DECIMAL" property="jigFrequencyDownLimit" />
+    <result column="WELL_STROKE_UP" jdbcType="DECIMAL" property="wellStrokeUp" />
+    <result column="WELL_STROKE_UP_LIMIT" jdbcType="DECIMAL" property="wellStrokeUpLimit" />
+    <result column="WELL_STROKE_DOWN" jdbcType="DECIMAL" property="wellStrokeDown" />
+    <result column="WELL_STROKE_DOWN_LIMIT" jdbcType="DECIMAL" property="wellStrokeDownLimit" />
+    <result column="LOAD_MAX_UP" jdbcType="DECIMAL" property="loadMaxUp" />
+    <result column="LOAD_MAX_UP_LIMIT" jdbcType="DECIMAL" property="loadMaxUpLimit" />
+    <result column="LOAD_MAX_DOWN" jdbcType="DECIMAL" property="loadMaxDown" />
+    <result column="LOAD_MAX_DOWN_LIMIT" jdbcType="DECIMAL" property="loadMaxDownLimit" />
+    <result column="LOAD_MIN_UP" jdbcType="DECIMAL" property="loadMinUp" />
+    <result column="LOAD_MIN_UP_LIMIT" jdbcType="DECIMAL" property="loadMinUpLimit" />
+    <result column="LOAD_MIN_DOWN" jdbcType="DECIMAL" property="loadMinDown" />
+    <result column="LOAD_MIN_DOWN_LIMIT" jdbcType="DECIMAL" property="loadMinDownLimit" />
+    <result column="UA_UP_COUNT" jdbcType="DECIMAL" property="uaUpCount" />
+    <result column="UA_DOWN_COUNT" jdbcType="DECIMAL" property="uaDownCount" />
+    <result column="UB_UP_COUNT" jdbcType="DECIMAL" property="ubUpCount" />
+    <result column="UB_DOWN_COUNT" jdbcType="DECIMAL" property="ubDownCount" />
+    <result column="UC_UP_COUNT" jdbcType="DECIMAL" property="ucUpCount" />
+    <result column="UC_DOWN_COUNT" jdbcType="DECIMAL" property="ucDownCount" />
+    <result column="PRESS_OIL_UP_COUNT" jdbcType="DECIMAL" property="pressOilUpCount" />
+    <result column="PRESS_OIL_DOWN_COUNT" jdbcType="DECIMAL" property="pressOilDownCount" />
+    <result column="JIG_FREQUENCY_UP_COUNT" jdbcType="DECIMAL" property="jigFrequencyUpCount" />
+    <result column="JIG_FREQUENCY_DOWN_COUNT" jdbcType="DECIMAL" property="jigFrequencyDownCount" />
+    <result column="WELL_STROKE_UP_COUNT" jdbcType="DECIMAL" property="wellStrokeUpCount" />
+    <result column="WELL_STROKE_DOWN_COUNT" jdbcType="DECIMAL" property="wellStrokeDownCount" />
+    <result column="LOAD_MAX_UP_COUNT" jdbcType="DECIMAL" property="loadMaxUpCount" />
+    <result column="LOAD_MAX_DOWN_COUNT" jdbcType="DECIMAL" property="loadMaxDownCount" />
+    <result column="LOAD_MIN_UP_COUNT" jdbcType="DECIMAL" property="loadMinUpCount" />
+    <result column="LOAD_MIN_DOWN_COUNT" jdbcType="DECIMAL" property="loadMinDownCount" />
+    <result column="TEMP_WELLHEAD_UP" jdbcType="DECIMAL" property="tempWellheadUp" />
+    <result column="TEMP_WELLHEAD_UP_COUNT" jdbcType="DECIMAL" property="tempWellheadUpCount" />
+    <result column="TEMP_WELLHEAD_DOWN" jdbcType="DECIMAL" property="tempWellheadDown" />
+    <result column="TEMP_WELLHEAD_DOWN_COUNT" jdbcType="DECIMAL" property="tempWellheadDownCount" />
+    <result column="GT_PROD_UP" jdbcType="DECIMAL" property="gtProdUp" />
+    <result column="GT_PROD_UP_COUNT" jdbcType="DECIMAL" property="gtProdUpCount" />
+    <result column="GT_PROD_DOWN" jdbcType="DECIMAL" property="gtProdDown" />
+    <result column="GT_PROD_DOWN_COUNT" jdbcType="DECIMAL" property="gtProdDownCount" />
+    <result column="MARK" jdbcType="VARCHAR" property="mark" />
+    <result column="MARK1" jdbcType="VARCHAR" property="mark1" />
+    <result column="TEMP_WELLHEAD_UP_LIMIT" jdbcType="DECIMAL" property="tempWellheadUpLimit" />
+    <result column="TEMP_WELLHEAD_DOWN_LIMIT" jdbcType="DECIMAL" property="tempWellheadDownLimit" />
+    <result column="GT_PROD_UP_LIMIT" jdbcType="DECIMAL" property="gtProdUpLimit" />
+    <result column="GT_PROD_DOWN_LIMIT" jdbcType="DECIMAL" property="gtProdDownLimit" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+
+
+    <result column="U_TIME_OUT" jdbcType="DECIMAL" property="uTimeOut" />
+    <result column="I_TIME_OUT" jdbcType="DECIMAL" property="iTimeOut" />
+    <result column="PRESS_OIL_TIME_OUT" jdbcType="DECIMAL" property="pressOilTimeOut" />
+    <result column="JIG_FREQUENCY_TIME_OUT" jdbcType="DECIMAL" property="jigFrequencyTimeOut" />
+    <result column="WELL_STROKE_TIME_OUT" jdbcType="DECIMAL" property="wellStrokeTimeOut" />
+    <result column="LOAD_TIME_OUT" jdbcType="DECIMAL" property="loadTimeOut" />
+    <result column="TEMP_WELLHEAD_TIME_OUT" jdbcType="DECIMAL" property="tempWellheadTimeOut" />
+    <result column="GT_PROD_TIME_OUT" jdbcType="DECIMAL" property="gtProdTimeOut" />
+    <result column="U_MARK" jdbcType="VARCHAR" property="uMark" />
+    <result column="I_MARK" jdbcType="VARCHAR" property="iMark" />
+    <result column="PRESS_OIL_MARK" jdbcType="VARCHAR" property="pressOilMark" />
+    <result column="JIG_FREQUENCY_MARK" jdbcType="VARCHAR" property="jigFrequencyMark" />
+    <result column="WELL_STROKE_MARK" jdbcType="VARCHAR" property="wellStrokeMark" />
+    <result column="LOAD_MAX_MARK" jdbcType="VARCHAR" property="loadMaxMark" />
+    <result column="LOAD_MIN_MARK" jdbcType="VARCHAR" property="loadMinMark" />
+    <result column="TEMP_WELLHEAD_MARK" jdbcType="VARCHAR" property="tempWellheadMark" />
+    <result column="GT_PROD_MARK" jdbcType="VARCHAR" property="gtProdMark" />
+
+      <result column="I_UP" jdbcType="DECIMAL" property="iUp" />
+      <result column="I_UP_LIMIT" jdbcType="DECIMAL" property="iUpLimit" />
+      <result column="I_DOWN" jdbcType="DECIMAL" property="iDown" />
+      <result column="I_DOWN_LIMIT" jdbcType="DECIMAL" property="iDownLimit" />
+      <result column="IA_UP_COUNT" jdbcType="DECIMAL" property="iaUpCount" />
+      <result column="IB_UP_COUNT" jdbcType="DECIMAL" property="ibUpCount" />
+      <result column="IC_UP_COUNT" jdbcType="DECIMAL" property="icUpCount" />
+      <result column="IA_DOWN_COUNT" jdbcType="DECIMAL" property="iaDownCount" />
+      <result column="IB_DOWN_COUNT" jdbcType="DECIMAL" property="ibDownCount" />
+      <result column="IC_DOWN_COUNT" jdbcType="DECIMAL" property="icDownCount" />
+    <result column="FLOW_WATER_INSTANT_UP" jdbcType="DECIMAL" property="flowWaterInstantUp" />
+    <result column="FLOW_WATER_INSTANT_UP_LIMIT" jdbcType="DECIMAL" property="flowWaterInstantUpLimit" />
+    <result column="FLOW_WATER_INSTANT_DOWN" jdbcType="DECIMAL" property="flowWaterInstantDown" />
+    <result column="FLOW_WATER_INSTANT_DOWN_LIMIT" jdbcType="DECIMAL" property="flowWaterInstantDownLimit" />
+    <result column="FLOW_WATER_INSTANT_MARK" jdbcType="VARCHAR" property="flowWaterInstantMark" />
+    <result column="FLOW_WATER_INSTANT_TIME_OUT" jdbcType="DECIMAL" property="flowWaterInstantTimeOut" />
+
+    <result column="PRESS_CASE_UP" jdbcType="DECIMAL" property="pressCaseUp" />
+    <result column="PRESS_CASE_UP_LIMIT" jdbcType="DECIMAL" property="pressCaseUpLimit" />
+    <result column="PRESS_CASE_DOWN" jdbcType="DECIMAL" property="pressCaseDown" />
+    <result column="PRESS_CASE_DOWN_LIMIT" jdbcType="DECIMAL" property="pressCaseDownLimit" />
+    <result column="PRESS_CASE_MARK" jdbcType="VARCHAR" property="pressCaseMark" />
+    <result column="PRESS_DOWNHOLE_UP" jdbcType="DECIMAL" property="pressDownholeUp" />
+    <result column="PRESS_DOWNHOLE_UP_LIMIT" jdbcType="DECIMAL" property="pressDownholeUpLimit" />
+    <result column="PRESS_DOWNHOLE_DOWN" jdbcType="DECIMAL" property="pressDownholeDown" />
+    <result column="PRESS_DOWNHOLE_DOWN_LIMIT" jdbcType="DECIMAL" property="pressDownholeDownLimit" />
+    <result column="PRESS_DOWNHOLE_MARK" jdbcType="VARCHAR" property="pressDownholeMark" />
+
+  </resultMap>
+
+    <resultMap id="All" type="server.db.primary.model.warn.WarnAllConfig">
+        <id column="ID" jdbcType="DECIMAL" property="id" />
+        <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+        <result column="U_UP" jdbcType="DECIMAL" property="uUp" />
+        <result column="U_UP_LIMIT" jdbcType="DECIMAL" property="uUpLimit" />
+        <result column="U_DOWN" jdbcType="DECIMAL" property="uDown" />
+        <result column="U_DOWN_LIMIT" jdbcType="DECIMAL" property="uDownLimit" />
+        <result column="PRESS_OIL_UP" jdbcType="DECIMAL" property="pressOilUp" />
+        <result column="PRESS_OIL_UP_LIMIT" jdbcType="DECIMAL" property="pressOilUpLimit" />
+        <result column="PRESS_OIL_DOWN" jdbcType="DECIMAL" property="pressOilDown" />
+        <result column="PRESS_OIL_DOWN_LIMIT" jdbcType="DECIMAL" property="pressOilDownLimit" />
+        <result column="JIG_FREQUENCY_UP" jdbcType="DECIMAL" property="jigFrequencyUp" />
+        <result column="JIG_FREQUENCY_UP_LIMIT" jdbcType="DECIMAL" property="jigFrequencyUpLimit" />
+        <result column="JIG_FREQUENCY_DOWN" jdbcType="DECIMAL" property="jigFrequencyDown" />
+        <result column="JIG_FREQUENCY_DOWN_LIMIT" jdbcType="DECIMAL" property="jigFrequencyDownLimit" />
+        <result column="WELL_STROKE_UP" jdbcType="DECIMAL" property="wellStrokeUp" />
+        <result column="WELL_STROKE_UP_LIMIT" jdbcType="DECIMAL" property="wellStrokeUpLimit" />
+        <result column="WELL_STROKE_DOWN" jdbcType="DECIMAL" property="wellStrokeDown" />
+        <result column="WELL_STROKE_DOWN_LIMIT" jdbcType="DECIMAL" property="wellStrokeDownLimit" />
+        <result column="LOAD_MAX_UP" jdbcType="DECIMAL" property="loadMaxUp" />
+        <result column="LOAD_MAX_UP_LIMIT" jdbcType="DECIMAL" property="loadMaxUpLimit" />
+        <result column="LOAD_MAX_DOWN" jdbcType="DECIMAL" property="loadMaxDown" />
+        <result column="LOAD_MAX_DOWN_LIMIT" jdbcType="DECIMAL" property="loadMaxDownLimit" />
+        <result column="LOAD_MIN_UP" jdbcType="DECIMAL" property="loadMinUp" />
+        <result column="LOAD_MIN_UP_LIMIT" jdbcType="DECIMAL" property="loadMinUpLimit" />
+        <result column="LOAD_MIN_DOWN" jdbcType="DECIMAL" property="loadMinDown" />
+        <result column="LOAD_MIN_DOWN_LIMIT" jdbcType="DECIMAL" property="loadMinDownLimit" />
+        <result column="UA_UP_COUNT" jdbcType="DECIMAL" property="uaUpCount" />
+        <result column="UA_DOWN_COUNT" jdbcType="DECIMAL" property="uaDownCount" />
+        <result column="UB_UP_COUNT" jdbcType="DECIMAL" property="ubUpCount" />
+        <result column="UB_DOWN_COUNT" jdbcType="DECIMAL" property="ubDownCount" />
+        <result column="UC_UP_COUNT" jdbcType="DECIMAL" property="ucUpCount" />
+        <result column="UC_DOWN_COUNT" jdbcType="DECIMAL" property="ucDownCount" />
+        <result column="PRESS_OIL_UP_COUNT" jdbcType="DECIMAL" property="pressOilUpCount" />
+        <result column="PRESS_OIL_DOWN_COUNT" jdbcType="DECIMAL" property="pressOilDownCount" />
+        <result column="JIG_FREQUENCY_UP_COUNT" jdbcType="DECIMAL" property="jigFrequencyUpCount" />
+        <result column="JIG_FREQUENCY_DOWN_COUNT" jdbcType="DECIMAL" property="jigFrequencyDownCount" />
+        <result column="WELL_STROKE_UP_COUNT" jdbcType="DECIMAL" property="wellStrokeUpCount" />
+        <result column="WELL_STROKE_DOWN_COUNT" jdbcType="DECIMAL" property="wellStrokeDownCount" />
+        <result column="LOAD_MAX_UP_COUNT" jdbcType="DECIMAL" property="loadMaxUpCount" />
+        <result column="LOAD_MAX_DOWN_COUNT" jdbcType="DECIMAL" property="loadMaxDownCount" />
+        <result column="LOAD_MIN_UP_COUNT" jdbcType="DECIMAL" property="loadMinUpCount" />
+        <result column="LOAD_MIN_DOWN_COUNT" jdbcType="DECIMAL" property="loadMinDownCount" />
+        <result column="TEMP_WELLHEAD_UP" jdbcType="DECIMAL" property="tempWellheadUp" />
+        <result column="TEMP_WELLHEAD_UP_COUNT" jdbcType="DECIMAL" property="tempWellheadUpCount" />
+        <result column="TEMP_WELLHEAD_DOWN" jdbcType="DECIMAL" property="tempWellheadDown" />
+        <result column="TEMP_WELLHEAD_DOWN_COUNT" jdbcType="DECIMAL" property="tempWellheadDownCount" />
+        <result column="GT_PROD_UP" jdbcType="DECIMAL" property="gtProdUp" />
+        <result column="GT_PROD_UP_COUNT" jdbcType="DECIMAL" property="gtProdUpCount" />
+        <result column="GT_PROD_DOWN" jdbcType="DECIMAL" property="gtProdDown" />
+        <result column="GT_PROD_DOWN_COUNT" jdbcType="DECIMAL" property="gtProdDownCount" />
+        <result column="MARK" jdbcType="VARCHAR" property="mark" />
+        <result column="MARK1" jdbcType="VARCHAR" property="mark1" />
+        <result column="TEMP_WELLHEAD_UP_LIMIT" jdbcType="DECIMAL" property="tempWellheadUpLimit" />
+        <result column="TEMP_WELLHEAD_DOWN_LIMIT" jdbcType="DECIMAL" property="tempWellheadDownLimit" />
+        <result column="GT_PROD_UP_LIMIT" jdbcType="DECIMAL" property="gtProdUpLimit" />
+        <result column="GT_PROD_DOWN_LIMIT" jdbcType="DECIMAL" property="gtProdDownLimit" />
+        <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+      <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+      <result column="COMM_EX_LIMIT" jdbcType="DECIMAL" property="commExLimit" />
+      <result column="CLOSE_WELL_EX_LIMIT" jdbcType="DECIMAL" property="closeWellExLimit" />
+      <result column="PRESS_COMM_EX_LIMIT" jdbcType="DECIMAL" property="pressCommExLimit" />
+      <result column="STROKE_COMM_EX_LIMIT" jdbcType="DECIMAL" property="strokeCommExLimit" />
+      <result column="MARK2" jdbcType="VARCHAR" property="mark2" />
+        <result column="SYS_MARK" jdbcType="VARCHAR" property="sysMark" />
+        <result column="L_MARK" jdbcType="VARCHAR" property="lMark" />
+        <result column="GT_MARK" jdbcType="VARCHAR" property="gtMark" />
+
+      <result column="COMM_EX_MARK" jdbcType="VARCHAR" property="commExMark" />
+      <result column="PRESS_COMM_EX_MARK" jdbcType="VARCHAR" property="pressCommExMark" />
+      <result column="STROKE_COMM_EX_MARK" jdbcType="VARCHAR" property="strokeCommExMark" />
+      <result column="U_MARK" jdbcType="VARCHAR" property="uMark" />
+      <result column="I_MARK" jdbcType="VARCHAR" property="iMark" />
+      <result column="PRESS_OIL_MARK" jdbcType="VARCHAR" property="pressOilMark" />
+      <result column="JIG_FREQUENCY_MARK" jdbcType="VARCHAR" property="jigFrequencyMark" />
+      <result column="WELL_STROKE_MARK" jdbcType="VARCHAR" property="wellStrokeMark" />
+      <result column="LOAD_MAX_MARK" jdbcType="VARCHAR" property="loadMaxMark" />
+      <result column="LOAD_MIN_MARK" jdbcType="VARCHAR" property="loadMinMark" />
+      <result column="TEMP_WELLHEAD_MARK" jdbcType="VARCHAR" property="tempWellheadMark" />
+      <result column="GT_PROD_MARK" jdbcType="VARCHAR" property="gtProdMark" />
+
+        <result column="I_UP" jdbcType="DECIMAL" property="iUp" />
+        <result column="I_UP_LIMIT" jdbcType="DECIMAL" property="iUpLimit" />
+        <result column="I_DOWN" jdbcType="DECIMAL" property="iDown" />
+        <result column="I_DOWN_LIMIT" jdbcType="DECIMAL" property="iDownLimit" />
+        <result column="IA_UP_COUNT" jdbcType="DECIMAL" property="iaUpCount" />
+        <result column="IB_UP_COUNT" jdbcType="DECIMAL" property="ibUpCount" />
+        <result column="IC_UP_COUNT" jdbcType="DECIMAL" property="icUpCount" />
+        <result column="IA_DOWN_COUNT" jdbcType="DECIMAL" property="iaDownCount" />
+        <result column="IB_DOWN_COUNT" jdbcType="DECIMAL" property="ibDownCount" />
+        <result column="IC_DOWN_COUNT" jdbcType="DECIMAL" property="icDownCount" />
+
+      <result column="FLOW_WATER_INSTANT_UP" jdbcType="DECIMAL" property="flowWaterInstantUp" />
+      <result column="FLOW_WATER_INSTANT_UP_LIMIT" jdbcType="DECIMAL" property="flowWaterInstantUpLimit" />
+      <result column="FLOW_WATER_INSTANT_DOWN" jdbcType="DECIMAL" property="flowWaterInstantDown" />
+      <result column="FLOW_WATER_INSTANT_DOWN_LIMIT" jdbcType="DECIMAL" property="flowWaterInstantDownLimit" />
+      <result column="FLOW_WATER_INSTANT_MARK" jdbcType="VARCHAR" property="flowWaterInstantMark" />
+      <result column="FLOW_WATER_INSTANT_TIME_OUT" jdbcType="DECIMAL" property="flowWaterInstantTimeOut" />
+
+
+      <result column="PRESS_CASE_UP" jdbcType="DECIMAL" property="pressCaseUp" />
+      <result column="PRESS_CASE_UP_LIMIT" jdbcType="DECIMAL" property="pressCaseUpLimit" />
+      <result column="PRESS_CASE_DOWN" jdbcType="DECIMAL" property="pressCaseDown" />
+      <result column="PRESS_CASE_DOWN_LIMIT" jdbcType="DECIMAL" property="pressCaseDownLimit" />
+      <result column="PRESS_CASE_MARK" jdbcType="VARCHAR" property="pressCaseMark" />
+      <result column="PRESS_DOWNHOLE_UP" jdbcType="DECIMAL" property="pressDownholeUp" />
+      <result column="PRESS_DOWNHOLE_UP_LIMIT" jdbcType="DECIMAL" property="pressDownholeUpLimit" />
+      <result column="PRESS_DOWNHOLE_DOWN" jdbcType="DECIMAL" property="pressDownholeDown" />
+      <result column="PRESS_DOWNHOLE_DOWN_LIMIT" jdbcType="DECIMAL" property="pressDownholeDownLimit" />
+      <result column="PRESS_DOWNHOLE_MARK" jdbcType="VARCHAR" property="pressDownholeMark" />
+    </resultMap>
+
+  <sql id="Base_Column_List">
+     ID, WELL_ID, U_UP, U_UP_LIMIT, UA_UP_COUNT, U_DOWN, U_DOWN_LIMIT, UA_DOWN_COUNT,
+    PRESS_OIL_UP, PRESS_OIL_UP_LIMIT, PRESS_OIL_UP_COUNT, PRESS_OIL_DOWN, PRESS_OIL_DOWN_LIMIT,
+    PRESS_OIL_DOWN_COUNT, JIG_FREQUENCY_UP, JIG_FREQUENCY_UP_LIMIT, JIG_FREQUENCY_UP_COUNT,
+    JIG_FREQUENCY_DOWN, JIG_FREQUENCY_DOWN_LIMIT, JIG_FREQUENCY_DOWN_COUNT, WELL_STROKE_UP,
+    WELL_STROKE_UP_LIMIT, WELL_STROKE_UP_COUNT, WELL_STROKE_DOWN, WELL_STROKE_DOWN_LIMIT,
+    WELL_STROKE_DOWN_COUNT, LOAD_MAX_UP, LOAD_MAX_UP_LIMIT, LOAD_MAX_UP_COUNT, LOAD_MAX_DOWN,
+    LOAD_MAX_DOWN_LIMIT, LOAD_MAX_DOWN_COUNT, LOAD_MIN_UP, LOAD_MIN_UP_LIMIT, LOAD_MIN_UP_COUNT,
+    LOAD_MIN_DOWN, LOAD_MIN_DOWN_LIMIT, LOAD_MIN_DOWN_COUNT, TEMP_WELLHEAD_UP, TEMP_WELLHEAD_UP_LIMIT,
+    TEMP_WELLHEAD_UP_COUNT, TEMP_WELLHEAD_DOWN, TEMP_WELLHEAD_DOWN_LIMIT, TEMP_WELLHEAD_DOWN_COUNT,
+    GT_PROD_UP, GT_PROD_UP_LIMIT, GT_PROD_UP_COUNT, GT_PROD_DOWN, GT_PROD_DOWN_LIMIT,
+    GT_PROD_DOWN_COUNT, STIME, MARK, MARK1, UB_UP_COUNT, UB_DOWN_COUNT, UC_UP_COUNT,
+    UC_DOWN_COUNT, U_TIME_OUT, I_TIME_OUT, PRESS_OIL_TIME_OUT, JIG_FREQUENCY_TIME_OUT,
+    WELL_STROKE_TIME_OUT, LOAD_TIME_OUT, TEMP_WELLHEAD_TIME_OUT, GT_PROD_TIME_OUT, U_MARK,
+    I_MARK, PRESS_OIL_MARK, JIG_FREQUENCY_MARK, WELL_STROKE_MARK, LOAD_MAX_MARK, LOAD_MIN_MARK,
+    TEMP_WELLHEAD_MARK, GT_PROD_MARK, I_UP, I_UP_LIMIT, I_DOWN, I_DOWN_LIMIT, IA_UP_COUNT,
+    IB_UP_COUNT, IC_UP_COUNT, IA_DOWN_COUNT, IB_DOWN_COUNT, IC_DOWN_COUNT,FLOW_WATER_INSTANT_UP,FLOW_WATER_INSTANT_UP_LIMIT,FLOW_WATER_INSTANT_DOWN,FLOW_WATER_INSTANT_DOWN_LIMIT,FLOW_WATER_INSTANT_MARK,
+    PRESS_CASE_UP,PRESS_CASE_UP_LIMIT,PRESS_CASE_DOWN,PRESS_CASE_DOWN_LIMIT,PRESS_CASE_MARK,PRESS_DOWNHOLE_UP,PRESS_DOWNHOLE_UP_LIMIT,PRESS_DOWNHOLE_DOWN,
+    PRESS_DOWNHOLE_DOWN_LIMIT,PRESS_DOWNHOLE_MARK
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from WARN_LIMIT_CONFIG
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from WARN_LIMIT_CONFIG
+    where WELL_ID = #{wellId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.warn.WarnLimitConfig">
+     insert into WARN_LIMIT_CONFIG (ID, WELL_ID, U_UP,
+      U_UP_LIMIT, UA_UP_COUNT, U_DOWN,
+      U_DOWN_LIMIT, UA_DOWN_COUNT, PRESS_OIL_UP,
+      PRESS_OIL_UP_LIMIT, PRESS_OIL_UP_COUNT, PRESS_OIL_DOWN,
+      PRESS_OIL_DOWN_LIMIT, PRESS_OIL_DOWN_COUNT, JIG_FREQUENCY_UP,
+      JIG_FREQUENCY_UP_LIMIT, JIG_FREQUENCY_UP_COUNT,
+      JIG_FREQUENCY_DOWN, JIG_FREQUENCY_DOWN_LIMIT,
+      JIG_FREQUENCY_DOWN_COUNT, WELL_STROKE_UP, WELL_STROKE_UP_LIMIT,
+      WELL_STROKE_UP_COUNT, WELL_STROKE_DOWN, WELL_STROKE_DOWN_LIMIT,
+      WELL_STROKE_DOWN_COUNT, LOAD_MAX_UP, LOAD_MAX_UP_LIMIT,
+      LOAD_MAX_UP_COUNT, LOAD_MAX_DOWN, LOAD_MAX_DOWN_LIMIT,
+      LOAD_MAX_DOWN_COUNT, LOAD_MIN_UP, LOAD_MIN_UP_LIMIT,
+      LOAD_MIN_UP_COUNT, LOAD_MIN_DOWN, LOAD_MIN_DOWN_LIMIT,
+      LOAD_MIN_DOWN_COUNT, TEMP_WELLHEAD_UP, TEMP_WELLHEAD_UP_LIMIT,
+      TEMP_WELLHEAD_UP_COUNT, TEMP_WELLHEAD_DOWN,
+      TEMP_WELLHEAD_DOWN_LIMIT, TEMP_WELLHEAD_DOWN_COUNT,
+      GT_PROD_UP, GT_PROD_UP_LIMIT, GT_PROD_UP_COUNT,
+      GT_PROD_DOWN, GT_PROD_DOWN_LIMIT, GT_PROD_DOWN_COUNT,
+      STIME, MARK, MARK1,
+      UB_UP_COUNT, UB_DOWN_COUNT, UC_UP_COUNT,
+      UC_DOWN_COUNT, U_TIME_OUT, I_TIME_OUT,
+      PRESS_OIL_TIME_OUT, JIG_FREQUENCY_TIME_OUT, WELL_STROKE_TIME_OUT,
+      LOAD_TIME_OUT, TEMP_WELLHEAD_TIME_OUT, GT_PROD_TIME_OUT,
+      U_MARK, I_MARK, PRESS_OIL_MARK,
+      JIG_FREQUENCY_MARK, WELL_STROKE_MARK, LOAD_MAX_MARK,
+      LOAD_MIN_MARK, TEMP_WELLHEAD_MARK, GT_PROD_MARK,
+      I_UP, I_UP_LIMIT, I_DOWN,
+      I_DOWN_LIMIT, IA_UP_COUNT, IB_UP_COUNT,
+      IC_UP_COUNT, IA_DOWN_COUNT, IB_DOWN_COUNT,
+      IC_DOWN_COUNT)
+    values (#{id,jdbcType=DECIMAL}, #{wellId,jdbcType=DECIMAL}, #{uUp,jdbcType=DECIMAL},
+      #{uUpLimit,jdbcType=DECIMAL}, #{uaUpCount,jdbcType=DECIMAL}, #{uDown,jdbcType=DECIMAL},
+      #{uDownLimit,jdbcType=DECIMAL}, #{uaDownCount,jdbcType=DECIMAL}, #{pressOilUp,jdbcType=DECIMAL},
+      #{pressOilUpLimit,jdbcType=DECIMAL}, #{pressOilUpCount,jdbcType=DECIMAL}, #{pressOilDown,jdbcType=DECIMAL},
+      #{pressOilDownLimit,jdbcType=DECIMAL}, #{pressOilDownCount,jdbcType=DECIMAL}, #{jigFrequencyUp,jdbcType=DECIMAL},
+      #{jigFrequencyUpLimit,jdbcType=DECIMAL}, #{jigFrequencyUpCount,jdbcType=DECIMAL},
+      #{jigFrequencyDown,jdbcType=DECIMAL}, #{jigFrequencyDownLimit,jdbcType=DECIMAL},
+      #{jigFrequencyDownCount,jdbcType=DECIMAL}, #{wellStrokeUp,jdbcType=DECIMAL}, #{wellStrokeUpLimit,jdbcType=DECIMAL},
+      #{wellStrokeUpCount,jdbcType=DECIMAL}, #{wellStrokeDown,jdbcType=DECIMAL}, #{wellStrokeDownLimit,jdbcType=DECIMAL},
+      #{wellStrokeDownCount,jdbcType=DECIMAL}, #{loadMaxUp,jdbcType=DECIMAL}, #{loadMaxUpLimit,jdbcType=DECIMAL},
+      #{loadMaxUpCount,jdbcType=DECIMAL}, #{loadMaxDown,jdbcType=DECIMAL}, #{loadMaxDownLimit,jdbcType=DECIMAL},
+      #{loadMaxDownCount,jdbcType=DECIMAL}, #{loadMinUp,jdbcType=DECIMAL}, #{loadMinUpLimit,jdbcType=DECIMAL},
+      #{loadMinUpCount,jdbcType=DECIMAL}, #{loadMinDown,jdbcType=DECIMAL}, #{loadMinDownLimit,jdbcType=DECIMAL},
+      #{loadMinDownCount,jdbcType=DECIMAL}, #{tempWellheadUp,jdbcType=DECIMAL}, #{tempWellheadUpLimit,jdbcType=DECIMAL},
+      #{tempWellheadUpCount,jdbcType=DECIMAL}, #{tempWellheadDown,jdbcType=DECIMAL},
+      #{tempWellheadDownLimit,jdbcType=DECIMAL}, #{tempWellheadDownCount,jdbcType=DECIMAL},
+      #{gtProdUp,jdbcType=DECIMAL}, #{gtProdUpLimit,jdbcType=DECIMAL}, #{gtProdUpCount,jdbcType=DECIMAL},
+      #{gtProdDown,jdbcType=DECIMAL}, #{gtProdDownLimit,jdbcType=DECIMAL}, #{gtProdDownCount,jdbcType=DECIMAL},
+      #{stime,jdbcType=TIMESTAMP}, #{mark,jdbcType=VARCHAR}, #{mark1,jdbcType=VARCHAR},
+      #{ubUpCount,jdbcType=DECIMAL}, #{ubDownCount,jdbcType=DECIMAL}, #{ucUpCount,jdbcType=DECIMAL},
+      #{ucDownCount,jdbcType=DECIMAL}, #{uTimeOut,jdbcType=DECIMAL}, #{iTimeOut,jdbcType=DECIMAL},
+      #{pressOilTimeOut,jdbcType=DECIMAL}, #{jigFrequencyTimeOut,jdbcType=DECIMAL}, #{wellStrokeTimeOut,jdbcType=DECIMAL},
+      #{loadTimeOut,jdbcType=DECIMAL}, #{tempWellheadTimeOut,jdbcType=DECIMAL}, #{gtProdTimeOut,jdbcType=DECIMAL},
+      #{uMark,jdbcType=VARCHAR}, #{iMark,jdbcType=VARCHAR}, #{pressOilMark,jdbcType=VARCHAR},
+      #{jigFrequencyMark,jdbcType=VARCHAR}, #{wellStrokeMark,jdbcType=VARCHAR}, #{loadMaxMark,jdbcType=VARCHAR},
+      #{loadMinMark,jdbcType=VARCHAR}, #{tempWellheadMark,jdbcType=VARCHAR}, #{gtProdMark,jdbcType=VARCHAR},
+      #{iUp,jdbcType=DECIMAL}, #{iUpLimit,jdbcType=DECIMAL}, #{iDown,jdbcType=DECIMAL},
+      #{iDownLimit,jdbcType=DECIMAL}, #{iaUpCount,jdbcType=DECIMAL}, #{ibUpCount,jdbcType=DECIMAL},
+      #{icUpCount,jdbcType=DECIMAL}, #{iaDownCount,jdbcType=DECIMAL}, #{ibDownCount,jdbcType=DECIMAL},
+      #{icDownCount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.warn.WarnLimitConfig">
+    insert into WARN_LIMIT_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="uUp != null">
+        U_UP,
+      </if>
+      <if test="uUpLimit != null">
+        U_UP_LIMIT,
+      </if>
+      <if test="uaUpCount != null">
+        UA_UP_COUNT,
+      </if>
+      <if test="uDown != null">
+        U_DOWN,
+      </if>
+      <if test="uDownLimit != null">
+        U_DOWN_LIMIT,
+      </if>
+      <if test="uaDownCount != null">
+        UA_DOWN_COUNT,
+      </if>
+      <if test="pressOilUp != null">
+        PRESS_OIL_UP,
+      </if>
+      <if test="pressOilUpLimit != null">
+        PRESS_OIL_UP_LIMIT,
+      </if>
+      <if test="pressOilUpCount != null">
+        PRESS_OIL_UP_COUNT,
+      </if>
+      <if test="pressOilDown != null">
+        PRESS_OIL_DOWN,
+      </if>
+      <if test="pressOilDownLimit != null">
+        PRESS_OIL_DOWN_LIMIT,
+      </if>
+      <if test="pressOilDownCount != null">
+        PRESS_OIL_DOWN_COUNT,
+      </if>
+      <if test="jigFrequencyUp != null">
+        JIG_FREQUENCY_UP,
+      </if>
+      <if test="jigFrequencyUpLimit != null">
+        JIG_FREQUENCY_UP_LIMIT,
+      </if>
+      <if test="jigFrequencyUpCount != null">
+        JIG_FREQUENCY_UP_COUNT,
+      </if>
+      <if test="jigFrequencyDown != null">
+        JIG_FREQUENCY_DOWN,
+      </if>
+      <if test="jigFrequencyDownLimit != null">
+        JIG_FREQUENCY_DOWN_LIMIT,
+      </if>
+      <if test="jigFrequencyDownCount != null">
+        JIG_FREQUENCY_DOWN_COUNT,
+      </if>
+      <if test="wellStrokeUp != null">
+        WELL_STROKE_UP,
+      </if>
+      <if test="wellStrokeUpLimit != null">
+        WELL_STROKE_UP_LIMIT,
+      </if>
+      <if test="wellStrokeUpCount != null">
+        WELL_STROKE_UP_COUNT,
+      </if>
+      <if test="wellStrokeDown != null">
+        WELL_STROKE_DOWN,
+      </if>
+      <if test="wellStrokeDownLimit != null">
+        WELL_STROKE_DOWN_LIMIT,
+      </if>
+      <if test="wellStrokeDownCount != null">
+        WELL_STROKE_DOWN_COUNT,
+      </if>
+      <if test="loadMaxUp != null">
+        LOAD_MAX_UP,
+      </if>
+      <if test="loadMaxUpLimit != null">
+        LOAD_MAX_UP_LIMIT,
+      </if>
+      <if test="loadMaxUpCount != null">
+        LOAD_MAX_UP_COUNT,
+      </if>
+      <if test="loadMaxDown != null">
+        LOAD_MAX_DOWN,
+      </if>
+      <if test="loadMaxDownLimit != null">
+        LOAD_MAX_DOWN_LIMIT,
+      </if>
+      <if test="loadMaxDownCount != null">
+        LOAD_MAX_DOWN_COUNT,
+      </if>
+      <if test="loadMinUp != null">
+        LOAD_MIN_UP,
+      </if>
+      <if test="loadMinUpLimit != null">
+        LOAD_MIN_UP_LIMIT,
+      </if>
+      <if test="loadMinUpCount != null">
+        LOAD_MIN_UP_COUNT,
+      </if>
+      <if test="loadMinDown != null">
+        LOAD_MIN_DOWN,
+      </if>
+      <if test="loadMinDownLimit != null">
+        LOAD_MIN_DOWN_LIMIT,
+      </if>
+      <if test="loadMinDownCount != null">
+        LOAD_MIN_DOWN_COUNT,
+      </if>
+      <if test="tempWellheadUp != null">
+        TEMP_WELLHEAD_UP,
+      </if>
+      <if test="tempWellheadUpLimit != null">
+        TEMP_WELLHEAD_UP_LIMIT,
+      </if>
+      <if test="tempWellheadUpCount != null">
+        TEMP_WELLHEAD_UP_COUNT,
+      </if>
+      <if test="tempWellheadDown != null">
+        TEMP_WELLHEAD_DOWN,
+      </if>
+      <if test="tempWellheadDownLimit != null">
+        TEMP_WELLHEAD_DOWN_LIMIT,
+      </if>
+      <if test="tempWellheadDownCount != null">
+        TEMP_WELLHEAD_DOWN_COUNT,
+      </if>
+      <if test="gtProdUp != null">
+        GT_PROD_UP,
+      </if>
+      <if test="gtProdUpLimit != null">
+        GT_PROD_UP_LIMIT,
+      </if>
+      <if test="gtProdUpCount != null">
+        GT_PROD_UP_COUNT,
+      </if>
+      <if test="gtProdDown != null">
+        GT_PROD_DOWN,
+      </if>
+      <if test="gtProdDownLimit != null">
+        GT_PROD_DOWN_LIMIT,
+      </if>
+      <if test="gtProdDownCount != null">
+        GT_PROD_DOWN_COUNT,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="mark1 != null">
+        MARK1,
+      </if>
+      <if test="ubUpCount != null">
+        UB_UP_COUNT,
+      </if>
+      <if test="ubDownCount != null">
+        UB_DOWN_COUNT,
+      </if>
+      <if test="ucUpCount != null">
+        UC_UP_COUNT,
+      </if>
+      <if test="ucDownCount != null">
+        UC_DOWN_COUNT,
+      </if>
+      <if test="uTimeOut != null">
+        U_TIME_OUT,
+      </if>
+      <if test="iTimeOut != null">
+        I_TIME_OUT,
+      </if>
+      <if test="pressOilTimeOut != null">
+        PRESS_OIL_TIME_OUT,
+      </if>
+      <if test="jigFrequencyTimeOut != null">
+        JIG_FREQUENCY_TIME_OUT,
+      </if>
+      <if test="wellStrokeTimeOut != null">
+        WELL_STROKE_TIME_OUT,
+      </if>
+      <if test="loadTimeOut != null">
+        LOAD_TIME_OUT,
+      </if>
+      <if test="tempWellheadTimeOut != null">
+        TEMP_WELLHEAD_TIME_OUT,
+      </if>
+      <if test="gtProdTimeOut != null">
+        GT_PROD_TIME_OUT,
+      </if>
+      <if test="uMark != null">
+        U_MARK,
+      </if>
+      <if test="iMark != null">
+        I_MARK,
+      </if>
+      <if test="pressOilMark != null">
+        PRESS_OIL_MARK,
+      </if>
+      <if test="jigFrequencyMark != null">
+        JIG_FREQUENCY_MARK,
+      </if>
+      <if test="wellStrokeMark != null">
+        WELL_STROKE_MARK,
+      </if>
+      <if test="loadMaxMark != null">
+        LOAD_MAX_MARK,
+      </if>
+      <if test="loadMinMark != null">
+        LOAD_MIN_MARK,
+      </if>
+      <if test="tempWellheadMark != null">
+        TEMP_WELLHEAD_MARK,
+      </if>
+      <if test="gtProdMark != null">
+        GT_PROD_MARK,
+      </if>
+      <if test="iUp != null">
+        I_UP,
+      </if>
+      <if test="iUpLimit != null">
+        I_UP_LIMIT,
+      </if>
+      <if test="iDown != null">
+        I_DOWN,
+      </if>
+      <if test="iDownLimit != null">
+        I_DOWN_LIMIT,
+      </if>
+      <if test="iaUpCount != null">
+        IA_UP_COUNT,
+      </if>
+      <if test="ibUpCount != null">
+        IB_UP_COUNT,
+      </if>
+      <if test="icUpCount != null">
+        IC_UP_COUNT,
+      </if>
+      <if test="iaDownCount != null">
+        IA_DOWN_COUNT,
+      </if>
+      <if test="ibDownCount != null">
+        IB_DOWN_COUNT,
+      </if>
+      <if test="icDownCount != null">
+        IC_DOWN_COUNT,
+      </if>
+      <if test="flowWaterInstantUp != null">
+        FLOW_WATER_INSTANT_UP,
+      </if>
+      <if test="flowWaterInstantUpLimit != null">
+        FLOW_WATER_INSTANT_UP_LIMIT,
+      </if>
+      <if test="flowWaterInstantDown != null">
+        FLOW_WATER_INSTANT_DOWN,
+      </if>
+      <if test="flowWaterInstantDownLimit != null">
+        FLOW_WATER_INSTANT_DOWN_LIMIT,
+      </if>
+      <if test="flowWaterInstantMark != null">
+        FLOW_WATER_INSTANT_MARK,
+      </if>
+
+      <if test="pressCaseUp != null">
+        PRESS_CASE_UP,
+      </if>
+      <if test="pressCaseUpLimit != null">
+        PRESS_CASE_UP_LIMIT,
+      </if>
+      <if test="pressCaseDown != null">
+        PRESS_CASE_DOWN,
+      </if>
+      <if test="pressCaseDownLimit != null">
+        PRESS_CASE_DOWN_LIMIT,
+      </if>
+      <if test="pressCaseMark != null">
+        PRESS_CASE_MARK,
+      </if>
+      <if test="pressDownholeUp != null">
+        PRESS_DOWNHOLE_UP,
+      </if>
+      <if test="pressDownholeUpLimit != null">
+        PRESS_DOWNHOLE_UP_LIMIT,
+      </if>
+      <if test="pressDownholeDown != null">
+        PRESS_DOWNHOLE_DOWN,
+      </if>
+      <if test="pressDownholeDownLimit != null">
+        PRESS_DOWNHOLE_DOWN_LIMIT,
+      </if>
+      <if test="pressDownholeMark != null">
+        PRESS_DOWNHOLE_MARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="uUp != null">
+        #{uUp,jdbcType=DECIMAL},
+      </if>
+      <if test="uUpLimit != null">
+        #{uUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="uaUpCount != null">
+        #{uaUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="uDown != null">
+        #{uDown,jdbcType=DECIMAL},
+      </if>
+      <if test="uDownLimit != null">
+        #{uDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="uaDownCount != null">
+        #{uaDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilUp != null">
+        #{pressOilUp,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilUpLimit != null">
+        #{pressOilUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilUpCount != null">
+        #{pressOilUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilDown != null">
+        #{pressOilDown,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilDownLimit != null">
+        #{pressOilDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilDownCount != null">
+        #{pressOilDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyUp != null">
+        #{jigFrequencyUp,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyUpLimit != null">
+        #{jigFrequencyUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyUpCount != null">
+        #{jigFrequencyUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyDown != null">
+        #{jigFrequencyDown,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyDownLimit != null">
+        #{jigFrequencyDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyDownCount != null">
+        #{jigFrequencyDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeUp != null">
+        #{wellStrokeUp,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeUpLimit != null">
+        #{wellStrokeUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeUpCount != null">
+        #{wellStrokeUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeDown != null">
+        #{wellStrokeDown,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeDownLimit != null">
+        #{wellStrokeDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeDownCount != null">
+        #{wellStrokeDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMaxUp != null">
+        #{loadMaxUp,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMaxUpLimit != null">
+        #{loadMaxUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMaxUpCount != null">
+        #{loadMaxUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMaxDown != null">
+        #{loadMaxDown,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMaxDownLimit != null">
+        #{loadMaxDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMaxDownCount != null">
+        #{loadMaxDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMinUp != null">
+        #{loadMinUp,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMinUpLimit != null">
+        #{loadMinUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMinUpCount != null">
+        #{loadMinUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMinDown != null">
+        #{loadMinDown,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMinDownLimit != null">
+        #{loadMinDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMinDownCount != null">
+        #{loadMinDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadUp != null">
+        #{tempWellheadUp,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadUpLimit != null">
+        #{tempWellheadUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadUpCount != null">
+        #{tempWellheadUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadDown != null">
+        #{tempWellheadDown,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadDownLimit != null">
+        #{tempWellheadDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadDownCount != null">
+        #{tempWellheadDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdUp != null">
+        #{gtProdUp,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdUpLimit != null">
+        #{gtProdUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdUpCount != null">
+        #{gtProdUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdDown != null">
+        #{gtProdDown,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdDownLimit != null">
+        #{gtProdDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdDownCount != null">
+        #{gtProdDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="ubUpCount != null">
+        #{ubUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ubDownCount != null">
+        #{ubDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ucUpCount != null">
+        #{ucUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ucDownCount != null">
+        #{ucDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="uTimeOut != null">
+        #{uTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="iTimeOut != null">
+        #{iTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilTimeOut != null">
+        #{pressOilTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyTimeOut != null">
+        #{jigFrequencyTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeTimeOut != null">
+        #{wellStrokeTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="loadTimeOut != null">
+        #{loadTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadTimeOut != null">
+        #{tempWellheadTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdTimeOut != null">
+        #{gtProdTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="uMark != null">
+        #{uMark,jdbcType=VARCHAR},
+      </if>
+      <if test="iMark != null">
+        #{iMark,jdbcType=VARCHAR},
+      </if>
+      <if test="pressOilMark != null">
+        #{pressOilMark,jdbcType=VARCHAR},
+      </if>
+      <if test="jigFrequencyMark != null">
+        #{jigFrequencyMark,jdbcType=VARCHAR},
+      </if>
+      <if test="wellStrokeMark != null">
+        #{wellStrokeMark,jdbcType=VARCHAR},
+      </if>
+      <if test="loadMaxMark != null">
+        #{loadMaxMark,jdbcType=VARCHAR},
+      </if>
+      <if test="loadMinMark != null">
+        #{loadMinMark,jdbcType=VARCHAR},
+      </if>
+      <if test="tempWellheadMark != null">
+        #{tempWellheadMark,jdbcType=VARCHAR},
+      </if>
+      <if test="gtProdMark != null">
+        #{gtProdMark,jdbcType=VARCHAR},
+      </if>
+      <if test="iUp != null">
+        #{iUp,jdbcType=DECIMAL},
+      </if>
+      <if test="iUpLimit != null">
+        #{iUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="iDown != null">
+        #{iDown,jdbcType=DECIMAL},
+      </if>
+      <if test="iDownLimit != null">
+        #{iDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="iaUpCount != null">
+        #{iaUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ibUpCount != null">
+        #{ibUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="icUpCount != null">
+        #{icUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="iaDownCount != null">
+        #{iaDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ibDownCount != null">
+        #{ibDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="icDownCount != null">
+        #{icDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterInstantUp != null">
+        #{flowWaterInstantUp,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterInstantUpLimit != null">
+        #{flowWaterInstantUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterInstantDown != null">
+        #{flowWaterInstantDown,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterInstantDownLimit != null">
+        #{flowWaterInstantDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterInstantMark != null">
+        #{flowWaterInstantMark,jdbcType=VARCHAR},
+      </if>
+
+      <if test="pressCaseUp != null">
+        #{pressCaseUp,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCaseUpLimit != null">
+        #{pressCaseUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCaseDown != null">
+        #{pressCaseDown,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCaseDownLimit != null">
+        #{pressCaseDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="pressCaseMark != null">
+        #{pressCaseMark,jdbcType=VARCHAR},
+      </if>
+      <if test="pressDownholeUp != null">
+        #{pressDownholeUp,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownholeUpLimit != null">
+        #{pressDownholeUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownholeDown != null">
+        #{pressDownholeDown,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownholeDownLimit != null">
+        #{pressDownholeDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="pressDownholeMark != null">
+        #{pressDownholeMark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.warn.WarnLimitConfig">
+    update WARN_LIMIT_CONFIG
+    <set>
+      <if test="wellId != null">
+        WELL_ID = #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="uUp != null">
+        U_UP = #{uUp,jdbcType=DECIMAL},
+      </if>
+
+        U_UP_LIMIT = #{uUpLimit,jdbcType=DECIMAL},
+
+      <if test="uaUpCount != null">
+        UA_UP_COUNT = #{uaUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="uDown != null">
+        U_DOWN = #{uDown,jdbcType=DECIMAL},
+      </if>
+
+        U_DOWN_LIMIT = #{uDownLimit,jdbcType=DECIMAL},
+
+      <if test="uaDownCount != null">
+        UA_DOWN_COUNT = #{uaDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilUp != null">
+        PRESS_OIL_UP = #{pressOilUp,jdbcType=DECIMAL},
+      </if>
+
+        PRESS_OIL_UP_LIMIT = #{pressOilUpLimit,jdbcType=DECIMAL},
+
+      <if test="pressOilUpCount != null">
+        PRESS_OIL_UP_COUNT = #{pressOilUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilDown != null">
+        PRESS_OIL_DOWN = #{pressOilDown,jdbcType=DECIMAL},
+      </if>
+
+        PRESS_OIL_DOWN_LIMIT = #{pressOilDownLimit,jdbcType=DECIMAL},
+
+      <if test="pressOilDownCount != null">
+        PRESS_OIL_DOWN_COUNT = #{pressOilDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyUp != null">
+        JIG_FREQUENCY_UP = #{jigFrequencyUp,jdbcType=DECIMAL},
+      </if>
+
+        JIG_FREQUENCY_UP_LIMIT = #{jigFrequencyUpLimit,jdbcType=DECIMAL},
+
+      <if test="jigFrequencyUpCount != null">
+        JIG_FREQUENCY_UP_COUNT = #{jigFrequencyUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyDown != null">
+        JIG_FREQUENCY_DOWN = #{jigFrequencyDown,jdbcType=DECIMAL},
+      </if>
+
+        JIG_FREQUENCY_DOWN_LIMIT = #{jigFrequencyDownLimit,jdbcType=DECIMAL},
+
+      <if test="jigFrequencyDownCount != null">
+        JIG_FREQUENCY_DOWN_COUNT = #{jigFrequencyDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeUp != null">
+        WELL_STROKE_UP = #{wellStrokeUp,jdbcType=DECIMAL},
+      </if>
+
+        WELL_STROKE_UP_LIMIT = #{wellStrokeUpLimit,jdbcType=DECIMAL},
+
+      <if test="wellStrokeUpCount != null">
+        WELL_STROKE_UP_COUNT = #{wellStrokeUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeDown != null">
+        WELL_STROKE_DOWN = #{wellStrokeDown,jdbcType=DECIMAL},
+      </if>
+
+        WELL_STROKE_DOWN_LIMIT = #{wellStrokeDownLimit,jdbcType=DECIMAL},
+
+      <if test="wellStrokeDownCount != null">
+        WELL_STROKE_DOWN_COUNT = #{wellStrokeDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMaxUp != null">
+        LOAD_MAX_UP = #{loadMaxUp,jdbcType=DECIMAL},
+      </if>
+
+        LOAD_MAX_UP_LIMIT = #{loadMaxUpLimit,jdbcType=DECIMAL},
+
+      <if test="loadMaxUpCount != null">
+        LOAD_MAX_UP_COUNT = #{loadMaxUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMaxDown != null">
+        LOAD_MAX_DOWN = #{loadMaxDown,jdbcType=DECIMAL},
+      </if>
+
+        LOAD_MAX_DOWN_LIMIT = #{loadMaxDownLimit,jdbcType=DECIMAL},
+
+      <if test="loadMaxDownCount != null">
+        LOAD_MAX_DOWN_COUNT = #{loadMaxDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMinUp != null">
+        LOAD_MIN_UP = #{loadMinUp,jdbcType=DECIMAL},
+      </if>
+
+        LOAD_MIN_UP_LIMIT = #{loadMinUpLimit,jdbcType=DECIMAL},
+
+      <if test="loadMinUpCount != null">
+        LOAD_MIN_UP_COUNT = #{loadMinUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="loadMinDown != null">
+        LOAD_MIN_DOWN = #{loadMinDown,jdbcType=DECIMAL},
+      </if>
+
+        LOAD_MIN_DOWN_LIMIT = #{loadMinDownLimit,jdbcType=DECIMAL},
+
+      <if test="loadMinDownCount != null">
+        LOAD_MIN_DOWN_COUNT = #{loadMinDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadUp != null">
+        TEMP_WELLHEAD_UP = #{tempWellheadUp,jdbcType=DECIMAL},
+      </if>
+
+        TEMP_WELLHEAD_UP_LIMIT = #{tempWellheadUpLimit,jdbcType=DECIMAL},
+
+      <if test="tempWellheadUpCount != null">
+        TEMP_WELLHEAD_UP_COUNT = #{tempWellheadUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadDown != null">
+        TEMP_WELLHEAD_DOWN = #{tempWellheadDown,jdbcType=DECIMAL},
+      </if>
+
+        TEMP_WELLHEAD_DOWN_LIMIT = #{tempWellheadDownLimit,jdbcType=DECIMAL},
+
+      <if test="tempWellheadDownCount != null">
+        TEMP_WELLHEAD_DOWN_COUNT = #{tempWellheadDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdUp != null">
+        GT_PROD_UP = #{gtProdUp,jdbcType=DECIMAL},
+      </if>
+
+        GT_PROD_UP_LIMIT = #{gtProdUpLimit,jdbcType=DECIMAL},
+
+      <if test="gtProdUpCount != null">
+        GT_PROD_UP_COUNT = #{gtProdUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdDown != null">
+        GT_PROD_DOWN = #{gtProdDown,jdbcType=DECIMAL},
+      </if>
+
+        GT_PROD_DOWN_LIMIT = #{gtProdDownLimit,jdbcType=DECIMAL},
+
+      <if test="gtProdDownCount != null">
+        GT_PROD_DOWN_COUNT = #{gtProdDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        MARK1 = #{mark1,jdbcType=VARCHAR},
+      </if>
+      <if test="ubUpCount != null">
+        UB_UP_COUNT = #{ubUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ubDownCount != null">
+        UB_DOWN_COUNT = #{ubDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ucUpCount != null">
+        UC_UP_COUNT = #{ucUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ucDownCount != null">
+        UC_DOWN_COUNT = #{ucDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="uTimeOut != null">
+        U_TIME_OUT = #{uTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="iTimeOut != null">
+        I_TIME_OUT = #{iTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="pressOilTimeOut != null">
+        PRESS_OIL_TIME_OUT = #{pressOilTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="jigFrequencyTimeOut != null">
+        JIG_FREQUENCY_TIME_OUT = #{jigFrequencyTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="wellStrokeTimeOut != null">
+        WELL_STROKE_TIME_OUT = #{wellStrokeTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="loadTimeOut != null">
+        LOAD_TIME_OUT = #{loadTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="tempWellheadTimeOut != null">
+        TEMP_WELLHEAD_TIME_OUT = #{tempWellheadTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="gtProdTimeOut != null">
+        GT_PROD_TIME_OUT = #{gtProdTimeOut,jdbcType=DECIMAL},
+      </if>
+      <if test="uMark != null">
+        U_MARK = #{uMark,jdbcType=VARCHAR},
+      </if>
+      <if test="iMark != null">
+        I_MARK = #{iMark,jdbcType=VARCHAR},
+      </if>
+      <if test="pressOilMark != null">
+        PRESS_OIL_MARK = #{pressOilMark,jdbcType=VARCHAR},
+      </if>
+      <if test="jigFrequencyMark != null">
+        JIG_FREQUENCY_MARK = #{jigFrequencyMark,jdbcType=VARCHAR},
+      </if>
+      <if test="wellStrokeMark != null">
+        WELL_STROKE_MARK = #{wellStrokeMark,jdbcType=VARCHAR},
+      </if>
+      <if test="loadMaxMark != null">
+        LOAD_MAX_MARK = #{loadMaxMark,jdbcType=VARCHAR},
+      </if>
+      <if test="loadMinMark != null">
+        LOAD_MIN_MARK = #{loadMinMark,jdbcType=VARCHAR},
+      </if>
+      <if test="tempWellheadMark != null">
+        TEMP_WELLHEAD_MARK = #{tempWellheadMark,jdbcType=VARCHAR},
+      </if>
+      <if test="gtProdMark != null">
+        GT_PROD_MARK = #{gtProdMark,jdbcType=VARCHAR},
+      </if>
+      <if test="iUp != null">
+        I_UP = #{iUp,jdbcType=DECIMAL},
+      </if>
+      <if test="iUpLimit != null">
+        I_UP_LIMIT = #{iUpLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="iDown != null">
+        I_DOWN = #{iDown,jdbcType=DECIMAL},
+      </if>
+      <if test="iDownLimit != null">
+        I_DOWN_LIMIT = #{iDownLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="iaUpCount != null">
+        IA_UP_COUNT = #{iaUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ibUpCount != null">
+        IB_UP_COUNT = #{ibUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="icUpCount != null">
+        IC_UP_COUNT = #{icUpCount,jdbcType=DECIMAL},
+      </if>
+      <if test="iaDownCount != null">
+        IA_DOWN_COUNT = #{iaDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="ibDownCount != null">
+        IB_DOWN_COUNT = #{ibDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="icDownCount != null">
+        IC_DOWN_COUNT = #{icDownCount,jdbcType=DECIMAL},
+      </if>
+      <if test="flowWaterInstantUp != null">
+        FLOW_WATER_INSTANT_UP = #{flowWaterInstantUp,jdbcType=DECIMAL},
+      </if>
+
+        FLOW_WATER_INSTANT_UP_LIMIT = #{flowWaterInstantUpLimit,jdbcType=DECIMAL},
+
+      <if test="flowWaterInstantDown != null">
+        FLOW_WATER_INSTANT_DOWN = #{flowWaterInstantDown,jdbcType=DECIMAL},
+      </if>
+
+        FLOW_WATER_INSTANT_DOWN_LIMIT = #{flowWaterInstantDownLimit,jdbcType=DECIMAL},
+
+      <if test="flowWaterInstantMark != null">
+        FLOW_WATER_INSTANT_MARK = #{flowWaterInstantMark,jdbcType=VARCHAR},
+      </if>
+
+      <if test="pressCaseUp != null">
+        PRESS_CASE_UP= #{pressCaseUp,jdbcType=DECIMAL},
+      </if>
+
+        PRESS_CASE_UP_LIMIT= #{pressCaseUpLimit,jdbcType=DECIMAL},
+
+      <if test="pressCaseDown != null">
+        PRESS_CASE_DOWN=  #{pressCaseDown,jdbcType=DECIMAL},
+      </if>
+
+        PRESS_CASE_DOWN_LIMIT= #{pressCaseDownLimit,jdbcType=DECIMAL},
+
+      <if test="pressCaseMark != null">
+        PRESS_CASE_MARK=  #{pressCaseMark,jdbcType=VARCHAR},
+      </if>
+      <if test="pressDownholeUp != null">
+        PRESS_DOWNHOLE_UP= #{pressDownholeUp,jdbcType=DECIMAL},
+      </if>
+
+        PRESS_DOWNHOLE_UP_LIMIT= #{pressDownholeUpLimit,jdbcType=DECIMAL},
+
+      <if test="pressDownholeDown != null">
+        PRESS_DOWNHOLE_DOWN=#{pressDownholeDown,jdbcType=DECIMAL},
+      </if>
+
+        PRESS_DOWNHOLE_DOWN_LIMIT= #{pressDownholeDownLimit,jdbcType=DECIMAL},
+
+      <if test="pressDownholeMark != null">
+        PRESS_DOWNHOLE_MARK=  #{pressDownholeMark,jdbcType=VARCHAR},
+      </if>
+
+    </set>
+    where WELL_ID = #{wellId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.warn.WarnLimitConfig">
+   update WARN_LIMIT_CONFIG
+    set WELL_ID = #{wellId,jdbcType=DECIMAL},
+      U_UP = #{uUp,jdbcType=DECIMAL},
+      U_UP_LIMIT = #{uUpLimit,jdbcType=DECIMAL},
+      UA_UP_COUNT = #{uaUpCount,jdbcType=DECIMAL},
+      U_DOWN = #{uDown,jdbcType=DECIMAL},
+      U_DOWN_LIMIT = #{uDownLimit,jdbcType=DECIMAL},
+      UA_DOWN_COUNT = #{uaDownCount,jdbcType=DECIMAL},
+      PRESS_OIL_UP = #{pressOilUp,jdbcType=DECIMAL},
+      PRESS_OIL_UP_LIMIT = #{pressOilUpLimit,jdbcType=DECIMAL},
+      PRESS_OIL_UP_COUNT = #{pressOilUpCount,jdbcType=DECIMAL},
+      PRESS_OIL_DOWN = #{pressOilDown,jdbcType=DECIMAL},
+      PRESS_OIL_DOWN_LIMIT = #{pressOilDownLimit,jdbcType=DECIMAL},
+      PRESS_OIL_DOWN_COUNT = #{pressOilDownCount,jdbcType=DECIMAL},
+      JIG_FREQUENCY_UP = #{jigFrequencyUp,jdbcType=DECIMAL},
+      JIG_FREQUENCY_UP_LIMIT = #{jigFrequencyUpLimit,jdbcType=DECIMAL},
+      JIG_FREQUENCY_UP_COUNT = #{jigFrequencyUpCount,jdbcType=DECIMAL},
+      JIG_FREQUENCY_DOWN = #{jigFrequencyDown,jdbcType=DECIMAL},
+      JIG_FREQUENCY_DOWN_LIMIT = #{jigFrequencyDownLimit,jdbcType=DECIMAL},
+      JIG_FREQUENCY_DOWN_COUNT = #{jigFrequencyDownCount,jdbcType=DECIMAL},
+      WELL_STROKE_UP = #{wellStrokeUp,jdbcType=DECIMAL},
+      WELL_STROKE_UP_LIMIT = #{wellStrokeUpLimit,jdbcType=DECIMAL},
+      WELL_STROKE_UP_COUNT = #{wellStrokeUpCount,jdbcType=DECIMAL},
+      WELL_STROKE_DOWN = #{wellStrokeDown,jdbcType=DECIMAL},
+      WELL_STROKE_DOWN_LIMIT = #{wellStrokeDownLimit,jdbcType=DECIMAL},
+      WELL_STROKE_DOWN_COUNT = #{wellStrokeDownCount,jdbcType=DECIMAL},
+      LOAD_MAX_UP = #{loadMaxUp,jdbcType=DECIMAL},
+      LOAD_MAX_UP_LIMIT = #{loadMaxUpLimit,jdbcType=DECIMAL},
+      LOAD_MAX_UP_COUNT = #{loadMaxUpCount,jdbcType=DECIMAL},
+      LOAD_MAX_DOWN = #{loadMaxDown,jdbcType=DECIMAL},
+      LOAD_MAX_DOWN_LIMIT = #{loadMaxDownLimit,jdbcType=DECIMAL},
+      LOAD_MAX_DOWN_COUNT = #{loadMaxDownCount,jdbcType=DECIMAL},
+      LOAD_MIN_UP = #{loadMinUp,jdbcType=DECIMAL},
+      LOAD_MIN_UP_LIMIT = #{loadMinUpLimit,jdbcType=DECIMAL},
+      LOAD_MIN_UP_COUNT = #{loadMinUpCount,jdbcType=DECIMAL},
+      LOAD_MIN_DOWN = #{loadMinDown,jdbcType=DECIMAL},
+      LOAD_MIN_DOWN_LIMIT = #{loadMinDownLimit,jdbcType=DECIMAL},
+      LOAD_MIN_DOWN_COUNT = #{loadMinDownCount,jdbcType=DECIMAL},
+      TEMP_WELLHEAD_UP = #{tempWellheadUp,jdbcType=DECIMAL},
+      TEMP_WELLHEAD_UP_LIMIT = #{tempWellheadUpLimit,jdbcType=DECIMAL},
+      TEMP_WELLHEAD_UP_COUNT = #{tempWellheadUpCount,jdbcType=DECIMAL},
+      TEMP_WELLHEAD_DOWN = #{tempWellheadDown,jdbcType=DECIMAL},
+      TEMP_WELLHEAD_DOWN_LIMIT = #{tempWellheadDownLimit,jdbcType=DECIMAL},
+      TEMP_WELLHEAD_DOWN_COUNT = #{tempWellheadDownCount,jdbcType=DECIMAL},
+      GT_PROD_UP = #{gtProdUp,jdbcType=DECIMAL},
+      GT_PROD_UP_LIMIT = #{gtProdUpLimit,jdbcType=DECIMAL},
+      GT_PROD_UP_COUNT = #{gtProdUpCount,jdbcType=DECIMAL},
+      GT_PROD_DOWN = #{gtProdDown,jdbcType=DECIMAL},
+      GT_PROD_DOWN_LIMIT = #{gtProdDownLimit,jdbcType=DECIMAL},
+      GT_PROD_DOWN_COUNT = #{gtProdDownCount,jdbcType=DECIMAL},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      MARK = #{mark,jdbcType=VARCHAR},
+      MARK1 = #{mark1,jdbcType=VARCHAR},
+      UB_UP_COUNT = #{ubUpCount,jdbcType=DECIMAL},
+      UB_DOWN_COUNT = #{ubDownCount,jdbcType=DECIMAL},
+      UC_UP_COUNT = #{ucUpCount,jdbcType=DECIMAL},
+      UC_DOWN_COUNT = #{ucDownCount,jdbcType=DECIMAL},
+      U_TIME_OUT = #{uTimeOut,jdbcType=DECIMAL},
+      I_TIME_OUT = #{iTimeOut,jdbcType=DECIMAL},
+      PRESS_OIL_TIME_OUT = #{pressOilTimeOut,jdbcType=DECIMAL},
+      JIG_FREQUENCY_TIME_OUT = #{jigFrequencyTimeOut,jdbcType=DECIMAL},
+      WELL_STROKE_TIME_OUT = #{wellStrokeTimeOut,jdbcType=DECIMAL},
+      LOAD_TIME_OUT = #{loadTimeOut,jdbcType=DECIMAL},
+      TEMP_WELLHEAD_TIME_OUT = #{tempWellheadTimeOut,jdbcType=DECIMAL},
+      GT_PROD_TIME_OUT = #{gtProdTimeOut,jdbcType=DECIMAL},
+      U_MARK = #{uMark,jdbcType=VARCHAR},
+      I_MARK = #{iMark,jdbcType=VARCHAR},
+      PRESS_OIL_MARK = #{pressOilMark,jdbcType=VARCHAR},
+      JIG_FREQUENCY_MARK = #{jigFrequencyMark,jdbcType=VARCHAR},
+      WELL_STROKE_MARK = #{wellStrokeMark,jdbcType=VARCHAR},
+      LOAD_MAX_MARK = #{loadMaxMark,jdbcType=VARCHAR},
+      LOAD_MIN_MARK = #{loadMinMark,jdbcType=VARCHAR},
+      TEMP_WELLHEAD_MARK = #{tempWellheadMark,jdbcType=VARCHAR},
+      GT_PROD_MARK = #{gtProdMark,jdbcType=VARCHAR},
+      I_UP = #{iUp,jdbcType=DECIMAL},
+      I_UP_LIMIT = #{iUpLimit,jdbcType=DECIMAL},
+      I_DOWN = #{iDown,jdbcType=DECIMAL},
+      I_DOWN_LIMIT = #{iDownLimit,jdbcType=DECIMAL},
+      IA_UP_COUNT = #{iaUpCount,jdbcType=DECIMAL},
+      IB_UP_COUNT = #{ibUpCount,jdbcType=DECIMAL},
+      IC_UP_COUNT = #{icUpCount,jdbcType=DECIMAL},
+      IA_DOWN_COUNT = #{iaDownCount,jdbcType=DECIMAL},
+      IB_DOWN_COUNT = #{ibDownCount,jdbcType=DECIMAL},
+      IC_DOWN_COUNT = #{icDownCount,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="Count" resultType="java.lang.Integer"  parameterType="java.math.BigDecimal" >
+    select count(*) from WARN_LIMIT_CONFIG where well_id=#{wellId,jdbcType=DECIMAL}
+  </select>
+  <select id="selectByWellId"  parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from WARN_LIMIT_CONFIG where well_id=#{wellId,jdbcType=DECIMAL}   order by stime  desc
+  </select>
+
+    <!--所有配置信息的分页-->
+    <select id="selectConfigPage"  resultMap="All">
+      SELECT
+      D.id as WELL_ID,
+      D .well_name,
+      b.COMM_EX_LIMIT,
+      b.CLOSE_WELL_EX_LIMIT,
+      b.PRESS_COMM_EX_LIMIT,
+      b.STROKE_COMM_EX_LIMIT,
+      b.COMM_EX_MARK,
+      b.PRESS_COMM_EX_MARK,
+      b.STROKE_COMM_EX_MARK,
+      b.MARK  as  SYS_MARK,
+      U_UP, U_UP_LIMIT, UA_UP_COUNT, U_DOWN, U_DOWN_LIMIT, UA_DOWN_COUNT, I_UP, I_UP_LIMIT, I_DOWN, I_DOWN_LIMIT, PRESS_OIL_UP,
+      PRESS_OIL_UP_LIMIT, PRESS_OIL_UP_COUNT, PRESS_OIL_DOWN, PRESS_OIL_DOWN_LIMIT, PRESS_OIL_DOWN_COUNT,
+      JIG_FREQUENCY_UP, JIG_FREQUENCY_UP_LIMIT, JIG_FREQUENCY_UP_COUNT, JIG_FREQUENCY_DOWN, JIG_FREQUENCY_DOWN_LIMIT,
+      JIG_FREQUENCY_DOWN_COUNT, WELL_STROKE_UP, WELL_STROKE_UP_LIMIT, WELL_STROKE_UP_COUNT, WELL_STROKE_DOWN,
+      WELL_STROKE_DOWN_LIMIT, WELL_STROKE_DOWN_COUNT, LOAD_MAX_UP, LOAD_MAX_UP_LIMIT, LOAD_MAX_UP_COUNT, LOAD_MAX_DOWN,
+      LOAD_MAX_DOWN_LIMIT, LOAD_MAX_DOWN_COUNT, LOAD_MIN_UP, LOAD_MIN_UP_LIMIT, LOAD_MIN_UP_COUNT, LOAD_MIN_DOWN,
+      LOAD_MIN_DOWN_LIMIT, LOAD_MIN_DOWN_COUNT, TEMP_WELLHEAD_UP, TEMP_WELLHEAD_UP_LIMIT, TEMP_WELLHEAD_UP_COUNT,
+      TEMP_WELLHEAD_DOWN, TEMP_WELLHEAD_DOWN_LIMIT, TEMP_WELLHEAD_DOWN_COUNT, GT_PROD_UP, GT_PROD_UP_LIMIT,
+      GT_PROD_UP_COUNT, GT_PROD_DOWN, GT_PROD_DOWN_LIMIT, GT_PROD_DOWN_COUNT, c.STIME, c.MARK1, UB_UP_COUNT,
+      UB_DOWN_COUNT, UC_UP_COUNT, UC_DOWN_COUNT,U_MARK,I_MARK,PRESS_OIL_MARK,JIG_FREQUENCY_MARK,WELL_STROKE_MARK,LOAD_MAX_MARK,LOAD_MIN_MARK,
+      TEMP_WELLHEAD_MARK,GT_PROD_MARK,c.MARK as L_MARK,
+      A.MARK as  GT_MARK,FLOW_WATER_INSTANT_UP,FLOW_WATER_INSTANT_UP_LIMIT,FLOW_WATER_INSTANT_DOWN,FLOW_WATER_INSTANT_DOWN_LIMIT,FLOW_WATER_INSTANT_MARK,
+      PRESS_CASE_UP,PRESS_CASE_UP_LIMIT,PRESS_CASE_DOWN,PRESS_CASE_DOWN_LIMIT,PRESS_CASE_MARK,PRESS_DOWNHOLE_UP,PRESS_DOWNHOLE_UP_LIMIT,PRESS_DOWNHOLE_DOWN,
+      PRESS_DOWNHOLE_DOWN_LIMIT,PRESS_DOWNHOLE_MARK
+      FROM
+      (
+      SELECT
+      *
+      FROM
+      well_info
+      WHERE
+      ID IN (
+      SELECT
+      well_id
+      FROM
+      WARN_SYS_CONFIG
+      UNION
+      SELECT
+      well_id
+      FROM
+      WARN_LIMIT_CONFIG
+      UNION
+      SELECT
+      well_id
+      FROM
+      WARN_GT_CONFIG
+      )
+      AND
+      <choose>
+        <when test="areaIds != null and areaIds.size>0 ">
+          AREA_ID in
+          <foreach collection="areaIds" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+          </foreach>
+        </when>
+        <otherwise>
+          1=1
+        </otherwise>
+      </choose>
+	) D
+LEFT JOIN WARN_sys_CONFIG b ON D . ID = b.well_id
+LEFT JOIN WARN_LIMIT_CONFIG c ON D . ID = c.WELL_ID
+left join WARN_GT_CONFIG  A  on  D.Id = A.well_id
+ order by  D.well_name
+
+    </select>
+
+
+  <select id="searchByWellName"  resultMap="All">
+   SELECT
+	*
+FROM
+	(
+    SELECT
+    D.id as WELL_ID,
+    D .well_name,
+    b.COMM_EX_LIMIT,
+    b.CLOSE_WELL_EX_LIMIT,
+    b.PRESS_COMM_EX_LIMIT,
+    b.STROKE_COMM_EX_LIMIT,
+    b.COMM_EX_MARK,
+    b.PRESS_COMM_EX_MARK,
+    b.STROKE_COMM_EX_MARK,
+    b.MARK  as  SYS_MARK,
+    U_UP, U_UP_LIMIT, UA_UP_COUNT, U_DOWN, U_DOWN_LIMIT, UA_DOWN_COUNT, I_UP, I_UP_LIMIT, I_DOWN, I_DOWN_LIMIT, PRESS_OIL_UP,
+    PRESS_OIL_UP_LIMIT, PRESS_OIL_UP_COUNT, PRESS_OIL_DOWN, PRESS_OIL_DOWN_LIMIT, PRESS_OIL_DOWN_COUNT,
+    JIG_FREQUENCY_UP, JIG_FREQUENCY_UP_LIMIT, JIG_FREQUENCY_UP_COUNT, JIG_FREQUENCY_DOWN, JIG_FREQUENCY_DOWN_LIMIT,
+    JIG_FREQUENCY_DOWN_COUNT, WELL_STROKE_UP, WELL_STROKE_UP_LIMIT, WELL_STROKE_UP_COUNT, WELL_STROKE_DOWN,
+    WELL_STROKE_DOWN_LIMIT, WELL_STROKE_DOWN_COUNT, LOAD_MAX_UP, LOAD_MAX_UP_LIMIT, LOAD_MAX_UP_COUNT, LOAD_MAX_DOWN,
+    LOAD_MAX_DOWN_LIMIT, LOAD_MAX_DOWN_COUNT, LOAD_MIN_UP, LOAD_MIN_UP_LIMIT, LOAD_MIN_UP_COUNT, LOAD_MIN_DOWN,
+    LOAD_MIN_DOWN_LIMIT, LOAD_MIN_DOWN_COUNT, TEMP_WELLHEAD_UP, TEMP_WELLHEAD_UP_LIMIT, TEMP_WELLHEAD_UP_COUNT,
+    TEMP_WELLHEAD_DOWN, TEMP_WELLHEAD_DOWN_LIMIT, TEMP_WELLHEAD_DOWN_COUNT, GT_PROD_UP, GT_PROD_UP_LIMIT,
+    GT_PROD_UP_COUNT, GT_PROD_DOWN, GT_PROD_DOWN_LIMIT, GT_PROD_DOWN_COUNT, c.STIME, c.MARK1, UB_UP_COUNT,
+    UB_DOWN_COUNT, UC_UP_COUNT, UC_DOWN_COUNT,U_MARK,I_MARK,PRESS_OIL_MARK,JIG_FREQUENCY_MARK,WELL_STROKE_MARK,LOAD_MAX_MARK,LOAD_MIN_MARK,
+    TEMP_WELLHEAD_MARK,GT_PROD_MARK,c.MARK as L_MARK,
+    A.MARK as  GT_MARK,FLOW_WATER_INSTANT_UP,FLOW_WATER_INSTANT_UP_LIMIT,FLOW_WATER_INSTANT_DOWN,FLOW_WATER_INSTANT_DOWN_LIMIT,FLOW_WATER_INSTANT_MARK,
+    PRESS_CASE_UP,PRESS_CASE_UP_LIMIT,PRESS_CASE_DOWN,PRESS_CASE_DOWN_LIMIT,PRESS_CASE_MARK,PRESS_DOWNHOLE_UP,PRESS_DOWNHOLE_UP_LIMIT,PRESS_DOWNHOLE_DOWN,
+    PRESS_DOWNHOLE_DOWN_LIMIT,PRESS_DOWNHOLE_MARK
+    FROM
+    (
+    SELECT
+    *
+    FROM
+    well_info
+    WHERE
+    ID IN (
+    SELECT
+    well_id
+    FROM
+    WARN_SYS_CONFIG
+    UNION
+    SELECT
+    well_id
+    FROM
+    WARN_LIMIT_CONFIG
+    UNION
+    SELECT
+    well_id
+    FROM
+    WARN_GT_CONFIG
+    )
+    AND
+    <choose>
+      <when test="areaIds != null and areaIds.size>0 ">
+        AREA_ID in
+        <foreach collection="areaIds" index="index" item="item" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </when>
+      <otherwise>
+        1=1
+      </otherwise>
+    </choose>
+    ) D
+    LEFT JOIN WARN_sys_CONFIG b ON D . ID = b.well_id
+    LEFT JOIN WARN_LIMIT_CONFIG c ON D . ID = c.WELL_ID
+    left join WARN_GT_CONFIG  A  on  D.Id = A.well_id
+	)
+WHERE 1=1
+
+    <if test="wellName!=null and wellName!=''">
+      and  WELL_NAME LIKE CONCAT (
+      CONCAT (
+      '%',
+      #{wellName}
+      ),
+      '%'
+      )
+    </if>
+  order by well_name
+  </select>
+
+</mapper>
