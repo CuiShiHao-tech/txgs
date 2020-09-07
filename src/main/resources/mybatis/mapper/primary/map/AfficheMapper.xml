@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="server.db.primary.mapper.map.AfficheMapper">
+  <resultMap id="BaseResultMap" type="server.db.primary.model.map.Affiche">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="NUMBER_ID" jdbcType="DECIMAL" property="numberId" />
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="WELL_ID" jdbcType="DECIMAL" property="wellId" />
+    <result column="WELL_NAME" jdbcType="VARCHAR" property="wellName" />
+    <result column="DATA" jdbcType="VARCHAR" property="data" />
+    <result column="GIVE_AD" jdbcType="VARCHAR" property="giveAd" />
+    <result column="MARK1" jdbcType="DECIMAL" property="mark1" />
+    <result column="REMARK1" jdbcType="VARCHAR" property="remark1" />
+    <result column="WELL_USER_ID" jdbcType="DECIMAL" property="wellUserId" />
+    <result column="WELL_USER_NAME" jdbcType="VARCHAR" property="wellUserName" />
+    <result column="IDEA_ID2" jdbcType="DECIMAL" property="ideaId2" />
+    <result column="IDEA_NAME2" jdbcType="VARCHAR" property="ideaName2" />
+    <result column="IDEA_DATA2" jdbcType="VARCHAR" property="ideaData2" />
+    <result column="MARK2" jdbcType="DECIMAL" property="mark2" />
+    <result column="REMARK2" jdbcType="VARCHAR" property="remark2" />
+    <result column="STIME2" jdbcType="TIMESTAMP" property="stime2" />
+    <result column="STATION_USER_ID" jdbcType="DECIMAL" property="stationUserId" />
+    <result column="STATION_USER_NAME" jdbcType="VARCHAR" property="stationUserName" />
+    <result column="IDEA_ID3" jdbcType="DECIMAL" property="ideaId3" />
+    <result column="IDEA_NAME3" jdbcType="VARCHAR" property="ideaName3" />
+    <result column="IDEA_DATA3" jdbcType="VARCHAR" property="ideaData3" />
+    <result column="MARK3" jdbcType="DECIMAL" property="mark3" />
+    <result column="REMARK3" jdbcType="VARCHAR" property="remark3" />
+    <result column="STIME3" jdbcType="TIMESTAMP" property="stime3" />
+    <result column="MARK" jdbcType="DECIMAL" property="mark" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="STIME" jdbcType="TIMESTAMP" property="stime" />
+    <result column="DATA2" jdbcType="VARCHAR" property="data2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, NUMBER_ID, USER_ID, USER_NAME, WELL_ID, WELL_NAME, DATA, GIVE_AD, MARK1, REMARK1, 
+    WELL_USER_ID, WELL_USER_NAME, IDEA_ID2, IDEA_NAME2, IDEA_DATA2, MARK2, REMARK2, STIME2, 
+    STATION_USER_ID, STATION_USER_NAME, IDEA_ID3, IDEA_NAME3, IDEA_DATA3, MARK3, REMARK3, 
+    STIME3, MARK, REMARK, STIME, DATA2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TXGS.AFFICHE
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from TXGS.AFFICHE
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="server.db.primary.model.map.Affiche">
+    insert into TXGS.AFFICHE (ID, NUMBER_ID, USER_ID, 
+      USER_NAME, WELL_ID, WELL_NAME, 
+      DATA, GIVE_AD, MARK1, 
+      REMARK1, WELL_USER_ID, WELL_USER_NAME, 
+      IDEA_ID2, IDEA_NAME2, IDEA_DATA2, 
+      MARK2, REMARK2, STIME2, 
+      STATION_USER_ID, STATION_USER_NAME, IDEA_ID3, 
+      IDEA_NAME3, IDEA_DATA3, MARK3, 
+      REMARK3, STIME3, MARK, 
+      REMARK, STIME, DATA2
+      )
+    values (#{id,jdbcType=DECIMAL}, #{numberId,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, 
+      #{userName,jdbcType=VARCHAR}, #{wellId,jdbcType=DECIMAL}, #{wellName,jdbcType=VARCHAR}, 
+      #{data,jdbcType=VARCHAR}, #{giveAd,jdbcType=VARCHAR}, #{mark1,jdbcType=DECIMAL}, 
+      #{remark1,jdbcType=VARCHAR}, #{wellUserId,jdbcType=DECIMAL}, #{wellUserName,jdbcType=VARCHAR}, 
+      #{ideaId2,jdbcType=DECIMAL}, #{ideaName2,jdbcType=VARCHAR}, #{ideaData2,jdbcType=VARCHAR}, 
+      #{mark2,jdbcType=DECIMAL}, #{remark2,jdbcType=VARCHAR}, #{stime2,jdbcType=TIMESTAMP}, 
+      #{stationUserId,jdbcType=DECIMAL}, #{stationUserName,jdbcType=VARCHAR}, #{ideaId3,jdbcType=DECIMAL}, 
+      #{ideaName3,jdbcType=VARCHAR}, #{ideaData3,jdbcType=VARCHAR}, #{mark3,jdbcType=DECIMAL}, 
+      #{remark3,jdbcType=VARCHAR}, #{stime3,jdbcType=TIMESTAMP}, #{mark,jdbcType=DECIMAL}, 
+      #{remark,jdbcType=VARCHAR}, #{stime,jdbcType=TIMESTAMP}, #{data2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="server.db.primary.model.map.Affiche">
+    insert into TXGS.AFFICHE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="numberId != null">
+        NUMBER_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="wellId != null">
+        WELL_ID,
+      </if>
+      <if test="wellName != null">
+        WELL_NAME,
+      </if>
+      <if test="data != null">
+        DATA,
+      </if>
+      <if test="giveAd != null">
+        GIVE_AD,
+      </if>
+      <if test="mark1 != null">
+        MARK1,
+      </if>
+      <if test="remark1 != null">
+        REMARK1,
+      </if>
+      <if test="wellUserId != null">
+        WELL_USER_ID,
+      </if>
+      <if test="wellUserName != null">
+        WELL_USER_NAME,
+      </if>
+      <if test="ideaId2 != null">
+        IDEA_ID2,
+      </if>
+      <if test="ideaName2 != null">
+        IDEA_NAME2,
+      </if>
+      <if test="ideaData2 != null">
+        IDEA_DATA2,
+      </if>
+      <if test="mark2 != null">
+        MARK2,
+      </if>
+      <if test="remark2 != null">
+        REMARK2,
+      </if>
+      <if test="stime2 != null">
+        STIME2,
+      </if>
+      <if test="stationUserId != null">
+        STATION_USER_ID,
+      </if>
+      <if test="stationUserName != null">
+        STATION_USER_NAME,
+      </if>
+      <if test="ideaId3 != null">
+        IDEA_ID3,
+      </if>
+      <if test="ideaName3 != null">
+        IDEA_NAME3,
+      </if>
+      <if test="ideaData3 != null">
+        IDEA_DATA3,
+      </if>
+      <if test="mark3 != null">
+        MARK3,
+      </if>
+      <if test="remark3 != null">
+        REMARK3,
+      </if>
+      <if test="stime3 != null">
+        STIME3,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="stime != null">
+        STIME,
+      </if>
+      <if test="data2 != null">
+        DATA2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="numberId != null">
+        #{numberId,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellId != null">
+        #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="data != null">
+        #{data,jdbcType=VARCHAR},
+      </if>
+      <if test="giveAd != null">
+        #{giveAd,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        #{mark1,jdbcType=DECIMAL},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="wellUserId != null">
+        #{wellUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellUserName != null">
+        #{wellUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="ideaId2 != null">
+        #{ideaId2,jdbcType=DECIMAL},
+      </if>
+      <if test="ideaName2 != null">
+        #{ideaName2,jdbcType=VARCHAR},
+      </if>
+      <if test="ideaData2 != null">
+        #{ideaData2,jdbcType=VARCHAR},
+      </if>
+      <if test="mark2 != null">
+        #{mark2,jdbcType=DECIMAL},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="stime2 != null">
+        #{stime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationUserId != null">
+        #{stationUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationUserName != null">
+        #{stationUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="ideaId3 != null">
+        #{ideaId3,jdbcType=DECIMAL},
+      </if>
+      <if test="ideaName3 != null">
+        #{ideaName3,jdbcType=VARCHAR},
+      </if>
+      <if test="ideaData3 != null">
+        #{ideaData3,jdbcType=VARCHAR},
+      </if>
+      <if test="mark3 != null">
+        #{mark3,jdbcType=DECIMAL},
+      </if>
+      <if test="remark3 != null">
+        #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="stime3 != null">
+        #{stime3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="data2 != null">
+        #{data2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="server.db.primary.model.map.Affiche">
+    update TXGS.AFFICHE
+    <set>
+      <if test="numberId != null">
+        NUMBER_ID = #{numberId,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="wellId != null">
+        WELL_ID = #{wellId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellName != null">
+        WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      </if>
+      <if test="data != null">
+        DATA = #{data,jdbcType=VARCHAR},
+      </if>
+      <if test="giveAd != null">
+        GIVE_AD = #{giveAd,jdbcType=VARCHAR},
+      </if>
+      <if test="mark1 != null">
+        MARK1 = #{mark1,jdbcType=DECIMAL},
+      </if>
+      <if test="remark1 != null">
+        REMARK1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="wellUserId != null">
+        WELL_USER_ID = #{wellUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="wellUserName != null">
+        WELL_USER_NAME = #{wellUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="ideaId2 != null">
+        IDEA_ID2 = #{ideaId2,jdbcType=DECIMAL},
+      </if>
+      <if test="ideaName2 != null">
+        IDEA_NAME2 = #{ideaName2,jdbcType=VARCHAR},
+      </if>
+      <if test="ideaData2 != null">
+        IDEA_DATA2 = #{ideaData2,jdbcType=VARCHAR},
+      </if>
+      <if test="mark2 != null">
+        MARK2 = #{mark2,jdbcType=DECIMAL},
+      </if>
+      <if test="remark2 != null">
+        REMARK2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="stime2 != null">
+        STIME2 = #{stime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationUserId != null">
+        STATION_USER_ID = #{stationUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="stationUserName != null">
+        STATION_USER_NAME = #{stationUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="ideaId3 != null">
+        IDEA_ID3 = #{ideaId3,jdbcType=DECIMAL},
+      </if>
+      <if test="ideaName3 != null">
+        IDEA_NAME3 = #{ideaName3,jdbcType=VARCHAR},
+      </if>
+      <if test="ideaData3 != null">
+        IDEA_DATA3 = #{ideaData3,jdbcType=VARCHAR},
+      </if>
+      <if test="mark3 != null">
+        MARK3 = #{mark3,jdbcType=DECIMAL},
+      </if>
+      <if test="remark3 != null">
+        REMARK3 = #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="stime3 != null">
+        STIME3 = #{stime3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        STIME = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="data2 != null">
+        DATA2 = #{data2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="server.db.primary.model.map.Affiche">
+    update TXGS.AFFICHE
+    set NUMBER_ID = #{numberId,jdbcType=DECIMAL},
+      USER_ID = #{userId,jdbcType=DECIMAL},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      WELL_ID = #{wellId,jdbcType=DECIMAL},
+      WELL_NAME = #{wellName,jdbcType=VARCHAR},
+      DATA = #{data,jdbcType=VARCHAR},
+      GIVE_AD = #{giveAd,jdbcType=VARCHAR},
+      MARK1 = #{mark1,jdbcType=DECIMAL},
+      REMARK1 = #{remark1,jdbcType=VARCHAR},
+      WELL_USER_ID = #{wellUserId,jdbcType=DECIMAL},
+      WELL_USER_NAME = #{wellUserName,jdbcType=VARCHAR},
+      IDEA_ID2 = #{ideaId2,jdbcType=DECIMAL},
+      IDEA_NAME2 = #{ideaName2,jdbcType=VARCHAR},
+      IDEA_DATA2 = #{ideaData2,jdbcType=VARCHAR},
+      MARK2 = #{mark2,jdbcType=DECIMAL},
+      REMARK2 = #{remark2,jdbcType=VARCHAR},
+      STIME2 = #{stime2,jdbcType=TIMESTAMP},
+      STATION_USER_ID = #{stationUserId,jdbcType=DECIMAL},
+      STATION_USER_NAME = #{stationUserName,jdbcType=VARCHAR},
+      IDEA_ID3 = #{ideaId3,jdbcType=DECIMAL},
+      IDEA_NAME3 = #{ideaName3,jdbcType=VARCHAR},
+      IDEA_DATA3 = #{ideaData3,jdbcType=VARCHAR},
+      MARK3 = #{mark3,jdbcType=DECIMAL},
+      REMARK3 = #{remark3,jdbcType=VARCHAR},
+      STIME3 = #{stime3,jdbcType=TIMESTAMP},
+      MARK = #{mark,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      STIME = #{stime,jdbcType=TIMESTAMP},
+      DATA2 = #{data2,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByAll" resultMap="BaseResultMap" >
+     select * from AFFICHE
+     order by id
+  </select>
+</mapper>
