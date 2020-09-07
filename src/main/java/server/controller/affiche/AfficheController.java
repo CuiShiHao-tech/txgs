@@ -15,6 +15,11 @@ public class AfficheController {
     @Autowired
     AfficheMapper afficheMapper;
 
+    /**
+     * 保存
+     * @param affiche
+     * @return
+     */
     @RequestMapping("/Affiche/save")
     public Res afficheByInsert(Affiche affiche) {
         int i = afficheMapper.insertSelective(affiche);
