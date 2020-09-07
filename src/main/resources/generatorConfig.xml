@@ -165,7 +165,7 @@
         -->
         <!--</table>-->
 
-        <table schema="txgs" tableName="NEWS_APP"
+        <table schema="txgs" tableName="AFFICHE"
                enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
